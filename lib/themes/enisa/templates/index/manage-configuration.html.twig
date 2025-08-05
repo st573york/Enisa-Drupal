@@ -1,0 +1,188 @@
+{{ attach_library('enisa/main') }}
+{{ attach_library('enisa/alert') }}
+{{ attach_library('enisa/modal') }}
+{{ attach_library('enisa/tinymce-custom') }}
+{{ attach_library('enisa/tinymce-library') }}
+{{ attach_library('enisa/list-properties') }}
+{{ attach_library('enisa/survey-actions') }}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item active">{{ 'Index & Survey Configuration'|t }}</li>
+  </ol>
+</nav>
+
+<h1>{{ 'Index & Survey Configuration'|t }}</h1>
+
+<main id="enisa-main" class="bg-white">
+  <div class="container-fluid">
+
+    {% include '@enisa/components/alert.html.twig' with {'type': 'pageAlert'} %}
+
+    <div class="row mt-5">
+      <div class="col-12 ps-0 pe-0">
+        <div class="table-section col-12 mt-2">
+          <div class="row">
+            <div class="col-12 col-lg-6 col-xl-6">
+              <div class="d-flex gap-2">
+                <div>
+                  <h2 class="mt-2">{{ 'Year'|t }} -</h2>
+                </div>
+                <div class="mt-1">
+                  {% include '@enisa/components/year-dropdown.html.twig' with {'years': years} %}
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-6 col-xl-6 mt-2 {{ canPreviewSurvey ? '' : 'd-none' }}">
+              <div class="d-flex justify-content-end ps-0 pe-0">
+                <div class="col-5 mt-1">
+                  <a href="javascript:;" class="d-flex justify-content-end preview-survey">{{ 'Preview Survey'|t }}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-5">
+            <div class="col-lg-12 col-lg-6 col-xl-6 mt-2">
+              <button type="button" class="btn btn-enisa import-properties" {{ (publishedSurvey) ? 'disabled' : '' }}>{{ 'Import Properties'|t }}</button>
+              <button type="button" class="btn btn-enisa clone-index" {{ (publishedSurvey) ? 'disabled' : '' }}>{{ 'Clone Index'|t }}</button>
+            </div>
+            <div class="col-lg-12 col-lg-6 col-xl-6 mt-2">
+              <div class="d-flex gap-1 justify-content-end ps-0 pe-0">
+                <button type="button" class="btn btn-enisa-invert edit-survey" disabled>{{ 'Edit Survey'|t }}</button>
+                <button type="button" class="btn btn-enisa-invert download" disabled>{{ 'Download Configuration'|t }}</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row mt-5">
+      <div class="col-12 ps-0 pe-0 table-section">
+        <div class="accordion" id="areaAccordionPanelsStayOpen">
+          <div class="accordion-item index-accordion-item">
+            <div class="accordion-header" id="accordion-heading-areas">
+              <div class="d-flex">
+                <h2 class="mb-2 areas-accordion-plus">Areas <span class="clickable-icon btn-unstyle item-create {{ (publishedIndex) ? 'clickable-icon-deactivated' : '' }}" data-bs-toggle="tooltip" title="Create area" type="button" item-type="area"></span></h2>
+                <button class="accordion-button index-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-collapse-areas" aria-expanded="false" aria-controls="accordion-collapse-0-1"></button>
+              </div>
+            </div>
+            <div id="accordion-collapse-areas" class="accordion-collapse collapse" aria-labelledby="accordion-heading-areas" data-order="0" style="">
+              <div class="accordion-body indicator-body pt-2">
+                <table id="area-table" class="display enisa-table-group">
+                  <thead>
+                    <tr>
+                      <th>{{ 'Name'|t }}</th>
+                      <th>{{ 'Description'|t }}</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-12 ps-0 pe-0 table-section">
+        <div class="accordion" id="subareasAccordionPanelsStayOpen">
+          <div class="accordion-item index-accordion-item">
+            <div class="accordion-header" id="accordion-heading-subareas">
+              <div class="d-flex">
+                <h2 class="mb-2 areas-accordion-plus">Subareas <span class="clickable-icon btn-unstyle item-create {{ (publishedIndex) ? 'clickable-icon-deactivated' : '' }}" data-bs-toggle="tooltip" title="Create subarea" type="button" item-type="subarea"></span></h2>
+                <button class="accordion-button index-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-collapse-subareas" aria-expanded="false" aria-controls="accordion-collapse-0-2"></button>
+              </div>
+            </div>
+            <div id="accordion-collapse-subareas" class="accordion-collapse collapse" aria-labelledby="accordion-heading-subareas" data-order="0" style="">
+              <div class="accordion-body indicator-body pt-2">
+                <table id="subarea-table" class="display enisa-table-group">
+                  <thead>
+                    <tr>
+                      <th>{{ 'Name'|t }}</th>
+                      <th>{{ 'Description'|t }}</th>
+                      <th>{{ 'Area'|t }}</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-12 ps-0 pe-0 table-section">
+        <div class="accordion" id="indicatorsAccordionPanelsStayOpen">
+          <div class="accordion-item index-accordion-item">
+            <div class="accordion-header" id="accordion-heading-indicators">
+              <div class="d-flex">
+                <h2 class="mb-2 areas-accordion-plus">Indicators <span class="clickable-icon btn-unstyle item-create {{ (publishedIndex) ? 'clickable-icon-deactivated' : '' }}" data-bs-toggle="tooltip" title="Create indicator" type="button" item-type="indicator"></span></h2>
+                <button class="accordion-button index-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-collapse-indicators" aria-expanded="true" aria-controls="accordion-collapse-0-3"></button>
+              </div>
+            </div>
+            <div id="accordion-collapse-indicators" class="accordion-collapse collapse show" aria-labelledby="accordion-heading-indicators" data-order="0" style="">
+              <div class="accordion-body indicator-body pt-2">
+                <table id="indicator-table" class="display enisa-table-group">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>{{ 'Name'|t }}</th>
+                      <th>{{ 'Description'|t }}</th>
+                      <th>{{ 'Type'|t }}</th>
+                      <th>{{ 'Weight'|t }}</th>
+                      <th>{{ 'Subarea'|t }}</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="printSurveyModal" class="printSurveyModalPrint" tabindex="-1" aria-labelledby="printSurveyModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header justify-content-between p-3">
+            <h5 class="modal-title" id="printSurveyModalLabel"></h5>
+            <div>
+              <button type="button" class="btn btn-enisa" data-bs-dismiss="modal">{{ 'Close'|t }}</button>
+              <button type="button" class="btn btn-enisa" onclick="saveReportPDF();" href="javascript:;">{{ 'Export | PDF'|t }}</button>
+            </div>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-12 mt-2">
+                <div class="row survey-print" id="surveyContainer"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="pageModal" tabindex="-1" aria-labelledby="pageModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header p-3">
+            <h5 class="modal-title" id="pageModalLabel"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body p-3"></div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-enisa" data-bs-dismiss="modal">{{ 'Close'|t }}</button>
+            <button type="button" class="btn btn-enisa process-data" id='process-data'></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>

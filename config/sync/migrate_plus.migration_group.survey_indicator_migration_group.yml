@@ -1,0 +1,15 @@
+uuid: 7939f019-42bd-4a5f-a2b5-1d9cb9136486
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - survey_indicator_migration
+_core:
+  default_config_hash: HJO6EWzJ4F3QwaQejeGJ-m5r7xqBb_uEfNCZSkpS1uY
+id: survey_indicator_migration_group
+label: 'Survey Indicator Migration Group'
+description: 'Migration group for survey indicators. Migration creates survey_indicator nodes.'
+source_type: mysql
+module: null
+shared_configuration: null

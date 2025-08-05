@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * @file
+ * Audit management module.
+ */
+
+/**
+ * Implements hook_theme().
+ *
+ * This hook is rendering a twig template.
+ */
+function audit_management_theme() {
+  return [
+    'audit' => [
+      'variables' => [
+        'dateToday' => NULL,
+        'actions' => NULL,
+      ],
+    ],
+  ];
+}

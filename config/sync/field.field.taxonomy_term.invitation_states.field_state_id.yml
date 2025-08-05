@@ -1,0 +1,23 @@
+uuid: 8f4db48b-f455-4bc8-8261-571beb05caf3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_state_id
+    - taxonomy.vocabulary.invitation_states
+id: taxonomy_term.invitation_states.field_state_id
+field_name: field_state_id
+entity_type: taxonomy_term
+bundle: invitation_states
+label: 'State ID'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

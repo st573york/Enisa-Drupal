@@ -1,0 +1,29 @@
+uuid: 3e1bdbdf-99cf-4fe2-bbae-231d62906c6e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_index_state
+    - node.type.country_index
+    - taxonomy.vocabulary.index_states
+id: node.country_index.field_index_state
+field_name: field_index_state
+entity_type: node
+bundle: country_index
+label: 'Index State'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      index_states: index_states
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

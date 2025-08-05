@@ -1,0 +1,239 @@
+index_management.view-visualisations:
+  path: '/index/visualisation'
+  defaults:
+    _controller: '\Drupal\index_management\Controller\IndexVisualisationDataController::viewVisualisations'
+    _title: 'View visualisations data'
+  requirements:
+    _permission: 'view visualisations'
+
+index_management.get-visualisations-data:
+  path: '/index/visualisation/data'
+  defaults:
+    _controller: '\Drupal\index_management\Controller\IndexVisualisationDataController::getVisualisationsData'
+    _title: 'Get visualisations data'
+  requirements:
+    _permission: 'get visualisations'
+  options:
+    _format: 'json'
+
+index_management.get-visualisations-node-data:
+  path: '/index/visualisation/node/data/{node}'
+  defaults:
+    _controller: '\Drupal\index_management\Controller\IndexVisualisationDataController::getVisualisationsNodeData'
+    _title: 'Get visualisations node data'
+  requirements:
+    _permission: 'get visualisations node'
+    node: '[A-Za-z0-9-]+'
+  options:
+    _format: 'json'
+
+index_management.get-visualisations-sunburst-data:
+  path: '/index/visualisation/sunburst/data'
+  defaults:
+    _controller: '\Drupal\index_management\Controller\IndexVisualisationDataController::getVisualisationsSunburstData'
+    _title: 'Get visualisations sunburst data'
+  requirements:
+    _permission: 'get visualisations sunburst'
+  options:
+    _format: 'json'
+
+index_management.get-visualisations-sliderchart-data:
+  path: '/index/visualisation/sliderchart/data'
+  defaults:
+    _controller: '\Drupal\index_management\Controller\IndexVisualisationDataController::getVisualisationsSliderChartData'
+    _title: 'Get visualisations sliderchart data'
+  requirements:
+    _permission: 'get visualisations sliderchart'
+  options:
+    _format: 'json'
+
+index_management.view-reports-and-data:
+  path: '/index/report-and-data'
+  defaults:
+    _controller: '\Drupal\index_management\Controller\IndexReportsAndDataController::viewReportsAndData'
+    _title: 'View reports and data'
+  requirements:
+    _permission: 'view reports and data'
+
+index_management.view-reports-and-data-ms-report:
+  path: '/index/report-and-data/ms-report/{country_index_id}'
+  defaults:
+    _controller: '\Drupal\index_management\Controller\IndexReportsAndDataController::viewReportsAndDataMsReport'
+    _title: 'View reports and data ms report'
+  requirements:
+    _permission: 'view reports and data ms report'
+    country_index_id: \d+
+  options:
+    _format: 'json'
+
+index_management.get-reports-and-data-ms-report-chart-data:
+  path: '/index/report-and-data/ms-report/chart-data/{country_index_id}'
+  defaults:
+    _controller: '\Drupal\index_management\Controller\IndexReportsAndDataController::getReportsAndDataMsReportChartData'
+    _title: 'Get reports and data ms report chart data'
+  requirements:
+    _permission: 'get reports and data ms report chart data'
+    country_index_id: \d+
+  options:
+    _format: 'json'
+
+index_management.view-reports-and-data-eu-report:
+  path: '/index/report-and-data/eu-report'
+  defaults:
+    _controller: '\Drupal\index_management\Controller\IndexReportsAndDataController::viewReportsAndDataEuReport'
+    _title: 'View reports and data eu report'
+  requirements:
+    _permission: 'view reports and data eu report'
+  options:
+    _format: 'json'
+
+index_management.get-reports-and-data-eu-report-chart-data:
+  path: '/index/report-and-data/eu-report/chart-data'
+  defaults:
+    _controller: '\Drupal\index_management\Controller\IndexReportsAndDataController::getReportsAndDataEuReportChartData'
+    _title: 'Get reports and data eu report chart data'
+  requirements:
+    _permission: 'get reports and data eu report chart data'
+  options:
+    _format: 'json'
+
+index_management.download-reports-and-data-ms-report-pdf:
+  path: '/index/report-and-data/ms-report/pdf/{country_index_id}'
+  defaults:
+    _controller: '\Drupal\index_management\Controller\IndexReportsAndDataController::downloadReportsAndDataMsReportPdf'
+    _title: 'Download reports and data ms report pdf'
+  requirements:
+    _permission: 'download reports and data ms report pdf'
+    country_index_id: \d+
+
+index_management.download-reports-and-data-eu-report-pdf:
+  path: '/index/report-and-data/eu-report/pdf'
+  defaults:
+    _controller: '\Drupal\index_management\Controller\IndexReportsAndDataController::downloadReportsAndDataEuReportPdf'
+    _title: 'Download reports and data eu report pdf'
+  requirements:
+    _permission: 'download reports and data eu report pdf'
+
+index_management.export-reports-and-data-report-excel:
+  path: '/index/report-and-data/report/excel/export/{country_id?}'
+  defaults:
+    _controller: '\Drupal\index_management\Controller\IndexReportsAndDataController::exportReportsAndDataReportExcel'
+    _title: 'Export reports and data report excel'
+    country_id: null
+  requirements:
+    _permission: 'export reports and data report excel'
+  options:
+    _format: 'json'
+  methods: [POST]
+
+index_management.download-reports-and-data-report-excel:
+  path: '/index/report-and-data/report/excel/download/{filename}'
+  defaults:
+    _controller: '\Drupal\index_management\Controller\IndexReportsAndDataController::downloadReportsAndDataReportExcel'
+    _title: 'Download reports and data report excel'
+  requirements:
+    _permission: 'download reports and data report excel'
+    filename: '[A-Za-z0-9_.-]+'
+
+index_management.export-reports-and-data-ms-raw-data-excel:
+  path: '/index/report-and-data/ms-raw-data/excel/export/{country_index_id}'
+  defaults:
+    _controller: '\Drupal\index_management\Controller\IndexReportsAndDataController::exportReportsAndDataMsRawDataExcel'
+    _title: 'Export reports and data ms raw data excel'
+  requirements:
+    _permission: 'export reports and data ms raw data excel'
+    country_index_id: \d+
+  options:
+    _format: 'json'
+  methods: [POST]
+
+index_management.download-reports-and-data-ms-raw-data-excel:
+  path: '/index/report-and-data/ms-raw-data/excel/download/{filename}'
+  defaults:
+    _controller: '\Drupal\index_management\Controller\IndexReportsAndDataController::downloadReportsAndDataMsRawDataExcel'
+    _title: 'Download reports and data ms raw data excel'
+  requirements:
+    _permission: 'download reports and data ms raw data excel'
+    filename: '[A-Za-z0-9_.-]+'
+
+index_management.download-reports-and-data-ms-results-excel:
+  path: '/index/report-and-data/ms-results/excel'
+  defaults:
+    _controller: '\Drupal\index_management\Controller\IndexReportsAndDataController::downloadReportsAndDataMsResultsExcel'
+    _title: 'Download reports and data ms results excel'
+  requirements:
+    _permission: 'download reports and data ms results excel'
+
+index_management.manage-indexes:
+  path: '/index/management'
+  defaults:
+    _controller: '\Drupal\index_management\Controller\IndexController::manageIndexes'
+    _title: 'Manage indexes'
+  requirements:
+    _permission: 'manage indexes'
+
+index_management.list-indexes:
+  path: '/index/list'
+  defaults:
+    _controller: '\Drupal\index_management\Controller\IndexController::listIndexes'
+    _title: 'List indexes data'
+  requirements:
+    _permission: 'list indexes'
+  options:
+    _format: 'json'
+
+index_management.create-index:
+  path: '/index/create'
+  defaults:
+    _controller: '\Drupal\index_management\Controller\IndexController::createOrShowIndex'
+    _title: 'Create index data'
+  requirements:
+    _permission: 'create index'
+  options:
+    _format: 'json'
+
+index_management.show-index:
+  path: '/index/show/{index_id}' 
+  defaults:
+    _controller: '\Drupal\index_management\Controller\IndexController::showIndex'
+    _title: 'Show index data'
+  requirements:
+    _permission: 'show index'
+    index_id: \d+
+  options:
+    _format: 'json'
+
+index_management.store-index:
+  path: '/index/store'
+  defaults:
+    _controller: '\Drupal\index_management\Controller\IndexController::storeIndex'
+    _title: 'Create index data'
+  requirements:
+    _permission: 'create index'
+  options:
+    _format: 'json'
+  methods: [POST]
+
+index_management.update-index:
+  path: '/index/update/{index_id}'
+  defaults:
+    _controller: '\Drupal\index_management\Controller\IndexController::updateIndex'
+    _title: 'Update index data'
+  requirements:
+    _permission: 'update index'
+    index_id: \d+
+  options:
+    _format: 'json'
+  methods: [POST]
+
+index_management.delete-index:
+  path: '/index/delete/{index_id}'
+  defaults:
+    _controller: '\Drupal\index_management\Controller\IndexController::deleteIndex'
+    _title: 'Delete index data'
+  requirements:
+    _permission: 'delete index'
+    index_id: \d+
+  options:
+    _format: 'json'
+  methods: [POST]

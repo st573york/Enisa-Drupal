@@ -1,0 +1,9 @@
+id: subarea_migration_group
+label: 'Subarea Migration Group'
+description: 'Migration group for subareas. Migration creates subarea nodes.'
+source_type: mysql
+shared_configuration: null
+dependencies:
+  enforced:
+    module:
+      - subarea_migration

@@ -1,0 +1,21 @@
+uuid: cef28f10-c8e6-4596-88d9-987d4a1c6bef
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_validated
+    - node.type.indicator
+id: node.indicator.field_validated
+field_name: field_validated
+entity_type: node
+bundle: indicator
+label: Validated
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

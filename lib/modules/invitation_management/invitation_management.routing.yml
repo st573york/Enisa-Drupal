@@ -1,0 +1,38 @@
+invitation_management.manage-invitations:
+  path: '/invitation/management'
+  defaults:
+    _controller: '\Drupal\invitation_management\Controller\InvitationController::manageInvitations'
+    _title: 'Manage invitations'
+  requirements:
+    _permission: 'manage invitations'
+
+invitation_management.list-invitations:
+  path: '/invitation/list'
+  defaults:
+    _controller: '\Drupal\invitation_management\Controller\InvitationController::listInvitations'
+    _title: 'List invitations data'
+  requirements:
+    _permission: 'list invitations'
+  options:
+    _format: 'json'
+
+invitation_management.create-invitation:
+  path: '/invitation/create'
+  defaults:
+    _controller: '\Drupal\invitation_management\Controller\InvitationController::createInvitation'
+    _title: 'Create invitation'
+  requirements:
+    _permission: 'create invitation'
+  options:
+    _format: 'json'
+
+invitation_management.store-invitation:
+  path: '/invitation/store'
+  defaults:
+    _controller: '\Drupal\invitation_management\Controller\InvitationController::storeInvitation'
+    _title: 'Store invitation'
+  requirements:
+    _permission: 'store invitation'
+  options:
+    _format: 'json'
+  methods: [POST]

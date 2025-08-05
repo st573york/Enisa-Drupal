@@ -1,0 +1,10 @@
+parameters:
+  level: '1'
+  paths:
+    - lib
+  excludePaths:
+    - vendor
+    - tests
+    - resources
+    - node_modules
+    - config

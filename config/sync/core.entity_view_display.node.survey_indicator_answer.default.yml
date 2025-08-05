@@ -1,0 +1,85 @@
+uuid: 6debd6d0-48ed-4a4f-8282-5624a2c2a3cf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.survey_indicator_answer.field_choice
+    - field.field.node.survey_indicator_answer.field_free_text
+    - field.field.node.survey_indicator_answer.field_last_saved
+    - field.field.node.survey_indicator_answer.field_options
+    - field.field.node.survey_indicator_answer.field_question
+    - field.field.node.survey_indicator_answer.field_reference_source
+    - field.field.node.survey_indicator_answer.field_reference_year
+    - field.field.node.survey_indicator_answer.field_survey_indicator
+    - node.type.survey_indicator_answer
+  module:
+    - user
+id: node.survey_indicator_answer.default
+targetEntityType: node
+bundle: survey_indicator_answer
+mode: default
+content:
+  field_choice:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_free_text:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_options:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_question:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_reference_source:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_reference_year:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_survey_indicator:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_last_saved: true
+  langcode: true
+  search_api_excerpt: true

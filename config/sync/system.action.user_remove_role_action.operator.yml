@@ -1,0 +1,14 @@
+uuid: cf6adbae-edd4-47cc-a935-f5b9d6fbe16a
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.operator
+  module:
+    - user
+id: user_remove_role_action.operator
+label: 'Remove the Operator role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: operator

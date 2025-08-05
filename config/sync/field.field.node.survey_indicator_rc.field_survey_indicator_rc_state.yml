@@ -1,0 +1,29 @@
+uuid: 32202bc5-33a2-44cd-be60-c0c289e04e54
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_survey_indicator_rc_state
+    - node.type.survey_indicator_rc
+    - taxonomy.vocabulary.survey_indicator_rc_states
+id: node.survey_indicator_rc.field_survey_indicator_rc_state
+field_name: field_survey_indicator_rc_state
+entity_type: node
+bundle: survey_indicator_rc
+label: State
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      survey_indicator_rc_states: survey_indicator_rc_states
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

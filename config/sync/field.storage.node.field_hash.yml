@@ -1,0 +1,19 @@
+uuid: cdf8960c-5439-47e4-886d-c57da705ce1c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_hash
+field_name: field_hash
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

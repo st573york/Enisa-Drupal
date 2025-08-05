@@ -1,0 +1,5 @@
+name: 'Audit Management Module'
+type: module
+description: 'Custom module for managing audits.'
+core_version_requirement: ^10
+package: Custom

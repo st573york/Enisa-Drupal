@@ -1,0 +1,53 @@
+services:
+  drush_commands.import_export_site_content:
+    class: \Drupal\drush_commands\Command\ImportExportSiteContent
+    arguments:
+      - '@entity_type.manager'
+      - '@path_alias.manager'
+    tags:
+      - { name: drush.command }
+  drush_commands.export_survey_excel:
+    class: \Drupal\drush_commands\Command\ExportSurveyExcel
+    arguments:
+      - '@entity_type.manager'
+      - '@file_system'
+      - '@database'
+      - '@date.formatter'
+      - '@twig'
+    tags:
+      - { name: drush.command }
+  drush_commands.export_configuration_excel:
+    class: \Drupal\drush_commands\Command\ExportConfigurationExcel
+    arguments:
+      - '@entity_type.manager'
+      - '@database'
+      - '@twig'
+    tags:
+      - { name: drush.command }
+  drush_commands.export_report_excel:
+    class: \Drupal\drush_commands\Command\ExportReportExcel
+    arguments:
+      - '@entity_type.manager'
+      - '@date.formatter'
+      - '@twig'
+    tags:
+      - { name: drush.command }
+  drush_commands.export_data_excel:
+    class: \Drupal\drush_commands\Command\ExportDataExcel
+    arguments:
+      - '@entity_type.manager'
+      - '@database'
+      - '@date.formatter'
+      - '@twig'
+    tags:
+      - { name: drush.command }
+  drush_commands.export_ms_raw_data_excel:
+    class: \Drupal\drush_commands\Command\ExportMsRawDataExcel
+    arguments:
+      - '@entity_type.manager'
+      - '@file_system'
+      - '@database'
+      - '@date.formatter'
+      - '@twig'
+    tags:
+      - { name: drush.command }

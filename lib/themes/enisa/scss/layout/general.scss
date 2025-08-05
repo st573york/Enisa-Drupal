@@ -1,0 +1,13 @@
+main a:link:not(.btn), main a:visited:not(.btn), main a:active:not(.btn) {
+    text-decoration: none;
+    color: #004087;
+}
+
+main {
+    margin-top: 14px;
+    padding-bottom: 100px;
+
+    div.container:first-of-type {
+        padding-inline: 5%;
+    }
+}

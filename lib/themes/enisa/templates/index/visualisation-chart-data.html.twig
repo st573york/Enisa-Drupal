@@ -1,0 +1,97 @@
+<ul>
+  <li>
+    <div class="global-values">
+      <span>{{ configuration.text }}</span>
+      <div class="values hidden">
+        {% for value in chart_data[0].global_index_values %}
+          {% for key, val in value %}
+            <div class="{{ key }} plotly-color hidden">
+              <div class="range-wrap">
+                <div class="key-value">{{ key }}</div>
+                <input type="range" class="range tree-range" value="{{ val }}" disabled>
+                <output class="tree-value">{{ val }}&percnt;</output>
+              </div>
+            </div>
+          {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+    <ul>
+      {% for area in chart_data %}
+        {% if loop.index > 1 %}
+          <li class="area-{{ loop.index }}">
+            {% if area.area.subareas is defined %}
+              <span class="tree-arrow level-one"><i class="fa-solid fa-angle-up"></i></span>
+            {% endif %}
+            <span>{{ area.area.name }}</span>
+
+            <div class="values">
+              {% for value in area.area.values %}
+                {% for key, val in value %}
+                  <div class="{{ key }} plotly-color hidden">
+                    <div class="range-wrap">
+                      <div class="key-value">{{ key }}</div>
+                      <input type="range" class="range tree-range" value="{{ val == '#NUM!' ? 0 : val }}" disabled>
+                      <output class="tree-value">{{ val == '#NUM!' ? 'N/A' : val ~ '%'}}</output>
+                    </div>
+                  </div>
+                {% endfor %}
+              {% endfor %}
+            </div>
+
+            {% if area.area.subareas is defined %}
+              <ul class="collapsed">
+                {% for subarea in area.area.subareas %}
+                  <li class="subarea-{{ loop.index + 1 }}">
+                    {% if subarea.indicators is defined %}
+                      <span class="tree-arrow level-two"><i class="fa-solid fa-angle-up"></i></span>
+                    {% endif %}
+                    <span>{{ subarea.name }}</span>
+                    <div class="values">
+                      {% for value in subarea.values %}
+                        {% for key, val in value %}
+                          <div class="{{ key }} plotly-color hidden">
+                            <div class="range-wrap">
+                              <div class="key-value">{{ key }}</div>
+                              <input type="range" class="range tree-range" value="{{ val == '#NUM!' ? 0 : val }}" disabled>
+                              <output class="tree-value">{{ val == '#NUM!' ? 'N/A' : val ~ '%'}}</output>
+                            </div>
+                          </div>
+                        {% endfor %}
+                      {% endfor %}
+                    </div>
+                    {% if subarea.indicators is defined %}
+                      <ul class="collapsed">
+                        {% for indicator in subarea.indicators %}
+                          <li class="indicator-{{ loop.index + 1 }}">
+                            <span>{{ indicator.name }}</span>
+                            <div class="values">
+                              {% if indicator.values is defined %}
+                                {% for value in indicator.values %}
+                                  {% for key, val in value %}
+                                    <div class="{{ key }} plotly-color hidden">
+                                      <div class="range-wrap">
+                                        <div class="key-value">{{ key }}</div>
+                                        <input type="range" class="range tree-range" value="{{ val == '#NUM!' ? 0 : val }}" disabled>
+                                        <output class="tree-value">{{ val == '#NUM!' ? 'N/A' : val ~ '%'}}</output>
+                                      </div>
+                                    </div>
+                                  {% endfor %}
+                                {% endfor %}
+                              {% endif %}
+                            </div>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </li>
+</ul>
+

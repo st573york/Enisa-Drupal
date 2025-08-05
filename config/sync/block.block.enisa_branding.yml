@@ -1,0 +1,25 @@
+uuid: 5d54e81d-31c6-4f91-b7ab-48fcfca18f21
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - enisa
+_core:
+  default_config_hash: Wfd-LXi9mS3XuRzzKdNlMuOA8RB76oqGX4JeaStBiFM
+id: enisa_branding
+theme: enisa
+region: nav_branding
+weight: -6
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: false
+  use_site_slogan: false
+visibility: {  }

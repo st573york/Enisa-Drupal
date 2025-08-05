@@ -1,0 +1,665 @@
+[
+    {
+        "bundle": "vocabulary",
+        "vid": "countries",
+        "terms": [
+            {
+                "bundle": "term",
+                "name": "Austria",
+                "description": {
+                    "value": null,
+                    "format": null
+                },
+                "weight": 0,
+                "custom_fields": {
+                    "field_code": "AUT",
+                    "field_iso": "AT"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "Belgium",
+                "description": {
+                    "value": null,
+                    "format": null
+                },
+                "weight": 1,
+                "custom_fields": {
+                    "field_code": "BEL",
+                    "field_iso": "BE"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "Bulgaria",
+                "description": {
+                    "value": null,
+                    "format": null
+                },
+                "weight": 2,
+                "custom_fields": {
+                    "field_code": "BGR",
+                    "field_iso": "BG"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "Croatia",
+                "description": {
+                    "value": null,
+                    "format": null
+                },
+                "weight": 3,
+                "custom_fields": {
+                    "field_code": "HRV",
+                    "field_iso": "HR"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "Cyprus",
+                "description": {
+                    "value": null,
+                    "format": null
+                },
+                "weight": 4,
+                "custom_fields": {
+                    "field_code": "CYP",
+                    "field_iso": "CY"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "Czech Republic",
+                "description": {
+                    "value": null,
+                    "format": null
+                },
+                "weight": 5,
+                "custom_fields": {
+                    "field_code": "CZE",
+                    "field_iso": "CZ"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "Denmark",
+                "description": {
+                    "value": null,
+                    "format": null
+                },
+                "weight": 6,
+                "custom_fields": {
+                    "field_code": "DNK",
+                    "field_iso": "DK"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "Estonia",
+                "description": {
+                    "value": null,
+                    "format": null
+                },
+                "weight": 8,
+                "custom_fields": {
+                    "field_code": "EST",
+                    "field_iso": "EE"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "Finland",
+                "description": {
+                    "value": null,
+                    "format": null
+                },
+                "weight": 9,
+                "custom_fields": {
+                    "field_code": "FIN",
+                    "field_iso": "FI"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "France",
+                "description": {
+                    "value": null,
+                    "format": null
+                },
+                "weight": 10,
+                "custom_fields": {
+                    "field_code": "FRA",
+                    "field_iso": "FR"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "Germany",
+                "description": {
+                    "value": null,
+                    "format": null
+                },
+                "weight": 11,
+                "custom_fields": {
+                    "field_code": "DEU",
+                    "field_iso": "DE"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "Greece",
+                "description": {
+                    "value": null,
+                    "format": null
+                },
+                "weight": 12,
+                "custom_fields": {
+                    "field_code": "GRC",
+                    "field_iso": "GR"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "Hungary",
+                "description": {
+                    "value": null,
+                    "format": null
+                },
+                "weight": 13,
+                "custom_fields": {
+                    "field_code": "HUN",
+                    "field_iso": "HU"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "Ireland",
+                "description": {
+                    "value": null,
+                    "format": null
+                },
+                "weight": 14,
+                "custom_fields": {
+                    "field_code": "IRL",
+                    "field_iso": "IE"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "Italy",
+                "description": {
+                    "value": null,
+                    "format": null
+                },
+                "weight": 15,
+                "custom_fields": {
+                    "field_code": "ITA",
+                    "field_iso": "IT"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "Latvia",
+                "description": {
+                    "value": null,
+                    "format": null
+                },
+                "weight": 16,
+                "custom_fields": {
+                    "field_code": "LVA",
+                    "field_iso": "LV"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "Lithuania",
+                "description": {
+                    "value": null,
+                    "format": null
+                },
+                "weight": 17,
+                "custom_fields": {
+                    "field_code": "LTU",
+                    "field_iso": "LT"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "Luxembourg",
+                "description": {
+                    "value": null,
+                    "format": null
+                },
+                "weight": 18,
+                "custom_fields": {
+                    "field_code": "LUX",
+                    "field_iso": "LU"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "Malta",
+                "description": {
+                    "value": null,
+                    "format": null
+                },
+                "weight": 19,
+                "custom_fields": {
+                    "field_code": "MLT",
+                    "field_iso": "MT"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "Netherlands",
+                "description": {
+                    "value": null,
+                    "format": null
+                },
+                "weight": 20,
+                "custom_fields": {
+                    "field_code": "NLD",
+                    "field_iso": "NL"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "Poland",
+                "description": {
+                    "value": null,
+                    "format": null
+                },
+                "weight": 21,
+                "custom_fields": {
+                    "field_code": "POL",
+                    "field_iso": "PL"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "Portugal",
+                "description": {
+                    "value": null,
+                    "format": null
+                },
+                "weight": 22,
+                "custom_fields": {
+                    "field_code": "PRT",
+                    "field_iso": "PT"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "Romania",
+                "description": {
+                    "value": null,
+                    "format": null
+                },
+                "weight": 23,
+                "custom_fields": {
+                    "field_code": "ROU",
+                    "field_iso": "RO"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "Slovakia",
+                "description": {
+                    "value": null,
+                    "format": null
+                },
+                "weight": 24,
+                "custom_fields": {
+                    "field_code": "SVK",
+                    "field_iso": "SK"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "Slovenia",
+                "description": {
+                    "value": null,
+                    "format": null
+                },
+                "weight": 25,
+                "custom_fields": {
+                    "field_code": "SVN",
+                    "field_iso": "SI"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "Spain",
+                "description": {
+                    "value": null,
+                    "format": null
+                },
+                "weight": 26,
+                "custom_fields": {
+                    "field_code": "ESP",
+                    "field_iso": "ES"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "Sweden",
+                "description": {
+                    "value": null,
+                    "format": null
+                },
+                "weight": 27,
+                "custom_fields": {
+                    "field_code": "SWE",
+                    "field_iso": "SE"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "ENISA",
+                "description": {
+                    "value": null,
+                    "format": null
+                },
+                "weight": 28,
+                "custom_fields": {
+                    "field_code": "ENISA",
+                    "field_iso": null
+                }
+            }
+        ]
+    },
+    {
+        "bundle": "vocabulary",
+        "vid": "index_states",
+        "terms": [
+            {
+                "bundle": "term",
+                "name": "Pending",
+                "description": {
+                    "value": "<p>Index pending verification<\/p>",
+                    "format": "basic_html"
+                },
+                "weight": 0,
+                "custom_fields": {
+                    "field_state_id": "1"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "Published",
+                "description": {
+                    "value": "<p>Index is published<\/p>",
+                    "format": "basic_html"
+                },
+                "weight": 2,
+                "custom_fields": {
+                    "field_state_id": "3"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "Verified",
+                "description": {
+                    "value": "<p>Index is verified and ready to be published<\/p>",
+                    "format": "basic_html"
+                },
+                "weight": 1,
+                "custom_fields": {
+                    "field_state_id": "2"
+                }
+            }
+        ]
+    },
+    {
+        "bundle": "vocabulary",
+        "vid": "indicator_question_choices",
+        "terms": [
+            {
+                "bundle": "term",
+                "name": "Choose answer",
+                "description": {
+                    "value": null,
+                    "format": null
+                },
+                "weight": 0,
+                "custom_fields": {
+                    "field_choice_id": "1"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "Data not available\/Not willing to share",
+                "description": {
+                    "value": null,
+                    "format": null
+                },
+                "weight": 2,
+                "custom_fields": {
+                    "field_choice_id": "3"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "Provide your answer",
+                "description": {
+                    "value": null,
+                    "format": null
+                },
+                "weight": 1,
+                "custom_fields": {
+                    "field_choice_id": "2"
+                }
+            }
+        ]
+    },
+    {
+        "bundle": "vocabulary",
+        "vid": "indicator_question_types",
+        "terms": [
+            {
+                "bundle": "term",
+                "name": "free-text",
+                "description": {
+                    "value": null,
+                    "format": null
+                },
+                "weight": 2,
+                "custom_fields": {
+                    "field_type_id": "3"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "multiple-choice",
+                "description": {
+                    "value": null,
+                    "format": null
+                },
+                "weight": 1,
+                "custom_fields": {
+                    "field_type_id": "2"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "single-choice",
+                "description": {
+                    "value": null,
+                    "format": null
+                },
+                "weight": 0,
+                "custom_fields": {
+                    "field_type_id": "1"
+                }
+            }
+        ]
+    },
+    {
+        "bundle": "vocabulary",
+        "vid": "indicator_states",
+        "terms": [
+            {
+                "bundle": "term",
+                "name": "Approved",
+                "description": {
+                    "value": "<p>Indicator is approved<\/p>",
+                    "format": "basic_html"
+                },
+                "weight": 5,
+                "custom_fields": {
+                    "field_state_id": "6"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "Assigned",
+                "description": {
+                    "value": "<p>Indicator is assigned to a user<\/p>",
+                    "format": "basic_html"
+                },
+                "weight": 0,
+                "custom_fields": {
+                    "field_state_id": "1"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "Final Approved",
+                "description": {
+                    "value": "<p>Indicator can no longer accept any changes<\/p>",
+                    "format": "basic_html"
+                },
+                "weight": 6,
+                "custom_fields": {
+                    "field_state_id": "7"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "Request Changes",
+                "description": {
+                    "value": "<p>Indicator has been requested changes, but the request has not yet been sent<\/p>",
+                    "format": "basic_html"
+                },
+                "weight": 3,
+                "custom_fields": {
+                    "field_state_id": "4"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "Requested Changes",
+                "description": {
+                    "value": "<p>Indicator has been requested changes<\/p>",
+                    "format": "basic_html"
+                },
+                "weight": 4,
+                "custom_fields": {
+                    "field_state_id": "5"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "Saved",
+                "description": {
+                    "value": "<p>Indicator is saved\/in progress<\/p>",
+                    "format": "basic_html"
+                },
+                "weight": 1,
+                "custom_fields": {
+                    "field_state_id": "2"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "Submitted",
+                "description": {
+                    "value": "<p>Indicator is submitted<\/p>",
+                    "format": "basic_html"
+                },
+                "weight": 2,
+                "custom_fields": {
+                    "field_state_id": "3"
+                }
+            }
+        ]
+    },
+    {
+        "bundle": "vocabulary",
+        "vid": "invitation_states",
+        "terms": [
+            {
+                "bundle": "term",
+                "name": "Expired",
+                "description": {
+                    "value": "<p>Invitation has expired<\/p>",
+                    "format": "basic_html"
+                },
+                "weight": 2,
+                "custom_fields": {
+                    "field_state_id": "3"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "Pending",
+                "description": {
+                    "value": "<p>Invitation is pending - user is not registered yet<\/p>",
+                    "format": "basic_html"
+                },
+                "weight": 0,
+                "custom_fields": {
+                    "field_state_id": "1"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "Registered",
+                "description": {
+                    "value": "<p>User has been successfully registered<\/p>",
+                    "format": "basic_html"
+                },
+                "weight": 1,
+                "custom_fields": {
+                    "field_state_id": "2"
+                }
+            }
+        ]
+    },
+    {
+        "bundle": "vocabulary",
+        "vid": "survey_indicator_rc_states",
+        "terms": [
+            {
+                "bundle": "term",
+                "name": "Pending",
+                "description": {
+                    "value": "<p>Requested changes are pending and not yet sent<\/p>",
+                    "format": "basic_html"
+                },
+                "weight": 0,
+                "custom_fields": {
+                    "field_state_id": "1"
+                }
+            },
+            {
+                "bundle": "term",
+                "name": "Submitted",
+                "description": {
+                    "value": "<p>Requested changes are submitted and sent to a user<\/p>",
+                    "format": "basic_html"
+                },
+                "weight": 1,
+                "custom_fields": {
+                    "field_state_id": "2"
+                }
+            }
+        ]
+    },
+    {
+        "bundle": "vocabulary",
+        "vid": "tags",
+        "terms": []
+    }
+]

@@ -1,0 +1,30 @@
+uuid: c6af0e37-704d-4d24-99d5-8e444db6a499
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:15da839b-fb34-41cc-b0ef-6db502380370'
+  module:
+    - block_content
+    - system
+  theme:
+    - enisa
+id: enisa_footerlinks
+theme: enisa
+region: first_footer
+weight: 0
+provider: null
+plugin: 'block_content:15da839b-fb34-41cc-b0ef-6db502380370'
+settings:
+  id: 'block_content:15da839b-fb34-41cc-b0ef-6db502380370'
+  label: 'Footer Links'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/*'

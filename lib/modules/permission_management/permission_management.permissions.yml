@@ -1,0 +1,357 @@
+# Index
+view visualisations:
+  title: 'View Visualisations'
+  description: 'Allows the user to view visualisations data'
+get visualisations:
+  title: 'Get Visualisations'
+  description: 'Allows the user to get visualisations data'
+get visualisations node:
+  title: 'Get Visualisations Node'
+  description: 'Allows the user to get visualisations node data'
+get visualisations sunburst:
+  title: 'Get Visualisations Sunburst'
+  description: 'Allows the user to get visualisations sunburst data'
+get visualisations sliderchart:
+  title: 'Get Visualisations SliderChart'
+  description: 'Allows the user to get visualisations sliderchart data'
+view reports and data:
+  title: 'View Reports And Data'
+  description: 'Allows the user to view reports and data'
+view reports and data ms report:
+  title: 'View Reports And Data MS Report'
+  description: 'Allows the user to view reports and data ms report'
+get reports and data ms report chart data:
+  title: 'Get Reports And Data MS Report Chart Data'
+  description: 'Allows the user to get reports and data ms report chart data'
+view reports and data eu report:
+  title: 'View Reports And Data EU Report'
+  description: 'Allows the user to view reports and data eu report'
+get reports and data eu report chart data:
+  title: 'Get Reports And Data EU Report Chart Data'
+  description: 'Allows the user to get reports and data eu report chart data'
+download reports and data ms report pdf:
+  title: 'Download Reports And Data MS Report PDF'
+  description: 'Allows the user to download reports and data ms report pdf'
+download reports and data eu report pdf:
+  title: 'Download Reports And Data EU Report PDF'
+  description: 'Allows the user to download reports and data eu report pdf'
+export reports and data report excel:
+  title: 'Export Reports And Data Report Excel'
+  description: 'Allows the user to export reports and data report excel'
+download reports and data report excel:
+  title: 'Download Reports And Data Report Excel'
+  description: 'Allows the user to download reports and data report excel'
+export reports and data ms raw data excel:
+  title: 'Export Reports And Data MS Raw Data Excel'
+  description: 'Allows the user to export reports and data ms raw data excel'
+download reports and data ms raw data excel:
+  title: 'Download Reports And Data MS Raw Data Excel'
+  description: 'Allows the user to download reports and data ms raw data excel'
+download reports and data ms results excel:
+  title: 'Download Reports And Data MS Results Excel'
+  description: 'Allows the user to download reports and data ms results excel'
+manage indexes:
+  title: 'Manage Indexes'
+  description: 'Allows the user to manage indexes'
+list indexes:
+  title: 'List Indexes'
+  description: 'Allows the user to list indexes data'
+create index:
+  title: 'Create Index'
+  description: 'Allows the user to create index data'
+store index:
+  title: 'Store Index'
+  description: 'Allows the user to store index data'
+show index:
+  title: 'Show Index'
+  description: 'Allows the user to show index data'
+update index:
+  title: 'Update Index'
+  description: 'Allows the user to update index data'
+delete index:
+  title: 'Delete Index'
+  description: 'Allows the user to delete index data'
+
+# Index & Survey Configuration
+manage configuration:
+  title: 'Manage Index & Survey Configuration'
+  description: 'Allows the user to manage index & survey configuration'
+show configuration import:
+  title: 'Show Index & Survey Configuration Import'
+  description: 'Allows the user to show index & survey configuration import'
+store configuration import:
+  title: 'Store Index & Survey Configuration Import'
+  description: 'Allows the user to store index & survey configuration import'
+show configuration clone:
+  title: 'Show Index & Survey Configuration Clone'
+  description: 'Allows the user to show index & survey configuration clone'
+store configuration clone:
+  title: 'Store Index & Survey Configuration Clone'
+  description: 'Allows the user to store index & survey configuration clone'
+export configuration excel:
+  title: 'Export Index & Survey Configuration Excel'
+  description: 'Allows the user to export index & survey configuration excel'
+download configuration excel:
+  title: 'Download Configuration Excel'
+  description: 'Allows the user to download configuration excel'
+
+# Country Survey
+manage user surveys:
+  title: 'Manage User Surveys'
+  description: 'Allows the user to manage user surveys'
+view country survey:
+  title: 'View Country Survey'
+  description: 'Allows the user to view country survey data'
+save country survey:
+  title: 'Save Country Survey'
+  description: 'Allows the user to save country survey data'
+load country survey indicator answers:
+  title: 'Load Country Survey Indicator Answers'
+  description: 'Allows the user to load country survey indicator answers data'
+reset country survey indicator answers:
+  title: 'Reset Country Survey Indicator Answers'
+  description: 'Allows the user to reset country survey indicator answers data'
+validate country survey indicator:
+  title: 'Validate Country Survey Indicator'
+  description: 'Allows the user to validate country survey indicator data'
+preview country survey:
+  title: 'Preview Country Survey'
+  description: 'Allows the user to preview country survey data'
+validate country survey offline:
+  title: 'Validate Country Survey Offline'
+  description: 'Allows the user to validate country survey offline'
+upload country survey:
+  title: 'Upload Country Survey'
+  description: 'Allows the user to upload country survey'
+manage survey dashboard:
+  title: 'Manage Survey Dashboard'
+  description: 'Allows the user to manage survey dashboard'
+list survey dashboard:
+  title: 'List Survey Dashboard'
+  description: 'Allows the user to list survey dashboard data'
+manage country survey dashboard:
+  title: 'Manage Country Survey Dashboard'
+  description: 'Allows the user to manage country survey dashboard'
+list country survey dashboard:
+  title: 'List Country Survey Dashboard'
+  description: 'Allows the user to list country survey dashboard data'
+get country survey indicator info:
+  title: 'Get Country Survey Indicator Info'
+  description: 'Allows the user to get country survey indicator info data'
+get country survey single indicator:
+  title: 'Get Country Survey Single Indicator'
+  description: 'Allows the user to get country survey single indicator data'
+get country survey multiple indicators:
+  title: 'Get Country Survey Multiple Indicators'
+  description: 'Allows the user to get country survey multiple indicators data'
+update country survey single indicator:
+  title: 'Update Country Survey Single Indicator'
+  description: 'Allows the user to update country survey single indicator data'
+update country survey multiple indicators:
+  title: 'Update Country Survey Multiple Indicators'
+  description: 'Allows the user to update country survey multiple indicators data'
+request changes country survey indicator:
+  title: 'Request Changes Country Survey Indicator'
+  description: 'Allows the user to request changes country survey indicator'
+discard requested changes country survey indicator:
+  title: 'Discard Requested Changes Country Survey Indicator'
+  description: 'Allows the user to discard requested changes country survey indicator'
+submit country survey requested changes:
+  title: 'Submit Country Survey Requested Changes'
+  description: 'Allows the user to submit country survey requested changes'
+finalise country survey:
+  title: 'Finalise Country Survey'
+  description: 'Allows the user to finalise country survey'
+view country survey summary data:
+  title: 'View Country Survey Summary Data'
+  description: 'Allows the user to view country survey summary data'
+export survey excel template:
+  title: 'Export Survey Excel Template'
+  description: 'Allows the user to export survey excel template'
+export survey excel with answers:
+  title: 'Export Survey Excel With Answers'
+  description: 'Allows the user to export survey excel with answers'
+download survey excel:
+  title: 'Download Survey Excel'
+  description: 'Allows the user to download survey excel'
+
+# Area
+list areas:
+  title: 'List Areas'
+  description: 'Allows the user to list areas data'
+create area:
+  title: 'Create Area'
+  description: 'Allows the user to create area data'
+store area:
+  title: 'Store Area'
+  description: 'Allows the user to store area data'
+show area:
+  title: 'Show Area'
+  description: 'Allows the user to show area data'
+update area:
+  title: 'Update Area'
+  description: 'Allows the user to update area data'
+delete area:
+  title: 'Delete Area'
+  description: 'Allows the user to delete area data'
+
+# Subarea
+list subareas:
+  title: 'List Subareas'
+  description: 'Allows the user to list subareas data'
+create subarea:
+  title: 'Create Subarea'
+  description: 'Allows the user to create subarea data'
+store subarea:
+  title: 'Store Subarea'
+  description: 'Allows the user to store subarea data'
+show subarea:
+  title: 'Show Subarea'
+  description: 'Allows the user to show subarea data'
+update subarea:
+  title: 'Update Subarea'
+  description: 'Allows the user to update subarea data'
+delete subarea:
+  title: 'Delete Subarea'
+  description: 'Allows the user to delete subarea data'
+
+# Indicator
+list indicators:
+  title: 'List Indicators'
+  description: 'Allows the user to list indicators data'
+create indicator:
+  title: 'Create Indicator'
+  description: 'Allows the user to create indicator data'
+store indicator:
+  title: 'Store Indicator'
+  description: 'Allows the user to store indicator data'
+show indicator:
+  title: 'Show Indicator'
+  description: 'Allows the user to show indicator data'
+update indicator:
+  title: 'Update Indicator'
+  description: 'Allows the user to update indicator data'
+delete indicator:
+  title: 'Delete Indicator'
+  description: 'Allows the user to delete indicator data'
+manage indicator survey:
+  title: 'Manage Indicator Survey'
+  description: 'Allows the user to manage indicator survey'
+store indicator survey:
+  title: 'Store Indicator Survey'
+  description: 'Allows the user to store indicator survey data'
+load indicator survey:
+  title: 'Load Indicator Survey'
+  description: 'Allows the user to load indicator survey data'
+update indicators order:
+  title: 'Update Indicators Order'
+  description: 'Allows the user to update indicators order'
+
+# Survey
+manage surveys:
+  title: 'Manage Surveys'
+  description: 'Allows the user to manage surveys'
+list surveys:
+  title: 'List Surveys'
+  description: 'Allows the user to list surveys data'
+create survey:
+  title: 'Create Survey'
+  description: 'Allows the user to create survey data'
+store survey:
+  title: 'Store Survey'
+  description: 'Allows the user to store survey data'
+show survey:
+  title: 'Show Survey'
+  description: 'Allows the user to show survey data'
+show publish survey:
+  title: 'Show Publish Survey'
+  description: 'Allows the user to show publish survey data'
+list publish users:
+  title: 'List Publish Users'
+  description: 'Allows the user to list publish users data'
+create publish survey:
+  title: 'Create Publish Survey'
+  description: 'Allows the user to create publish survey data'
+update survey:
+  title: 'Update Survey'
+  description: 'Allows the user to update survey data'
+delete survey:
+  title: 'Delete Survey'
+  description: 'Allows the user to delete survey data'
+
+# User
+manage users:
+  title: 'Manage Users'
+  description: 'Allows the user to manage users'
+list users:
+  title: 'List Users'
+  description: 'Allows the user to list users data'
+get user:
+  title: 'Get User'
+  description: 'Allows the user to get user data'
+update user:
+  title: 'Update User'
+  description: 'Allows the user to update user data'
+get users:
+  title: 'Get Users'
+  description: 'Allows the user to get users data'
+update users:
+  title: 'Update Users'
+  description: 'Allows the user to update users data'
+toggle block user:
+  title: 'Toggle Block User'
+  description: 'Allows the user to toggle block user'
+delete user:
+  title: 'Delete User'
+  description: 'Allows the user to delete user data'
+delete users:
+  title: 'Delete Users'
+  description: 'Allows the user to delete users data'
+view user account:
+  title: 'View User Account'
+  description: 'Allows the user to view user account data'
+update user account:
+  title: 'Update User Account'
+  description: 'Allows the user to update user account data'
+
+# Invitation
+manage invitations:
+  title: 'Manage Invitations'
+  description: 'Allows the user to manage invitations'
+list invitations:
+  title: 'List Invitations'
+  description: 'Allows the user to list invitations data'
+create invitation:
+  title: 'Create Invitation'
+  description: 'Allows the user to create invitation'
+store invitation:
+  title: 'Store Invitation'
+  description: 'Allows the user to store invitation'
+
+# Data Collection
+manage data collection:
+  title: 'Manage Data Collection'
+  description: 'Allows the user to manage data collection'
+list data collection:
+  title: 'List Data Collection'
+  description: 'Allows the user to list data collection'
+show data collection import data:
+  title: 'Show Data Collection Import Data'
+  description: 'Allows the user to show data collection import data'
+store data collection import data:
+  title: 'Store Data Collection Import Data'
+  description: 'Allows the user to store data collection import data'
+export data collection data excel:
+  title: 'Export Data Collection Data Excel'
+  description: 'Allows the user to export data collection data excel'
+download data collection data excel:
+  title: 'Download Data Collection Data Excel'
+  description: 'Allows the user to download data collection data excel'
+
+# Auditing
+view audit:
+  title: 'View Audit'
+  description: 'Allows the user to view audit'
+list audit:
+  title: 'List Audit'
+  description: 'Allows the user to list audit data'

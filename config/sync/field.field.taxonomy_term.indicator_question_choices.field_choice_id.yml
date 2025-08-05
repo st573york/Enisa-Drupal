@@ -1,0 +1,23 @@
+uuid: c295b6a3-2175-429c-bb2c-5768b561ee96
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_choice_id
+    - taxonomy.vocabulary.indicator_question_choices
+id: taxonomy_term.indicator_question_choices.field_choice_id
+field_name: field_choice_id
+entity_type: taxonomy_term
+bundle: indicator_question_choices
+label: 'Choice ID'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

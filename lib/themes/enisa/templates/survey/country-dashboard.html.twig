@@ -1,0 +1,106 @@
+{{ attach_library('enisa/main') }}
+{{ attach_library('enisa/alert') }}
+{{ attach_library('enisa/modal') }}
+{{ attach_library('enisa/datepicker-custom') }}
+{{ attach_library('enisa/datepicker-library') }}
+{{ attach_library('enisa/country-survey-dashboard') }}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      {% set survey_title = assignee_country_survey_data.survey.title %}
+      {% set country_name = assignee_country_survey_data.country.name %}
+      {% if is_admin %}
+        <li class="breadcrumb-item"><a href="/survey/management">{{ 'Surveys'|t }}</a></li>
+        <li class="breadcrumb-item"><a href="/survey/dashboard/management/{{ assignee_country_survey_data.survey.id }}">{{ 'Survey Dashboard'|t }} - {{ survey_title|raw }}</a></li>
+        <li class="breadcrumb-item active">{{ 'Survey Dashboard'|t }} - {{ country_name }}</li>
+      {% elseif is_poc %}
+        <li class="breadcrumb-item"><a href="/survey/user/management">{{ 'Surveys'|t }}</a></li>
+        <li class="breadcrumb-item active">{{ 'Survey Dashboard'|t }} - {{ survey_title|raw }}</li>
+      {% endif %}
+  </ol>
+</nav>
+
+<h1>
+  {{ 'Survey Dashboard'|t }} -
+  {% if is_admin %}
+    {{ country_name }}
+  {% else %}
+    {{ survey_title|raw }}
+  {% endif %}
+</h1>
+
+<main id="enisa-main" class="bg-white">
+  <div class="container-fluid ">
+
+    {% include '@enisa/components/alert.html.twig' with {'type': 'pageAlert'} %}
+
+    <div class="row mt-5">
+      <div class="col-12 ps-0 pe-0">
+        <div class="table-section col-12 mt-2">
+          <div class="row">
+            <div class="d-flex justify-content-between">
+              <div class="col-12 col-lg-5 col-xl-5">
+                <div class="d-flex gap-2">
+                  <div>
+                    <h2 class="mb-2">{{ 'Dashboard'|t }}</h2>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-lg-2 col-xl-2">
+                <div class="d-flex gap-1 justify-content-end overall">
+                  <span style="line-height: 2">{{ 'Progress'|t }}:</span>
+                  <h2>{{ assignee_country_survey_data.indicators_percentage }}%</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+          <table id="country-survey-dashboard-management-table" class="display enisa-table-group">
+            <thead>
+              <tr>
+                <th><input class="form-check-input" type="checkbox" id="item-select-all"></th>
+                <th></th>
+                <th>{{ 'Indicator'|t }}</th>
+                <th>{{ 'Assignee'|t }}</th>
+                <th>{{ 'Status'|t }}</th>
+                <th>{{ 'Deadline'|t }}</th>
+                <th></th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-12 d-flex gap-2 justify-content-end ps-0 pe-0">
+        {% set review_click = 'onclick="' ~ (assignee_country_survey_data.indicators_assigned is not empty ? 'viewSurvey({country_survey_id: ' ~ assignee_country_survey_data.id ~ '})' : "location.href='/survey/user/management'") ~ '"' %}
+        {% if is_admin %}
+          <button type="button" class="btn btn-enisa finalise-survey" {% if not assignee_country_survey_data.indicators_approved or assignee_country_survey_data.approved_user is not empty %}disabled{% endif %}>{{ 'Finalise Survey'|t }}</button>
+          <button type="button" class="btn btn-enisa multiple-approve" disabled>{{ 'Approve Selected Indicators'|t }}</button>
+        {% elseif is_poc %}
+          <button type="button" class="btn btn-enisa multiple-edit" disabled>{{ 'Edit Selected Indicators'|t }}</button>
+        {% endif %}
+        <button type="button" class="btn btn-enisa submit-requested-changes" {% if pending_requested_changes|length == 0 %}disabled{% endif %}>{{ 'Submit Requested Changes'|t }}</button>
+        <button type="button" class="btn btn-enisa" {{ review_click|raw }}>{{ 'Review Survey'|t }}</button>
+      </div>
+    </div>
+
+    <div class="modal fade" id="pageModal" tabindex="-1" aria-labelledby="pageModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header p-3">
+            <h5 class="modal-title" id="pageModalLabel"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body p-3"></div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-enisa" data-bs-dismiss="modal">{{ 'Close'|t }}</button>
+            <button type="button" class="btn btn-enisa process-data" id='process-data'></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>

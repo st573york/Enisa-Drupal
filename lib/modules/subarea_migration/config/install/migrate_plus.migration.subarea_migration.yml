@@ -1,0 +1,38 @@
+id: subarea_migration
+label: 'Subarea Migration'
+migration_group: subarea_migration_group
+
+source:
+  plugin: subarea_sql
+  key: enisa
+
+process:
+  uid:
+    plugin: user_lookup
+    source: NULL
+    username: 'admin'
+  title: name
+  field_short_name: short_name
+  field_description: description
+  field_default_area:
+    plugin: area_lookup
+    additional_fields:
+      area_name: area_name
+      area_identifier: area_identifier
+      year: year
+  field_default_weight: default_weight
+  field_identifier: identifier
+  field_year: year
+  field_clone_year: clone_year
+  type:
+    plugin: default_value
+    default_value: subarea
+
+destination:
+  plugin: entity:node
+  default_bundle: subarea
+  update_existing: false
+
+migration_dependencies:
+  required:
+    - area_migration

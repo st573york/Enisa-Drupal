@@ -1,0 +1,15 @@
+uuid: 72f5567d-e8f6-409d-b673-afd534390903
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - survey_migration
+_core:
+  default_config_hash: nHhTL14Bqrh5ZUMzCxbjwgK8cJ__o67YihoDjgRn_88
+id: survey_migration_group
+label: 'Survey Migration Group'
+description: 'Migration group for surveys. Migration creates survey nodes.'
+source_type: mysql
+module: null
+shared_configuration: null

@@ -1,0 +1,26 @@
+uuid: 7739f1ce-6a81-46bf-b224-0292f1ce5e83
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - enisa
+_core:
+  default_config_hash: EtRohlBpQXxzrnX-1JHKlRQ-El7LG2UbmTurKKRVZgM
+id: enisa_page_title
+theme: enisa
+region: content
+weight: -6
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: ''

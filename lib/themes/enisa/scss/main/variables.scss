@@ -1,0 +1,52 @@
+:where(html) {
+  /* Colors */
+  --red: #CE0F3E;
+  --red-line: #CE0F3E;
+  --black: #141414;
+  --bs-gray: #212529 !important;
+  --bs-light: #f9f9f9;
+  --bs-dark: #000;
+  --bs-blue: #254aa5 !important;
+  --bs-danger-rgb: 210, 34, 77 !important;
+
+  /* Border */
+  --radius: 4px;
+  /* Space */
+  --spacer: 4px;
+  /*Override Bootstrap font family*/
+  --bs-body-font-family: "Roboto", sans-serif !important;
+
+  --grayscale-0: #fff;
+  --grayscale-1: #f2f2f2;
+  --grayscale-2: #EEEFEF;
+  --grayscale-3: #EEEFEF;
+  --grayscale-3: #D8D8D8;
+  --grayscale-4: #8B8B8E;
+  --grayscale-5: #141414;
+  --grayscale-6: #000;
+
+  --brand-color-1: #CE0F3E;
+  --brand-color-2: #004087;
+  
+  --secondary-blue: #3C58CF;
+  --secondary-gray: #EFF1FB;
+
+  --state-error:#CE0F3E;
+  --state-warning:#FF8933;
+  --state-success:#007B5D;
+  --state-info: #004087;
+  --state-not-assigned: #3C58CF;
+  --state-disabled: #88888A;
+
+  --link-default: #004087;
+  --link-hover: #3C58CF;
+  --link-active: #004087;
+  --link-visited: #3C58CF;
+
+  --size-1: .25rem; /*4px*/
+  --size-2: .5rem; /*8px*/
+  --size-3: 1rem;  /*16px*/
+  --size-4: 2rem; /*32px*/
+
+}
+

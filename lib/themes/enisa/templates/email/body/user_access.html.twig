@@ -1,0 +1,15 @@
+{% extends '@enisa/email/layout.html.twig' %}
+
+{% import '@enisa/email/components/button.html.twig' as macro %}
+
+{% block content %}
+    <h1>User Access</h1>
+    <p>{{ user|raw }} has been <strong>{{ status|raw }}</strong> in the EU-CSI web app.</p>
+    <p>Changes realised by <strong>{{ author_name }}</strong> (<strong>{{ author_email }}</strong>).</p>
+
+    {{ macro.button(url, 'EU CSI') }}
+
+    <p>With best regards,<br>ENISA</p>
+    <br>
+    <p class="m-0"><small>Need help? Contact our support team at: <a href="#">security-index@enisa.europa.eu</a></small></p>
+{% endblock %}

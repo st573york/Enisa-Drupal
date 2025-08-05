@@ -1,0 +1,50 @@
+uuid: 0e7f35df-fe98-41cd-a1b7-d4c4d2b044d6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.document.field_document_description
+    - field.field.node.document.field_document_file
+    - field.field.node.document.field_posted_date
+    - node.type.document
+  module:
+    - datetime
+    - file
+    - user
+id: node.document.default
+targetEntityType: node
+bundle: document
+mode: default
+content:
+  field_document_description:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_document_file:
+    type: file_default
+    label: hidden
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_posted_date:
+    type: datetime_default
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

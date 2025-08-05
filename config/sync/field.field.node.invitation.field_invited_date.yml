@@ -1,0 +1,19 @@
+uuid: 2f07292f-3085-42a6-b7ac-1a4a69444a24
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_invited_date
+    - node.type.invitation
+id: node.invitation.field_invited_date
+field_name: field_invited_date
+entity_type: node
+bundle: invitation
+label: 'Invited Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

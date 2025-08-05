@@ -1,0 +1,59 @@
+data_collection_management.manage-data-collection:
+  path: '/index/data-collection/management'
+  defaults:
+    _controller: '\Drupal\data_collection_management\Controller\DataCollectionThemeController::manageDataCollection'
+    _title: 'Manage data collection'
+  requirements:
+    _permission: 'manage data collection'
+
+data_collection_management.list-data-collection:
+  path: '/index/data-collection/list'
+  defaults:
+    _controller: '\Drupal\data_collection_management\Controller\DataCollectionDatatableController::listDataCollection'
+    _title: 'List data collection'
+  requirements:
+    _permission: 'list data collection'
+  options:
+    _format: 'json'
+
+data_collection_management.show-data-collection-import-data:
+  path: '/index/data-collection/import-data/show'
+  defaults:
+    _controller: '\Drupal\data_collection_management\Controller\DataCollectionTwigController::showDataCollectionImportData'
+    _title: 'Show data collection import data'
+  requirements:
+    _permission: 'show data collection import data'
+  options:
+    _format: 'json'
+
+data_collection_management.store-data-collection-import-data:
+  path: '/index/data-collection/import-data/store'
+  defaults:
+    _controller: '\Drupal\data_collection_management\Controller\DataCollectionActionController::storeDataCollectionImportData'
+    _title: 'Store data collection import data'
+  requirements:
+    _permission: 'store data collection import data'
+  options:
+    _format: 'json'
+  methods: [POST]
+
+data_collection_management.export-data-collection-data-excel:
+  path: '/index/data-collection/data/excel/export'
+  defaults:
+    _controller: '\Drupal\data_collection_management\Controller\DataCollectionActionController::exportDataCollectionDataExcel'
+    _title: 'Export data collection data excel'
+    country_id: null
+  requirements:
+    _permission: 'export data collection data excel'
+  options:
+    _format: 'json'
+  methods: [POST]
+
+data_collection_management.download-data-collection-data-excel:
+  path: '/index/data-collection/data/excel/download/{filename}'
+  defaults:
+    _controller: '\Drupal\data_collection_management\Controller\DataCollectionActionController::downloadDataCollectionDataExcel'
+    _title: 'Download data collection data excel'
+  requirements:
+    _permission: 'download data collection data excel'
+    filename: '[A-Za-z0-9_.-]+'

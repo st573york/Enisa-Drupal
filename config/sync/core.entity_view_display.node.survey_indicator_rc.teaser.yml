@@ -1,0 +1,44 @@
+uuid: 8fb29252-b3de-4f3f-a7b2-5f40976f49e3
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.survey_indicator_rc.field_answered_date
+    - field.field.node.survey_indicator_rc.field_assignee
+    - field.field.node.survey_indicator_rc.field_changes
+    - field.field.node.survey_indicator_rc.field_country_survey
+    - field.field.node.survey_indicator_rc.field_deadline
+    - field.field.node.survey_indicator_rc.field_indicator
+    - field.field.node.survey_indicator_rc.field_indicator_prev_assignee
+    - field.field.node.survey_indicator_rc.field_indicator_prev_state
+    - field.field.node.survey_indicator_rc.field_requested_date
+    - field.field.node.survey_indicator_rc.field_requested_user
+    - field.field.node.survey_indicator_rc.field_survey_indicator_rc_state
+    - node.type.survey_indicator_rc
+  module:
+    - user
+id: node.survey_indicator_rc.teaser
+targetEntityType: node
+bundle: survey_indicator_rc
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_answered_date: true
+  field_assignee: true
+  field_changes: true
+  field_country_survey: true
+  field_deadline: true
+  field_indicator: true
+  field_indicator_prev_assignee: true
+  field_indicator_prev_state: true
+  field_requested_date: true
+  field_requested_user: true
+  field_survey_indicator_rc_state: true
+  langcode: true
+  search_api_excerpt: true

@@ -1,0 +1,69 @@
+uuid: ea32f86a-8832-464e-96c8-cdeb21af1611
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Ksvrw4cO8PHPFRIFVGIQhwtyMjbQBO1fn2FkIB0s3uE
+id: survey_indicator_migration
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: survey_indicator_migration_group
+label: 'Survey Indicator Migration'
+source:
+  plugin: survey_indicator_sql
+  key: enisa
+process:
+  uid:
+    plugin: user_lookup
+    source: null
+    username: admin
+  title: survey_indicator_title
+  field_country_survey:
+    plugin: country_survey_lookup
+    additional_fields:
+      survey_name: questionnaire_name
+      country_name: country_name
+  field_indicator:
+    plugin: indicator_lookup
+    additional_fields:
+      indicator_name: indicator_name
+      indicator_identifier: indicator_identifier
+      indicator_year: indicator_year
+  field_assignee:
+    plugin: user_lookup
+    source: assignee_email
+  field_indicator_state:
+    plugin: indicator_state_lookup
+    source: state_id
+  field_indicator_dashboard_state:
+    plugin: indicator_state_lookup
+    source: dashboard_state_id
+  field_rating: rating
+  field_comments: comments
+  field_answers_loaded: answers_loaded
+  field_deadline: deadline
+  field_last_saved:
+    plugin: format_date
+    source: last_saved
+    from_format: 'Y-m-d H:i:s'
+    to_format: U
+  field_approved_user:
+    plugin: user_lookup
+    source: approved_by_email
+  type:
+    plugin: default_value
+    default_value: survey_indicator
+destination:
+  plugin: 'entity:node'
+  default_bundle: survey_indicator
+  update_existing: false
+idMap: {  }
+migration_dependencies:
+  required:
+    - user_migration
+    - survey_migration
+    - country_survey_migration
+    - indicator_migration
+include: null

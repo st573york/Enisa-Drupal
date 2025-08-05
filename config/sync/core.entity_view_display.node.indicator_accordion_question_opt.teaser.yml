@@ -1,0 +1,32 @@
+uuid: 62d3ebf5-0d99-4c2f-bbdf-108c360e4958
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.indicator_accordion_question_opt.field_full_title
+    - field.field.node.indicator_accordion_question_opt.field_master
+    - field.field.node.indicator_accordion_question_opt.field_question
+    - field.field.node.indicator_accordion_question_opt.field_score
+    - field.field.node.indicator_accordion_question_opt.field_value
+    - node.type.indicator_accordion_question_opt
+  module:
+    - user
+id: node.indicator_accordion_question_opt.teaser
+targetEntityType: node
+bundle: indicator_accordion_question_opt
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_full_title: true
+  field_master: true
+  field_question: true
+  field_score: true
+  field_value: true
+  langcode: true
+  search_api_excerpt: true

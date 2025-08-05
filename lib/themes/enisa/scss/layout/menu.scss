@@ -1,0 +1,99 @@
+header {
+    background-color: white !important;
+    box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.1);
+
+    nav {
+        &.bg-light {
+           background-color: white !important; 
+        }
+        
+    }
+
+    .site-logo {
+        img {
+            width: 185px;
+            height: auto;
+        }
+    }
+
+    ul.navbar-nav {
+
+        li.nav-item {
+            margin-left: 2.5rem;
+
+            a.nav-link {
+                font-size: 1.125rem;
+                color: #141414 !important;
+
+                &.dropdown-toggle {
+                    justify-content: flex-start;
+                }
+
+                &:after {
+                    display: none;
+                }
+
+                &.is-active, &.active {
+                    text-shadow: 0 0 0.65px #141414, 0 0 0.65px #141414 !important;
+
+                    &::before {
+                        content: "";
+                        display: inline-block;
+                        height: 12px;
+                        width: 12px;
+                        background-color: #004087;
+                        margin-right: 4px;
+                    }
+                }
+
+                // &.active {
+                //     text-shadow: 0 0 0.65px #141414, 0 0 0.65px #141414;
+                // }
+
+                &:hover {
+                    text-shadow: 0 0 0.65px #141414, 0 0 0.65px #141414 !important;
+                }
+            }
+
+            // Menu in dropdown
+            ul.dropdown-menu {
+
+                right: unset;
+                left: 0;
+                border-bottom: 4px solid #d2224d;
+
+                li.nav-item {
+                    margin-left: 0;
+
+                    a.dropdown-item {
+                        font-size: 1.125rem;
+                        color: #141414 !important;
+
+                        &:hover {
+                            background-color: #141414 !important;
+                            color: white !important;
+                        }
+
+                        &.active.is-active {
+                            text-shadow: 0 0 0.65px #141414, 0 0 0.65px #141414 !important;
+                            background-color: transparent;
+
+                            &:hover {
+                                background-color: #141414 !important;
+                                color: white !important;
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+
+    }
+
+    .navbar {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+}
+

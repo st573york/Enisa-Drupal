@@ -1,0 +1,15 @@
+uuid: d06a7002-f446-4260-a022-0875067cc7e1
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - indicator_accordion_question_option_migration
+_core:
+  default_config_hash: 3jDEQjRcU73Qow01kP95yld1o_3UGLv6Zmp5t264wMU
+id: indicator_accordion_question_option_migration_group
+label: 'Indicator Accordion Question Option Migration Group'
+description: 'Migration group for indicator_accordion_question_options. Migration creates indicator_accordion_question_option nodes.'
+source_type: mysql
+module: null
+shared_configuration: null

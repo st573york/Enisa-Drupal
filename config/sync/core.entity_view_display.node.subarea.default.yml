@@ -1,0 +1,89 @@
+uuid: b3b8f613-9d99-46ce-87b1-f2cb9c74e932
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.subarea.field_clone_year
+    - field.field.node.subarea.field_default_area
+    - field.field.node.subarea.field_default_weight
+    - field.field.node.subarea.field_description
+    - field.field.node.subarea.field_identifier
+    - field.field.node.subarea.field_short_name
+    - field.field.node.subarea.field_year
+    - node.type.subarea
+  module:
+    - text
+    - user
+id: node.subarea.default
+targetEntityType: node
+bundle: subarea
+mode: default
+content:
+  field_clone_year:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_default_area:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_default_weight:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_identifier:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_short_name:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_year:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

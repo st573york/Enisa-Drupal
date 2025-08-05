@@ -1,0 +1,23 @@
+uuid: 43b50683-30a5-4c5e-812d-82d1f7fe2d33
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_score
+    - node.type.indicator_accordion_question_opt
+id: node.indicator_accordion_question_opt.field_score
+field_name: field_score
+entity_type: node
+bundle: indicator_accordion_question_opt
+label: Score
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

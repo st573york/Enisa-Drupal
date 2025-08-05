@@ -1,0 +1,38 @@
+id: indicator_accordion_migration
+label: 'Indicator Accordion Migration'
+migration_group: indicator_accordion_migration_group
+
+source:
+  plugin: indicator_accordion_sql
+  key: enisa
+
+process:
+  uid:
+    plugin: user_lookup
+    source: NULL
+    username: 'admin'
+  title:
+    plugin: substr
+    source: title
+    start: 0
+    length: 255
+  field_full_title: title
+  field_indicator:
+    plugin: indicator_lookup
+    additional_fields:
+      indicator_name: indicator_name
+      indicator_identifier: indicator_identifier
+      indicator_year: indicator_year
+  field_order: order
+  type:
+    plugin: default_value
+    default_value: indicator_accordion
+
+destination:
+  plugin: entity:node
+  default_bundle: indicator_accordion
+  update_existing: false
+
+migration_dependencies:
+  required:
+    - indicator_migration

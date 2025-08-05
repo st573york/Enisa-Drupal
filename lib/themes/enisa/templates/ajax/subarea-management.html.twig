@@ -1,0 +1,37 @@
+<form id="subarea-manage">
+  <input hidden id="item-action"/>
+  <input hidden id="item-route"/>
+  <div class="input-group row mb-3 required">
+    <label for="formName" class="col-form-label col-lg-4">{{ 'Name'|t }}</label>
+    <div class="col-lg-8">
+      <input class="form-control" type="text" name="title" id="formName" placeholder="Name" value="{{ selected_subarea ? selected_subarea.name : '' }}">
+      <div class="invalid-feedback"></div>
+    </div>
+  </div>
+  <div class="input-group row mb-3">
+    <label for="formDescription" class="col-form-label col-lg-4">{{ 'Description'|t }}</label>
+      <div class="col-lg-8">
+        <textarea class="form-control" name="description" id="formDescription" placeholder="Description" value="">{{ selected_subarea ? selected_subarea.description : '' }}</textarea>
+        <div class="invalid-feedback"></div>
+      </div>
+  </div>
+  <div class="input-group row mb-3 required">
+    <label for="formSurvey" class="col-form-label col-lg-4">{{ 'Area'|t }}</label>
+    <div class="col-lg-8">
+      <select class="form-select mr-sm-2" name="default_area" for="formSurvey">
+        <option value="" selected disabled>{{ 'Choose...'|t }}</option>
+          {% for area_data in areas %}
+            <option value="{{ area_data.id }}" {% if selected_subarea.area.id == area_data.id %}selected{% endif %}>{{ area_data.name|raw }}</option>
+          {% endfor %}
+      </select>
+      <div class="invalid-feedback"></div>
+    </div>
+  </div>
+  <div class="input-group row mb-3 required">
+    <label for="formYear" class="col-form-label col-lg-4">{{ 'Weight'|t }}</label>
+    <div class="col-lg-8">
+      <input class="form-control" type="number" name="default_weight" id="formWeight" placeholder="Weight" value="{{ selected_subarea ? selected_subarea.weight : '1' }}">
+      <div class="invalid-feedback"></div>
+    </div>
+  </div>
+</form>

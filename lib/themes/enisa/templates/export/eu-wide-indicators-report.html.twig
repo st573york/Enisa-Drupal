@@ -1,0 +1,21 @@
+<table>
+    <caption>EU Wide Indicators</caption>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Algorithm</th>
+            <th>Score</th>
+            <th>Reference Year</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for indicator in euWideIndicators %}
+            <tr>
+                <td>{{ indicator.indicator }}</td>
+                <td>{{ indicator.algorithm }}</td>
+                <td>{{ indicator.score }}</td>
+                <td>{{ indicator.referenceYear ?? '-' }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

@@ -1,0 +1,29 @@
+uuid: 81c4124b-c5c6-42cd-9284-b79f6c6fc370
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_index
+    - node.type.index
+    - node.type.survey
+id: node.survey.field_index
+field_name: field_index
+entity_type: node
+bundle: survey
+label: Index
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      index: index
+    sort:
+      field: field_year
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

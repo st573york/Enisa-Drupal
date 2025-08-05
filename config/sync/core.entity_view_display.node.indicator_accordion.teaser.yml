@@ -1,0 +1,28 @@
+uuid: e8226d70-8b5d-43e6-8e59-bd0f34512227
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.indicator_accordion.field_full_title
+    - field.field.node.indicator_accordion.field_indicator
+    - field.field.node.indicator_accordion.field_order
+    - node.type.indicator_accordion
+  module:
+    - user
+id: node.indicator_accordion.teaser
+targetEntityType: node
+bundle: indicator_accordion
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_full_title: true
+  field_indicator: true
+  field_order: true
+  langcode: true
+  search_api_excerpt: true

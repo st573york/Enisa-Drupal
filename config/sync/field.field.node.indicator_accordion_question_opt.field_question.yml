@@ -1,0 +1,29 @@
+uuid: 09159f99-fbfb-41fe-9284-9a6c3237d196
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_question
+    - node.type.indicator_accordion_question
+    - node.type.indicator_accordion_question_opt
+id: node.indicator_accordion_question_opt.field_question
+field_name: field_question
+entity_type: node
+bundle: indicator_accordion_question_opt
+label: Question
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      indicator_accordion_question: indicator_accordion_question
+    sort:
+      field: nid
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

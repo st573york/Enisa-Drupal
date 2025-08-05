@@ -1,0 +1,15 @@
+uuid: 935d14df-2a07-4973-9ac8-dc6f76a44aba
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - index_migration
+_core:
+  default_config_hash: T2CT7VlPvijoHks7e6NACiYswAj71jxz-GFH0GQ5MPA
+id: index_migration_group
+label: 'Index Migration Group'
+description: 'Migration group for indexes. Migration creates index nodes.'
+source_type: mysql
+module: null
+shared_configuration: null

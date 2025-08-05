@@ -1,0 +1,19 @@
+<ul data-block="nav_main" class="navbar-nav justify-content-end flex-wrap nav-level-0">
+  {% if logged_in %}
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link dropdown-toggle admin-icon" role="button" data-bs-toggle="dropdown" aria-expanded="false" title="User">{{ user_full_name }}</a>
+      <ul class="dropdown-menu nav-level-1">
+        <li class="nav-item">
+          <a href="/user-account" class="dropdown-item">My account</a>
+        </li>
+        <li class="nav-item">
+          <a href="/user/logout" class="dropdown-item" data-drupal-link-system-path="user/logout">Log out</a>
+        </li>
+      </ul>
+    </li>
+  {% else %}
+    <li class="nav-item">
+      <a href="/user/login" class="nav-link" data-drupal-link-system-path="user/login">Log in</a>
+    </li>
+  {% endif %}
+</ul>

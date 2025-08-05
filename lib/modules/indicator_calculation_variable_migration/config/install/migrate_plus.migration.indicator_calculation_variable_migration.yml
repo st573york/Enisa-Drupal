@@ -1,0 +1,37 @@
+id: indicator_calculation_variable_migration
+label: 'Indicator Calculation Variable Migration'
+migration_group: indicator_calculation_variable_migration_group
+
+source:
+  plugin: indicator_calculation_variable_sql
+  key: enisa
+
+process:
+  id: id
+  indicator_id:
+    plugin: indicator_lookup
+    additional_fields:
+      indicator_name: indicator_name
+      indicator_identifier: indicator_identifier
+      indicator_year: indicator_year
+  question_id: question_id
+  algorithm: algorithm
+  type:
+    plugin: question_type_lookup
+    source: type
+  neutral_score: neutral_score
+  predefined_divider: predefined_divider
+  normalize: normalize
+  inverse_value: inverse_value
+  custom_function_name: custom_function_name
+
+destination:
+  plugin: table
+  table_name: indicator_calculation_variables
+  id_fields:
+    id:
+      type: integer
+
+migration_dependencies:
+  required:
+    - indicator_migration

@@ -1,0 +1,10 @@
+{
+    "name": "digit/index_management",
+    "type": "drupal-custom-module",
+    "description": "Provides index_management package.",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "drupal/core": "^10 || ^11"
+    }
+}

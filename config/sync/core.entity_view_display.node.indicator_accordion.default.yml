@@ -1,0 +1,48 @@
+uuid: 914db120-99f2-4e94-88bb-3a04b2f53ab7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.indicator_accordion.field_full_title
+    - field.field.node.indicator_accordion.field_indicator
+    - field.field.node.indicator_accordion.field_order
+    - node.type.indicator_accordion
+  module:
+    - user
+id: node.indicator_accordion.default
+targetEntityType: node
+bundle: indicator_accordion
+mode: default
+content:
+  field_full_title:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 112
+    region: content
+  field_indicator:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_order:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 111
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

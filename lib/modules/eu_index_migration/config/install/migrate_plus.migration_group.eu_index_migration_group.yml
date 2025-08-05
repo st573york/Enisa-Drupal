@@ -1,0 +1,9 @@
+id: eu_index_migration_group
+label: 'EU Index Migration Group'
+description: 'Migration group for EU indexes. Migration creates EU index nodes.'
+source_type: mysql
+shared_configuration: null
+dependencies:
+  enforced:
+    module:
+      - eu_index_migration

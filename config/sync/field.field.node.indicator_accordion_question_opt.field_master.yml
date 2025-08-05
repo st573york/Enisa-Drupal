@@ -1,0 +1,21 @@
+uuid: b138da0c-954e-4d6d-8352-8690b8d2deaa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_master
+    - node.type.indicator_accordion_question_opt
+id: node.indicator_accordion_question_opt.field_master
+field_name: field_master
+entity_type: node
+bundle: indicator_accordion_question_opt
+label: Master
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

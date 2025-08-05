@@ -1,0 +1,15 @@
+uuid: d69bae44-fcbd-4fd3-b145-f01739a387db
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - country_survey_migration
+_core:
+  default_config_hash: zwp6wMUrU5CpVlAO8yyjP8IeQOWzOlZCFf-WIF4sI5w
+id: country_survey_migration_group
+label: 'Country Survey Migration Group'
+description: 'Migration group for country_surveys. Migration creates country_survey nodes.'
+source_type: mysql
+module: null
+shared_configuration: null

@@ -1,0 +1,15 @@
+uuid: cade3278-4632-4f6c-b28d-4f1fae0cca73
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - country_index_migration
+_core:
+  default_config_hash: CawwZCKBJKxEJbuKKWng9avh2pP5AaOODEeVj12mIjI
+id: country_index_migration_group
+label: 'Country Index Migration Group'
+description: 'Migration group for country indexes. Migration creates country index nodes.'
+source_type: mysql
+module: null
+shared_configuration: null

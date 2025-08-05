@@ -1,0 +1,23 @@
+uuid: 14f51911-6f18-49ca-be96-950ed895c530
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_role
+    - node.type.invitation
+id: node.invitation.field_role
+field_name: field_role
+entity_type: node
+bundle: invitation
+label: Role
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user_role'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: entity_reference

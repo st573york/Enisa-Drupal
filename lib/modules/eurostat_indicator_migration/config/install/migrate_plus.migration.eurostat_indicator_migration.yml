@@ -1,0 +1,29 @@
+id: eurostat_indicator_migration
+label: 'Eurostat Indicator Migration'
+migration_group: eurostat_indicator_migration_group
+
+source:
+  plugin: eurostat_indicator_sql
+  key: enisa
+
+process:
+  id: id
+  country_id:
+    plugin: country_lookup_by_name
+    source: country_name
+  name: name
+  source: source
+  identifier: identifier
+  report_year: report_year
+  value: value
+
+destination:
+  plugin: table
+  table_name: eurostat_indicators
+  id_fields:
+    id:
+      type: integer
+
+migration_dependencies:
+  required:
+    - indicator_migration

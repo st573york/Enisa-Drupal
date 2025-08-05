@@ -1,0 +1,23 @@
+uuid: 74c27cdd-6b43-4755-86e3-11782f12a566
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_order
+    - node.type.indicator
+id: node.indicator.field_order
+field_name: field_order
+entity_type: node
+bundle: indicator
+label: Order
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

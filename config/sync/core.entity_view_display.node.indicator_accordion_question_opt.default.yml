@@ -1,0 +1,71 @@
+uuid: 522dbd81-87db-4a28-ad82-3d0c62ec77f6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.indicator_accordion_question_opt.field_full_title
+    - field.field.node.indicator_accordion_question_opt.field_master
+    - field.field.node.indicator_accordion_question_opt.field_question
+    - field.field.node.indicator_accordion_question_opt.field_score
+    - field.field.node.indicator_accordion_question_opt.field_value
+    - node.type.indicator_accordion_question_opt
+  module:
+    - user
+id: node.indicator_accordion_question_opt.default
+targetEntityType: node
+bundle: indicator_accordion_question_opt
+mode: default
+content:
+  field_full_title:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 112
+    region: content
+  field_master:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_question:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_score:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_value:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

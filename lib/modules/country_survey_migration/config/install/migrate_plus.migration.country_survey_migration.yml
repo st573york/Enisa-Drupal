@@ -1,0 +1,53 @@
+id: country_survey_migration
+label: 'Country Survey Migration'
+migration_group: country_survey_migration_group
+
+source:
+  plugin: country_survey_sql
+  key: enisa
+
+process:
+  uid:
+    plugin: user_lookup
+    source: NULL
+    username: 'admin'
+  title: country_survey_title
+  field_default_assignee:
+    plugin: user_lookup
+    source: default_assignee_email
+  field_completed: completed
+  field_submitted_user:
+    plugin: user_lookup
+    source: submitted_by_email
+  field_submitted_date:
+    plugin: format_date
+    source: submitted_at
+    from_format: 'Y-m-d H:i:s'
+    to_format: 'U'
+  field_rc_submitted_date:
+    plugin: format_date
+    source: requested_changes_submitted_at
+    from_format: 'Y-m-d H:i:s'
+    to_format: 'U'
+  field_survey:
+    plugin: survey_lookup_by_name
+    source: survey_name
+  field_country:
+    plugin: country_lookup_by_name
+    source: country_name
+  field_approved_user:
+    plugin: user_lookup
+    source: approved_by_email
+  type:
+    plugin: default_value
+    default_value: country_survey
+
+destination:
+  plugin: entity:node
+  default_bundle: country_survey
+  update_existing: false
+
+migration_dependencies:
+  required:
+    - user_migration
+    - survey_migration

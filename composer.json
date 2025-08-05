@@ -1,0 +1,227 @@
+{
+    "name": "drupal/digit-composer",
+    "description": "Drupal Website.",
+    "type": "project",
+    "license": "EUPL-1.2",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=8.2",
+        "composer/installers": "^2.2",
+        "cweagans/composer-patches": "^1.7",
+        "digit/area_migration": "^1.0.0",
+        "digit/audit_management": "^1.0.0",
+        "digit/audit_migration": "^1.0.0",
+        "digit/country_index_migration": "^1.0.0",
+        "digit/country_survey_management": "^1.0.0",
+        "digit/country_survey_migration": "^1.0.0",
+        "digit/data_collection_management": "^1.0.0",
+        "digit/database": "^1.0.0",
+        "digit/drush_commands": "^1.0.0",
+        "digit/enisa": "^1.0.0",
+        "digit/eu_index_migration": "^1.0.0",
+        "digit/eurostat_indicator_migration": "^1.0.0",
+        "digit/eurostat_indicator_variable_migration": "^1.0.0",
+        "digit/export_management": "^1.0.0",
+        "digit/general_management": "^1.0.0",
+        "digit/index_and_survey_configuration_management": "^1.0.0",
+        "digit/index_management": "^1.0.0",
+        "digit/index_migration": "^1.0.0",
+        "digit/indicator_accordion_migration": "^1.0.0",
+        "digit/indicator_accordion_question_migration": "^1.0.0",
+        "digit/indicator_accordion_question_option_migration": "^1.0.0",
+        "digit/indicator_calculation_variable_migration": "^1.0.0",
+        "digit/indicator_disclaimer_migration": "^1.0.0",
+        "digit/indicator_migration": "^1.0.0",
+        "digit/indicator_requested_change_migration": "^1.0.0",
+        "digit/indicator_value_migration": "^1.0.0",
+        "digit/invitation_management": "^1.0.0",
+        "digit/invitation_migration": "^1.0.0",
+        "digit/permission_management": "^1.0.0",
+        "digit/subarea_migration": "^1.0.0",
+        "digit/survey_indicator_answer_migration": "^1.0.0",
+        "digit/survey_indicator_migration": "^1.0.0",
+        "digit/survey_management": "^1.0.0",
+        "digit/survey_migration": "^1.0.0",
+        "digit/user_management": "^1.0.0",
+        "digit/user_migration": "^1.0.0",
+        "drupal/bootstrap5": "^4.0.5",
+        "drupal/config_readonly": "^1.0",
+        "drupal/core": "^10.4.3",
+        "drupal/core-composer-scaffold": "^10.4.6",
+        "drupal/core-project-message": "^10.4",
+        "drupal/core-recommended": "^10.4.6",
+        "drupal/dropsolid_purge": "^1.0",
+        "drupal/js_cookie": "^1.0",
+        "drupal/login_destination": "2.0.0-beta9",
+        "drupal/memcache": "^2.7.0",
+        "drupal/menu_item_role_access": "^2.4",
+        "drupal/migrate_plus": "^6.0",
+        "drupal/migrate_tools": "^6.1.0",
+        "drupal/monolog": "^3.0",
+        "drupal/multiselect_dropdown": "1.2.4",
+        "drupal/redirect": "^1.10.0",
+        "drupal/search_api": "^1.38",
+        "drupal/search_api_solr": "^4.3",
+        "drupal/seckit": "^2.0",
+        "drupal/symfony_mailer": "^1.5",
+        "drush/drush": "^13.3",
+        "openeuropa/oe_authentication": "^1.18",
+        "phpoffice/phpspreadsheet": "*",
+        "tinymce/tinymce": "^7.7"
+    },
+    "require-dev": {
+        "behat/mink-browserkit-driver": "^2.2",
+        "drupal/core-dev": "^10.4.6",
+        "drupal/drupal-extension": "^5.0",
+        "ec-europa/toolkit": "^10.14"
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "lib/*/*",
+            "options": {
+                "versions": {
+                    "digit/enisa": "1.0.0",
+                    "digit/area_migration": "1.0.0",
+                    "digit/audit_management": "1.0.0",
+                    "digit/audit_migration": "1.0.0",
+                    "digit/country_index_migration": "1.0.0",
+                    "digit/country_survey_migration": "1.0.0",
+                    "digit/eu_index_migration": "1.0.0",
+                    "digit/eurostat_indicator_migration": "1.0.0",
+                    "digit/eurostat_indicator_variable_migration": "1.0.0",
+                    "digit/index_migration": "1.0.0",
+                    "digit/indicator_accordion_migration": "1.0.0",
+                    "digit/indicator_accordion_question_migration": "1.0.0",
+                    "digit/indicator_accordion_question_option_migration": "1.0.0",
+                    "digit/indicator_calculation_variable_migration": "1.0.0",
+                    "digit/indicator_disclaimer_migration": "1.0.0",
+                    "digit/indicator_migration": "1.0.0",
+                    "digit/indicator_requested_change_migration": "1.0.0",
+                    "digit/indicator_value_migration": "1.0.0",
+                    "digit/invitation_migration": "1.0.0",
+                    "digit/subarea_migration": "1.0.0",
+                    "digit/survey_indicator_answer_migration": "1.0.0",
+                    "digit/survey_indicator_migration": "1.0.0",
+                    "digit/survey_migration": "1.0.0",
+                    "digit/user_migration": "1.0.0",
+                    "digit/country_survey_management": "1.0.0",
+                    "digit/database": "1.0.0",
+                    "digit/data_collection_management": "1.0.0",
+                    "digit/drush_commands": "1.0.0",
+                    "digit/export_management": "1.0.0",
+                    "digit/general_management": "1.0.0",
+                    "digit/index_and_survey_configuration_management": "1.0.0",
+                    "digit/index_management": "1.0.0",
+                    "digit/invitation_management": "1.0.0",
+                    "digit/permission_management": "1.0.0",
+                    "digit/survey_management": "1.0.0",
+                    "digit/user_management": "1.0.0"
+                }
+            }
+        },
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    ],
+    "extra": {
+        "drupal-scaffold": {
+            "allowed-packages": [
+                "drupal/core"
+            ],
+            "locations": {
+                "web-root": "./web"
+            },
+            "file-mapping": {
+                "[web-root]/sites/default/monolog.services.yml": "resources/monolog.services.yml"
+            }
+        },
+        "composer-exit-on-patch-failure": true,
+        "enable-patching": false,
+        "installer-paths": {
+            "web/core": [
+                "type:drupal-core"
+            ],
+            "web/libraries/{$name}": [
+                "type:drupal-library",
+                "type:bower-asset",
+                "type:npm-asset"
+            ],
+            "web/modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "web/modules/custom/{$name}": [
+                "type:drupal-custom-module"
+            ],
+            "web/profiles/contrib/{$name}": [
+                "type:drupal-profile"
+            ],
+            "web/profiles/custom/{$name}": [
+                "type:drupal-custom-profile"
+            ],
+            "web/themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ],
+            "web/themes/custom/{$name}": [
+                "type:drupal-custom-theme"
+            ]
+        },
+        "installer-types": [
+            "bower-asset", "npm-asset"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Digit\\Site\\Tests\\": "./tests/"
+        }
+    },
+    "conflict": {
+        "drupal/drupal": "*"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "[ $COMPOSER_DEV_MODE -eq 0 ] || ./vendor/bin/run toolkit:hooks-enable"
+        ],
+        "post-update-cmd": [
+            "[ $COMPOSER_DEV_MODE -eq 0 ] || ./vendor/bin/run toolkit:hooks-enable"
+        ],
+        "drupal:setup": [
+            "rm -rf web/sites/default/settings.override.php && rsync -a --delete resources/settings.override.php web/sites/default/settings.override.php",
+            "rm -rf web/sites/default/files/enisa_logo.png && rsync -a --delete resources/enisa_logo.png web/sites/default/files/enisa_logo.png",
+            "rm -rf web/sites/default/files/enisa_logo.svg && rsync -a --delete resources/enisa_logo.svg web/sites/default/files/enisa_logo.svg",
+            "rm -rf web/sites/default/files/EUN.json && rsync -a --delete resources/EUN.json web/sites/default/files/EUN.json",
+            "rm -rf web/sites/default/files/favicon.ico && rsync -a --delete resources/favicon.ico web/sites/default/files/favicon.ico",
+            "rm -rf web/sites/default/files/documents && rsync -a --delete resources/documents/ web/sites/default/files/documents/",
+            "rm -rf web/sites/default/files/inline-images && rsync -a --delete resources/inline-images/ web/sites/default/files/inline-images/",
+            "rm -rf web/sites/default/files/reports && rsync -a --delete resources/reports/ web/sites/default/files/reports/",
+            "rm -rf web/sites/default/files/seeders && rsync -a --delete resources/seeders/ web/sites/default/files/seeders/",
+            "drush theme:enable bootstrap5",
+            "drush theme:enable enisa",
+            "drush config:set system.theme default enisa -y",
+            "drush theme:enable olivero",
+            "drush user-add-role administrator admin",
+            "npm install -g sass",
+            "sass web/themes/custom/enisa/scss/style.scss:web/themes/custom/enisa/css/style.css",
+            "mkdir -p web/libraries",
+            "ln -s ../../vendor/tinymce/tinymce web/libraries/tinymce",
+            "drush import-site-content --content=All",
+            "drush cr"
+        ]
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "composer/installers": true,
+            "cweagans/composer-patches": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "drupal/core-composer-scaffold": true,
+            "drupal/core-project-message": true,
+            "ec-europa/toolkit-composer-plugin": true,
+            "php-http/discovery": true,
+            "phpstan/extension-installer": true,
+            "tbachert/spi": true
+        }
+    }
+}

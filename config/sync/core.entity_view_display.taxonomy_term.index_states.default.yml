@@ -1,0 +1,33 @@
+uuid: 1cca5343-15b5-41cb-b0e7-0db2e5e39fe6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.index_states.field_state_id
+    - taxonomy.vocabulary.index_states
+  module:
+    - text
+id: taxonomy_term.index_states.default
+targetEntityType: taxonomy_term
+bundle: index_states
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_state_id:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

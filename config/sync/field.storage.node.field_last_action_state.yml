@@ -1,0 +1,27 @@
+uuid: e1f6008d-99f5-4719-ab7e-113ad6d53a1c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_last_action_state
+field_name: field_last_action_state
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: completed
+      label: Completed
+    -
+      value: failed
+      label: Failed
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

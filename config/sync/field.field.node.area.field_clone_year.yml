@@ -1,0 +1,23 @@
+uuid: 383b9a41-cd40-4642-937e-e71fecc17495
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_clone_year
+    - node.type.area
+id: node.area.field_clone_year
+field_name: field_clone_year
+entity_type: node
+bundle: area
+label: 'Clone Year'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

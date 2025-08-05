@@ -1,0 +1,19 @@
+uuid: dda9d6d6-d5d2-4d60-b941-9b02706b9285
+langcode: en
+status: true
+dependencies: {  }
+name: admin_or_poc_login
+label: 'Admin or PoC Login'
+triggers:
+  login: login
+destination_path: 'internal:/index/visualisation'
+pages_type: 0
+pages: ''
+language: ''
+roles:
+  administrator: administrator
+  enisa_administrator: enisa_administrator
+  primary_poc: primary_poc
+  poc: poc
+weight: 0
+enabled: true

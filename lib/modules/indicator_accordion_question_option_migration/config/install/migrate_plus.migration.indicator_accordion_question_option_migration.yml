@@ -1,0 +1,44 @@
+id: indicator_accordion_question_option_migration
+label: 'Indicator Accordion Question Option igration'
+migration_group: indicator_accordion_question_option_migration_group
+
+source:
+  plugin: indicator_accordion_question_option_sql
+  key: enisa
+
+process:
+  uid:
+    plugin: user_lookup
+    source: NULL
+    username: 'admin'
+  title:
+    plugin: substr
+    source: text
+    start: 0
+    length: 255
+  field_full_title: text
+  field_question:
+    plugin: question_lookup
+    additional_fields:
+      indicator_accordion_name: indicator_accordion_name
+      indicator_accordion_order: indicator_accordion_order
+      indicator_accordion_question_name: indicator_accordion_question_name
+      indicator_accordion_question_order: indicator_accordion_question_order
+      indicator_name: indicator_name
+      indicator_identifier: indicator_identifier
+      indicator_year: indicator_year
+  field_master: master
+  field_score: score
+  field_value: value
+  type:
+    plugin: default_value
+    default_value: indicator_accordion_question_opt
+
+destination:
+  plugin: entity:node
+  default_bundle: indicator_accordion_question_opt
+  update_existing: false
+
+migration_dependencies:
+  required:
+    - indicator_accordion_question_migration

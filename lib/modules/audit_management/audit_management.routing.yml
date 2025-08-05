@@ -1,0 +1,17 @@
+audit_management.view-audit:
+  path: '/audit'
+  defaults:
+    _controller: '\Drupal\audit_management\Controller\AuditController::viewAudit'
+    _title: 'View audit'
+  requirements:
+    _permission: 'view audit'
+
+audit_management.list-audit:
+  path: '/audit/list'
+  defaults:
+    _controller: '\Drupal\audit_management\Controller\AuditController::listAudit'
+    _title: 'List audit data'
+  requirements:
+    _permission: 'list audit'
+  options:
+    _format: 'json'

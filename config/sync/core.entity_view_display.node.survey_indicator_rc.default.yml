@@ -1,0 +1,108 @@
+uuid: 6112d442-0ea2-499a-811a-1cbf3bbe027e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.survey_indicator_rc.field_answered_date
+    - field.field.node.survey_indicator_rc.field_assignee
+    - field.field.node.survey_indicator_rc.field_changes
+    - field.field.node.survey_indicator_rc.field_country_survey
+    - field.field.node.survey_indicator_rc.field_deadline
+    - field.field.node.survey_indicator_rc.field_indicator
+    - field.field.node.survey_indicator_rc.field_indicator_prev_assignee
+    - field.field.node.survey_indicator_rc.field_indicator_prev_state
+    - field.field.node.survey_indicator_rc.field_requested_date
+    - field.field.node.survey_indicator_rc.field_requested_user
+    - field.field.node.survey_indicator_rc.field_survey_indicator_rc_state
+    - node.type.survey_indicator_rc
+  module:
+    - datetime
+    - text
+    - user
+id: node.survey_indicator_rc.default
+targetEntityType: node
+bundle: survey_indicator_rc
+mode: default
+content:
+  field_assignee:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_changes:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_country_survey:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_deadline:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_indicator:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_indicator_prev_assignee:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_indicator_prev_state:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_requested_user:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_survey_indicator_rc_state:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_answered_date: true
+  field_requested_date: true
+  langcode: true
+  search_api_excerpt: true

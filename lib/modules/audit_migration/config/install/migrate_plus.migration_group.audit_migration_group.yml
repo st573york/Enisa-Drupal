@@ -1,0 +1,9 @@
+id: audit_migration_group
+label: 'Audit Migration Group'
+description: 'Migration group for audits. Migration creates record in audits table.'
+source_type: mysql
+shared_configuration: null
+dependencies:
+  enforced:
+    module:
+      - audit_migration

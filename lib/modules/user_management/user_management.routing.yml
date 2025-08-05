@@ -1,0 +1,115 @@
+user_management.manage-users:
+  path: '/user/management'
+  defaults:
+    _controller: '\Drupal\user_management\Controller\UserController::manageUsers'
+    _title: 'Manage users'
+  requirements:
+    _permission: 'manage users'
+
+user_management.list-users:
+  path: '/user/list'
+  defaults:
+    _controller: '\Drupal\user_management\Controller\UserController::listUsers'
+    _title: 'List users data'
+  requirements:
+    _permission: 'list users'
+  options:
+    _format: 'json'
+
+user_management.get-user:
+  path: '/user/single/get/{user_id}'
+  defaults:
+    _controller: '\Drupal\user_management\Controller\UserController::getUser'
+    _title: 'Get user'
+  requirements:
+    _permission: 'get user'
+    user_id: \d+
+  options:
+    _format: 'json'
+
+user_management.update-user:
+  path: '/user/single/update/{user_id}'
+  defaults:
+    _controller: '\Drupal\user_management\Controller\UserController::updateUser'
+    _title: 'Update user'
+  requirements:
+    _permission: 'update user'
+    user_id: \d+
+  options:
+    _format: 'json'
+  methods: [POST]
+
+user_management.get-users:
+  path: '/user/multiple/get'
+  defaults:
+    _controller: '\Drupal\user_management\Controller\UserController::getUsers'
+    _title: 'Get users'
+  requirements:
+    _permission: 'get users'
+  options:
+    _format: 'json'
+
+user_management.update-users:
+  path: '/user/multiple/update'
+  defaults:
+    _controller: '\Drupal\user_management\Controller\UserController::updateUsers'
+    _title: 'Update users'
+  requirements:
+    _permission: 'update users'
+  options:
+    _format: 'json'
+  methods: [POST]
+
+user_management.toggle-block-user:
+  path: '/user/block/toggle/{user_id}'
+  defaults:
+    _controller: '\Drupal\user_management\Controller\UserController::toggleBlockUser'
+    _title: 'Toggle block user'
+  requirements:
+    _permission: 'toggle block user'
+    user_id: \d+
+  options:
+    _format: 'json'
+  methods: [POST]
+
+user_management.delete-user:
+  path: '/user/single/delete/{user_id}'
+  defaults:
+    _controller: '\Drupal\user_management\Controller\UserController::deleteUser'
+    _title: 'Delete user'
+  requirements:
+    _permission: 'delete user'
+    user_id: \d+
+  options:
+    _format: 'json'
+  methods: [POST]
+
+user_management.delete-users:
+  path: '/user/multiple/delete'
+  defaults:
+    _controller: '\Drupal\user_management\Controller\UserController::deleteUsers'
+    _title: 'Delete users'
+  requirements:
+    _permission: 'delete users'
+  options:
+    _format: 'json'
+  methods: [POST]
+
+user_management.view-user-account:
+  path: '/user-account'
+  defaults:
+    _controller: '\Drupal\user_management\Controller\UserController::viewUserAccount'
+    _title: 'View user account data'
+  requirements:
+    _permission: 'view user account'
+
+user_management.update-user-account:
+  path: '/user-account/update'
+  defaults:
+    _controller: '\Drupal\user_management\Controller\UserController::updateUserAccount'
+    _title: 'Update user account'
+  requirements:
+    _permission: 'update user account'
+  options:
+    _format: 'json'
+  methods: [POST]

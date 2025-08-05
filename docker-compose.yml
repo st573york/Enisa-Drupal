@@ -1,0 +1,128 @@
+services:
+  web:
+    image: fpfis/httpd-php:8.3-dev
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    working_dir: /var/www/html
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/var/www/html # Non Mac users.
+      - ${HOME}/.config/composer/auth.json:/root/.config/composer/auth.json
+      # - nfsmount:${PWD} # Mac Users with the nfsmount volume.
+    environment:
+      # By leaving these variables empty Docker Compose will set them to their host values.
+      # Nextcloud configuration
+      DOCUMENT_ROOT: /var/www/html/web
+      TOOLKIT_PROJECT_ID: enisa-csi
+      NEXTCLOUD_USER:
+      NEXTCLOUD_PASS:
+      QA_API_AUTH_TOKEN:
+      QA_WEBSITE_URL:
+      VIRTUAL_HOST: "http://web:8080"
+
+      PHP_MEMORY_LIMIT: "512M"
+      FPFIS_ENVIRONMENT: dev
+      # SOLR Configuration
+      SEARCH_API_SERVER_SS_SOLR_HOST: "solr"
+      SEARCH_API_SERVER_SS_SOLR_PATH: "/"
+      SEARCH_API_SERVER_SS_SOLR_CORE: "drupal"
+      SEARCH_API_SERVER_SS_SOLR_PORT: "8983"
+      # Varnish Configuration
+      DRUPAL_VARNISH_HOSTS: "varnish"
+      DRUPAL_VARNISH_GROUP: "varnish_group"
+      DRUPAL_TRUSTED_HOST_PATTERNS: ".*"
+      # Drupal Configuration
+      DRUPAL_ENVIRONMENT: "local"
+      DRUPAL_DATABASE_NAME: "database"
+      DRUPAL_MIGRATION_DATABASE_NAME: "enisa_db"
+      DRUPAL_DATABASE_USERNAME: "root"
+      DRUPAL_DATABASE_PASSWORD: ""
+      DRUPAL_DATABASE_PREFIX: ""
+      DRUPAL_DATABASE_HOST: "mysql"
+      DRUPAL_DATABASE_PORT: "3306"
+      DRUPAL_ACCOUNT_USERNAME: "admin"
+      DRUPAL_ACCOUNT_PASSWORD: "admin"
+      DRUPAL_BASE_URL: "http://web:8080"
+      DRUSH_OPTIONS_URI: "http://web:8080"
+      DRUPAL_FLUSH_CREDS: "user:pass"
+      DRUPAL_SITE_NAME: "My Website"
+      DRUPAL_SITE_GROUP: "DrupalGroup"
+      # XDEBUG configuration
+      XDEBUG_CONFIG: remote_host=host.docker.internal remote_port=9003 remote_enable=1
+      PHP_IDE_CONFIG: "serverName=Docker"
+      # Memcache configuration
+      DRUPAL_MEMCACHE_HOSTS: "memcached:11211"
+
+  mysql:
+    platform: linux/x86_64
+    image: public.ecr.aws/docker/library/percona:8.0
+    command: --innodb-log-file_size=2G --max-allowed-packet=1G --innodb-buffer-pool-size=512M --wait-timeout=31536000
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    cap_add:
+      - SYS_NICE
+    volumes:
+      - mysql:/var/lib/mysql
+    ports:
+      - "2306:3306"
+
+  # Spawn a Selenium server which also includes a VNC server on localhost:5900 (the password is "secret")
+  # selenium:
+  #   image: selenium/standalone-chrome:127.0
+  #   volumes:
+  #     - /dev/shm:/dev/shm
+  #   shm_size: '2gb'
+  #   environment:
+  #     - DISPLAY=:99
+  #   ports:
+  #     - "5900:5900"
+  #   expose:
+  #     - 4444
+
+  solr:
+    image: solr:8
+    ports:
+      - "8983:8983"
+    expose:
+      - 8983
+    volumes:
+      - ./resources/solr/conf:/opt/solr/server/solr/configsets/drupal/conf
+    command: bash -c "docker-entrypoint.sh solr start -c; solr create -c drupal -d server/solr/configsets/drupal/conf -n drupal; solr restart -c -f"
+
+  varnish:
+    image: varnish:6.0.11
+    environment:
+      VARNISH_DOMAINS_PATH: /
+      VARNISH_PURGE_KEY: "user:pass"
+      VARNISH_CACHE_STATUS: "false"
+    ports:
+      - "7790:7790"
+      - "80:80"
+
+  memcached:
+    image: memcached:1.6.21-bookworm
+    command: ["-m", "256m", "-c" , "4096"]
+
+  pma:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 8181:80
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD: ''
+      PHP_UPLOAD_MAX_FILESIZE: 1G
+      PHP_MAX_INPUT_VARS: 1G
+
+volumes:
+  mysql:
+
+  # Mac users: uncomment the "nfsmount" key to enable the NFS file sharing.
+  # @see https://github.com/openeuropa/documentation/blob/master/docs/development/tooling.md#using-docker-on-macos
+  # nfsmount:
+  #   driver: local
+  #   driver_opts:
+  #     type: nfs
+  #     o: addr=host.docker.internal,rw,nolock,hard,nointr,nfsvers=3
+  #     device: ":${PWD}/"

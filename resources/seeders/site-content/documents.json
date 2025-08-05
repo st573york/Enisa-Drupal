@@ -1,0 +1,79 @@
+[
+    {
+        "bundle": "document",
+        "title": "User Manual - Admin",
+        "file": "documents\/user-manual-admin.pdf",
+        "description": "This document describes the offered functionalities by the EU Cybersecurity Index (EU-CSI) platform to the ENISA Admin role.",
+        "posted_date": "2025-03-10"
+    },
+    {
+        "bundle": "document",
+        "title": "User Manual - PPoC\/PoC\/Operator",
+        "file": "documents\/user-manual-PoC.pdf",
+        "description": "This document describes the offered functionalities by the EU Cybersecurity Index (EU-CSI) platform for the Member State user roles.",
+        "posted_date": "2025-03-10"
+    },
+    {
+        "bundle": "document",
+        "title": "Cybersecurity Policies",
+        "file": "documents\/cybersecurity-policies.pdf",
+        "description": "This document provides a comprehensive overview of the cybersecurity policies applied to the EU Cybersecurity Index (EU-CSI) platform, both in terms of software solutions and infrastructure in general. The technical details outline the measures taken to safeguard against unauthorized access, data breaches, and other potential cyber threats. Through the implementation of these policies, the focus is to maintain the confidentiality, integrity, and availability of application's data and services while minimizing the risk of cyber-attacks.",
+        "posted_date": "2024-10-11"
+    },
+    {
+        "bundle": "document",
+        "title": "Disaster Recovery",
+        "file": "documents\/disaster-recovery.pdf",
+        "description": "This document outlines the measures that have been taken and proposes preventive actions to ensure the availability, resilience, and recoverability of the EU Cybersecurity Index (EU-CSI) platform. The document presents a comprehensive disaster recovery plan that will minimize downtime and ensure the integrity and availability of critical data, while maintaining business continuity and meeting compliance and regulatory requirements.",
+        "posted_date": "2024-10-11"
+    },
+    {
+        "bundle": "document",
+        "title": "End User Statement",
+        "file": "documents\/end-user-statement.pdf",
+        "description": "This document contains the end-user statement for the registering, accessing, and using the EU Cybersecurity Index (EU-CSI) platform, in form of General terms of Agreement and scope of activities on and content of the platform.",
+        "posted_date": "2024-10-11"
+    },
+    {
+        "bundle": "document",
+        "title": "Data Privacy Statement",
+        "file": "documents\/data-privacy-statement.pdf",
+        "description": "This document addresses the legal basis related to managing personal data collected from the registered users of the EU Cybersecurity Index (EU-CSI) platform, as well as the rights of the owners of the data.",
+        "posted_date": "2024-10-11"
+    },
+    {
+        "bundle": "document",
+        "title": "EU-CSI 2024 - Framework - Overview",
+        "file": "documents\/2024-EUCSI-Framework-Overview.pdf",
+        "description": "This document describes the structure and indicators of the EU-CSI 2024 Index containing an overview of EU-CSI, the Weighting methodology employed, and the list of EU-Wide indicators.",
+        "posted_date": "2024-09-24"
+    },
+    {
+        "bundle": "document",
+        "title": "EU-CSI 2024 - Detailed list of indicators",
+        "file": "documents\/eu-csi-detailed-list-of-indicators-2024.xlsx",
+        "description": "This excel file contains a detailed list of the indicators and their relevant descriptions and details, that comprise EU-CSI 2024.",
+        "posted_date": "2024-09-24"
+    },
+    {
+        "bundle": "document",
+        "title": "EU-CSI 2023 - Framework Overview",
+        "file": "documents\/eu-csi-framework-overview.pdf",
+        "description": "This document describes the structure and indicators of the EU-CSI 2023 Pilot containing an overview of EU-CSI, the Weighting methodology employed, the list of EU-Wide indicators and changes with respect to the framework presented at the beginning of 2023.",
+        "posted_date": "2023-12-18"
+    },
+    {
+        "bundle": "document",
+        "title": "EU-CSI 2023 - Detailed list of indicators",
+        "file": "documents\/eu-csi-detailed-list-of-indicators.xlsm",
+        "description": "This excel file contains a detailed list of the indicators and their relevant descriptions and details, that comprise EU-CSI 2023.",
+        "posted_date": "2023-12-18"
+    },
+    {
+        "bundle": "document",
+        "title": "EU Login User Manual",
+        "file": "documents\/eu-login-user-manual.pdf",
+        "description": "This document describes the steps to create and use EU ID credentials that are required to access the EU Cybersecurity Index (EU-CSI) platform. Additionally, it describes the alternatives to enabling and using Two Factor Authentication (2FA) that is used by the EU-CSI platform.",
+        "posted_date": "2023-08-02"
+    }
+]

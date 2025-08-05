@@ -1,0 +1,5 @@
+name: 'Country Survey Management Module'
+type: module
+description: 'Custom module for managing country survey.'
+core_version_requirement: ^10
+package: Custom

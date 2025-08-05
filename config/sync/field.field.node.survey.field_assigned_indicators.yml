@@ -1,0 +1,29 @@
+uuid: 4edbed2c-8d1a-4396-a320-f0f34d128f48
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_assigned_indicators
+    - node.type.indicator
+    - node.type.survey
+id: node.survey.field_assigned_indicators
+field_name: field_assigned_indicators
+entity_type: node
+bundle: survey
+label: 'Assigned Indicators'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      indicator: indicator
+    sort:
+      field: field_identifier
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

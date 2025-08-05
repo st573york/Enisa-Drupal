@@ -1,0 +1,42 @@
+uuid: ec08e61f-5bee-472f-97f0-4a568b444141
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.index.field_collection_deadline
+    - field.field.node.index.field_collection_started
+    - field.field.node.index.field_description
+    - field.field.node.index.field_eu_published
+    - field.field.node.index.field_json_data
+    - field.field.node.index.field_last_action
+    - field.field.node.index.field_last_action_date
+    - field.field.node.index.field_last_action_state
+    - field.field.node.index.field_ms_published
+    - field.field.node.index.field_year
+    - node.type.index
+  module:
+    - user
+id: node.index.teaser
+targetEntityType: node
+bundle: index
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_collection_deadline: true
+  field_collection_started: true
+  field_description: true
+  field_eu_published: true
+  field_json_data: true
+  field_last_action: true
+  field_last_action_date: true
+  field_last_action_state: true
+  field_ms_published: true
+  field_year: true
+  langcode: true
+  search_api_excerpt: true

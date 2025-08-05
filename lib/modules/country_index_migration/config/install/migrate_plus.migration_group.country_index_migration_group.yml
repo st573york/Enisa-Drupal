@@ -1,0 +1,9 @@
+id: country_index_migration_group
+label: 'Country Index Migration Group'
+description: 'Migration group for country indexes. Migration creates country index nodes.'
+source_type: mysql
+shared_configuration: null
+dependencies:
+  enforced:
+    module:
+      - country_index_migration

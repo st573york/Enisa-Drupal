@@ -1,0 +1,10 @@
+{
+    "name": "digit/area_migration",
+    "type": "drupal-custom-module",
+    "description": "Provides area_migration package.",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "drupal/core": "^10 || ^11"
+    }
+}

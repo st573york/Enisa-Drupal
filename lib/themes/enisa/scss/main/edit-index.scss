@@ -1,0 +1,12 @@
+.index-edit:not(.active),
+.area-edit:not(.active),
+.subarea-edit:not(.active),
+.form-check-input.switch  {
+  cursor: pointer;
+}
+
+.index-edit.current:hover,
+.area-edit.current:hover,
+.subarea-edit.current:hover {
+  cursor: text;
+}

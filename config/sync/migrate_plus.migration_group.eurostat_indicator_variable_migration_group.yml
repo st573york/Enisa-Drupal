@@ -1,0 +1,15 @@
+uuid: b6845df4-2209-4f5f-a934-fd230d4ff896
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - eurostat_indicator_variable_migration
+_core:
+  default_config_hash: wo07LQMO79yYkrpXRcV4mZdtzhCJA8cDfVXJQrOi8EI
+id: eurostat_indicator_variable_migration_group
+label: 'Eurostat Indicator Variable Migration Group'
+description: 'Migration group for eurostat indicator variables. Migration creates record in eurostat_indicator_variables table.'
+source_type: mysql
+module: null
+shared_configuration: null

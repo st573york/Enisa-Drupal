@@ -1,0 +1,46 @@
+uuid: 98d71a25-3b99-4c10-8e79-13ee1b75fec9
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: xloTUwZRD2niZQdB-w3utjACdAAojUImg89JDENBgjc
+id: indicator_accordion_migration
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: indicator_accordion_migration_group
+label: 'Indicator Accordion Migration'
+source:
+  plugin: indicator_accordion_sql
+  key: enisa
+process:
+  uid:
+    plugin: user_lookup
+    source: null
+    username: admin
+  title:
+    plugin: substr
+    source: title
+    start: 0
+    length: 255
+  field_full_title: title
+  field_indicator:
+    plugin: indicator_lookup
+    additional_fields:
+      indicator_name: indicator_name
+      indicator_identifier: indicator_identifier
+      indicator_year: indicator_year
+  field_order: order
+  type:
+    plugin: default_value
+    default_value: indicator_accordion
+destination:
+  plugin: 'entity:node'
+  default_bundle: indicator_accordion
+  update_existing: false
+idMap: {  }
+migration_dependencies:
+  required:
+    - indicator_migration
+include: null

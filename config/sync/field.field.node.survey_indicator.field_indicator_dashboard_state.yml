@@ -1,0 +1,29 @@
+uuid: 0c6c8fa3-3d23-4e04-a063-691707ca1f60
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_indicator_dashboard_state
+    - node.type.survey_indicator
+    - taxonomy.vocabulary.indicator_states
+id: node.survey_indicator.field_indicator_dashboard_state
+field_name: field_indicator_dashboard_state
+entity_type: node
+bundle: survey_indicator
+label: 'Indicator Dashboard State'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      indicator_states: indicator_states
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

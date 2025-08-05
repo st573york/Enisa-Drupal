@@ -1,0 +1,9 @@
+id: indicator_accordion_question_option_migration_group
+label: 'Indicator Accordion Question Option Migration Group'
+description: 'Migration group for indicator_accordion_question_options. Migration creates indicator_accordion_question_option nodes.'
+source_type: mysql
+shared_configuration: null
+dependencies:
+  enforced:
+    module:
+      - indicator_accordion_question_option_migration

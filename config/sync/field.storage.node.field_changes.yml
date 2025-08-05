@@ -1,0 +1,19 @@
+uuid: abb16a60-6a88-45d4-b143-fc2b89629f09
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_changes
+field_name: field_changes
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

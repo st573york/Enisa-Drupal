@@ -1,0 +1,29 @@
+uuid: 1acf5d51-a2d2-4075-ac75-e1078c9ef42d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_indicator_prev_state
+    - node.type.survey_indicator_rc
+    - taxonomy.vocabulary.indicator_states
+id: node.survey_indicator_rc.field_indicator_prev_state
+field_name: field_indicator_prev_state
+entity_type: node
+bundle: survey_indicator_rc
+label: 'Indicator Previous State'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      indicator_states: indicator_states
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,5 @@
+name: 'Drush Commands Module'
+type: module
+description: 'Custom module with drush commands.'
+core_version_requirement: ^10
+dependencies: []

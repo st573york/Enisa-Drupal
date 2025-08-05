@@ -1,0 +1,9 @@
+id: user_migration_group
+label: 'User Migration Group'
+description: 'Migration group for users. Migration creates users.'
+source_type: mysql
+shared_configuration: null
+dependencies:
+  enforced:
+    module:
+      - user_migration

@@ -1,0 +1,18 @@
+uuid: 79608596-1e17-431f-bcb6-87ef1d253f7f
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Indicator Accordion'
+type: indicator_accordion
+description: 'Indicator accordion content type'
+help: null
+new_revision: false
+preview_mode: 1
+display_submitted: true

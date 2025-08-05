@@ -1,0 +1,29 @@
+uuid: b563dfe3-ae55-40c8-97b4-ccb34becc3e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_inviter_user
+    - node.type.invitation
+id: node.invitation.field_inviter_user
+field_name: field_inviter_user
+entity_type: node
+bundle: invitation
+label: 'Inviter User'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: name
+      direction: ASC
+    auto_create: false
+    filter:
+      type: _none
+    include_anonymous: false
+field_type: entity_reference

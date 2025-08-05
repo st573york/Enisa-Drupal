@@ -1,0 +1,23 @@
+uuid: 9cafa0ae-a175-4814-b4d4-83f888df48bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_state_id
+    - taxonomy.vocabulary.indicator_states
+id: taxonomy_term.indicator_states.field_state_id
+field_name: field_state_id
+entity_type: taxonomy_term
+bundle: indicator_states
+label: 'State ID'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

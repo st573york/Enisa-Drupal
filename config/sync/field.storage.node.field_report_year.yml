@@ -1,0 +1,20 @@
+uuid: c66fdc85-86e6-4744-bd78-6b04f196aebf
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_report_year
+field_name: field_report_year
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

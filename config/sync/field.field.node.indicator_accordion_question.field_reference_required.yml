@@ -1,0 +1,21 @@
+uuid: 089f4283-fc04-4f81-9797-040ff0285839
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_reference_required
+    - node.type.indicator_accordion_question
+id: node.indicator_accordion_question.field_reference_required
+field_name: field_reference_required
+entity_type: node
+bundle: indicator_accordion_question
+label: 'Reference Required'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

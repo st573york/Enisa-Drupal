@@ -1,0 +1,88 @@
+#configure-index-tree li,
+#configure-index-tree ul {
+  list-style: none!important;
+}
+
+#configure-index-tree li.level-one-children > :not(.tree-arrow, .error-node) {
+  border-left: 2px solid #004087;
+  padding-left: 24px;
+}
+
+#configure-index-tree li.level-two-children > :not(.tree-arrow, .error-node) {
+  border-left: 2px solid var(--brand-color-1);
+  padding-left: 24px;
+}
+
+#configure-index-tree ul li {
+  margin-top: 8px;
+}
+
+#configure-index-tree h2 {
+  padding-left: 2rem;
+}
+
+li.level-one-children ul {
+  margin-left: 2rem;
+}
+
+.form-select.select-weight {
+  margin: 0 auto;
+}
+
+.index-nav .breadcrumb-item {
+  text-decoration: none;
+}
+
+.level-one-children span:first-of-type,
+.level-two-children span:first-of-type {
+  border: unset!important;
+}
+
+select.form-select.select-weight,
+select.form-select.select-area,
+select.form-select.select-subareas {
+  width: 170px;
+}
+
+.table-section {
+  background-color: #f2f2f2;
+  padding: 1.5rem !important;
+  border-radius: var(--radius);
+}
+
+.table-section .dataTables_wrapper {
+  background: #fff !important;
+  padding: 0.5rem !important;
+  border-radius: var(--radius);
+  overflow: auto !important;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.table-section .dataTables_wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.conf-tree-col {
+  width: 40.333%!important;
+  margin-left: 1.333%!important;
+}
+
+@media(max-width: 992px) {
+    .conf-tree-col {
+      width: 100%!important;
+      margin-left: 0!important;
+  }
+
+  body .status-col {
+    align-items: flex-start!important;
+  }
+
+  .labels-col {
+    flex-direction: column!important;
+  }
+}
+
+li.level-one-children ul {
+  margin-left: 2rem;
+}

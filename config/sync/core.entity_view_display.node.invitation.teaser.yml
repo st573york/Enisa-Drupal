@@ -1,0 +1,40 @@
+uuid: d1613caa-07cb-47b0-aa9d-dae23b8c56d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.invitation.field_country
+    - field.field.node.invitation.field_email
+    - field.field.node.invitation.field_expired_date
+    - field.field.node.invitation.field_hash
+    - field.field.node.invitation.field_invitation_state
+    - field.field.node.invitation.field_invited_date
+    - field.field.node.invitation.field_inviter_user
+    - field.field.node.invitation.field_registered_date
+    - field.field.node.invitation.field_role
+    - node.type.invitation
+  module:
+    - user
+id: node.invitation.teaser
+targetEntityType: node
+bundle: invitation
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_country: true
+  field_email: true
+  field_expired_date: true
+  field_hash: true
+  field_invitation_state: true
+  field_invited_date: true
+  field_inviter_user: true
+  field_registered_date: true
+  field_role: true
+  langcode: true
+  search_api_excerpt: true

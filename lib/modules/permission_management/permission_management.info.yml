@@ -1,0 +1,5 @@
+name: 'Permission Management Module'
+type: module
+description: 'Custom module for managing permissions.'
+core_version_requirement: ^10
+package: Custom

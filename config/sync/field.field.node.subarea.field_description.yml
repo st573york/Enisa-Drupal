@@ -1,0 +1,24 @@
+uuid: 81eee705-5f8c-4fd0-b64e-2ab25418661a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description
+    - filter.format.basic_html
+    - node.type.subarea
+  module:
+    - text
+id: node.subarea.field_description
+field_name: field_description
+entity_type: node
+bundle: subarea
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

@@ -1,0 +1,9 @@
+uuid: cb6211d8-ef77-49f0-9d91-f239fed6ac25
+langcode: en
+status: true
+dependencies: {  }
+name: 'Indicator States'
+vid: indicator_states
+description: 'List of indicator states'
+weight: 0
+new_revision: false

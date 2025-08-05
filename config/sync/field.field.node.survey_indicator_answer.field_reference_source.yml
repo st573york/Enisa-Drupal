@@ -1,0 +1,19 @@
+uuid: 629d6b71-f7ab-42b9-8e3d-8cad928066a8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_reference_source
+    - node.type.survey_indicator_answer
+id: node.survey_indicator_answer.field_reference_source
+field_name: field_reference_source
+entity_type: node
+bundle: survey_indicator_answer
+label: 'Reference Source'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

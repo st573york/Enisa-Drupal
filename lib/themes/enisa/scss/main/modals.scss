@@ -1,0 +1,54 @@
+body .modal.show{
+    z-index: 999999;
+  }
+  
+.modal {
+    .btn {
+      width: fit-content !important;
+    }
+  
+    .modal-content-title {
+      color: var(--brand-color-2);
+    }
+    
+    .modal-large {
+      max-width: 60vw !important;
+      height: 80vh;
+  
+      .modal-content {
+        height: 100%;
+        overflow-y: scroll;
+      } 
+  
+      @media(max-width: 991px){
+        max-width: 90vw !important;
+      }
+      
+      textarea {
+        min-height: 35vh;
+        resize: none;
+        overflow-y: scroll;      
+      }
+  
+      textarea::-webkit-scrollbar,
+      .mce-panel::-webkit-scrollbar  {
+        width: 12px;
+      }
+  
+      textarea::-webkit-scrollbar-track,
+      .mce-panel::-webkit-scrollbar-track {
+        background: #ffffff;
+      }
+  
+      textarea::-webkit-scrollbar-thumb,
+      .mce-panel::-webkit-scrollbar-thumb {
+        background-color: #000000;
+        border-radius: 10px;
+        border: 3px solid #ffffff;
+      }
+  
+      label {
+        font-weight: 500;
+      }
+    }
+  }

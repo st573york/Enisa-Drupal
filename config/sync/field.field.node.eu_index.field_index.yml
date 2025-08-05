@@ -1,0 +1,29 @@
+uuid: e8aaf6da-1d94-4ab3-a8a7-1b493933290f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_index
+    - node.type.eu_index
+    - node.type.index
+id: node.eu_index.field_index
+field_name: field_index
+entity_type: node
+bundle: eu_index
+label: Index
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      index: index
+    sort:
+      field: field_year
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

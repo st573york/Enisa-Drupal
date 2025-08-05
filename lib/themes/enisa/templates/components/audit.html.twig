@@ -1,0 +1,87 @@
+{{ attach_library('enisa/main') }}
+{{ attach_library('enisa/modal') }}
+{{ attach_library('enisa/datepicker-custom') }}
+{{ attach_library('enisa/datepicker-library') }}
+{{ attach_library('enisa/list-audit') }}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item active">{{ 'Auditing'|t }}</li>
+  </ol>
+</nav>
+
+<h1>{{ 'Auditing'|t }}</h1>
+
+<main id="enisa-main" class="bg-white">
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-12 ps-0 pe-0">
+        <div class="table-section col-12 mt-2">
+          <div class="d-flex gap-4 mb-4">
+            <div>
+              <label for="minDate">Date From:</label>
+              <div>
+                <div class="input-group date">
+                  <input type="text" class="form-control datepicker" id="minDate" value="{{ dateToday }}"/>
+                  <span class="input-group-append"></span>
+                  <span class="icon-calendar"></span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <label for="maxDate">Date To:</label>
+              <div>
+                <div class="input-group date">
+                  <input type="text" class="form-control datepicker" id="maxDate" value="{{ dateToday }}"/>
+                  <span class="input-group-append"></span>
+                  <span class="icon-calendar"></span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <label for="action">Action:</label>
+              <select id="action" class="form-select" aria-label="Select Action">
+                <option value="All" selected>{{ 'All'|t }}</option>
+                {% for action in actions %}
+                  <option value="{{ action }}">{{ action }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+          <table id="audit-table" class="display enisa-table-group">
+            <thead>
+              <tr>
+                <th>{{ 'Id'|t }}</th>
+                <th>{{ 'Date'|t }}</th>
+                <th>{{ 'IP Address'|t }}</th>
+                <th>{{ 'Action'|t }}</th>
+                <th>{{ 'User'|t }}</th>
+                <th>{{ 'Description'|t }}</th>
+                <th>{{ 'Affected Entity'|t }}</th>
+                <th>{{ 'Changes'|t }}</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="pageModal" tabindex="-1" aria-labelledby="pageModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header p-3">
+            <h5 class="modal-title" id="pageModalLabel"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body p-3"></div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-enisa" data-bs-dismiss="modal">{{ 'Close'|t }}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>

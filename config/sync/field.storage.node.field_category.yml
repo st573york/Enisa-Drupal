@@ -1,0 +1,33 @@
+uuid: cf1a81ef-eaaa-4b83-a374-13073a86afd3
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_category
+field_name: field_category
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: eu_wide
+      label: 'EU Wide'
+    -
+      value: eurostat
+      label: Eurostat
+    -
+      value: manual
+      label: Manual
+    -
+      value: survey
+      label: Survey
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,17 @@
+uuid: f61f389a-06c1-40c2-b62c-6596b4645644
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Document
+type: document
+description: 'Document content type'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

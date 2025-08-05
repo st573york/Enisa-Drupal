@@ -1,0 +1,19 @@
+uuid: b72ba75f-8f69-4ff7-acc2-e27d757f0ddb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_report_json_data
+    - node.type.country_index
+id: node.country_index.field_report_json_data
+field_name: field_report_json_data
+entity_type: node
+bundle: country_index
+label: 'Report JSON Data'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

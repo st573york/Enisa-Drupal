@@ -1,0 +1,14 @@
+uuid: d5d9642c-a6df-485b-93c0-cc512a819460
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.poc
+  module:
+    - user
+id: user_remove_role_action.poc
+label: 'Remove the PoC role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: poc

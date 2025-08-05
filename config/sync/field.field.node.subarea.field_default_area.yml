@@ -1,0 +1,29 @@
+uuid: 8e854b8e-e368-4218-91b7-e477e00aced0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_default_area
+    - node.type.area
+    - node.type.subarea
+id: node.subarea.field_default_area
+field_name: field_default_area
+entity_type: node
+bundle: subarea
+label: 'Default Area'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      area: area
+    sort:
+      field: field_identifier
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

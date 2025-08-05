@@ -1,0 +1,19 @@
+uuid: d2911e9d-dcd5-4570-9b9e-9abfce6614b1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_info
+    - node.type.indicator_accordion_question
+id: node.indicator_accordion_question.field_info
+field_name: field_info
+entity_type: node
+bundle: indicator_accordion_question
+label: Info
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,30 @@
+uuid: bad3670b-c111-4c02-98bf-9c48c0b8810f
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:8f1c30da-3c78-49da-a118-e618d18550b3'
+  module:
+    - block_content
+    - system
+  theme:
+    - enisa
+id: enisa_footersocial
+theme: enisa
+region: second_footer
+weight: 0
+provider: null
+plugin: 'block_content:8f1c30da-3c78-49da-a118-e618d18550b3'
+settings:
+  id: 'block_content:8f1c30da-3c78-49da-a118-e618d18550b3'
+  label: 'Footer Social'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/*'

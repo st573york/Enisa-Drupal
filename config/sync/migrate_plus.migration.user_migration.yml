@@ -1,0 +1,41 @@
+uuid: 6b75b067-d0a1-4edb-9802-2bb4f2a3a625
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: KeuJDwmlFffzdYMV602_npVsPLRdt2QwPERheDYRVQA
+id: user_migration
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: user_migration_group
+label: 'User Migration'
+source:
+  plugin: user_sql
+  key: enisa
+process:
+  name: email
+  field_full_name: name
+  mail: email
+  pass: password
+  field_description: description
+  field_country:
+    plugin: country_lookup_by_name
+    source: country_name
+  roles:
+    plugin: role_lookup_by_name
+    source: role_name
+  field_phone: phone
+  field_blocked: blocked
+  field_inactive_notified: inactive_notified
+  field_inactive_deadline: inactive_deadline
+  status:
+    plugin: default_value
+    default_value: 1
+destination:
+  plugin: 'entity:user'
+  update_existing: false
+idMap: {  }
+migration_dependencies: null
+include: null

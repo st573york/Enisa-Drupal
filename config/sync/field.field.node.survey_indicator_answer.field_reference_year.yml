@@ -1,0 +1,23 @@
+uuid: daef70dc-0539-40ab-8492-bce0742f3268
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_reference_year
+    - node.type.survey_indicator_answer
+id: node.survey_indicator_answer.field_reference_year
+field_name: field_reference_year
+entity_type: node
+bundle: survey_indicator_answer
+label: 'Reference Year'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -1,0 +1,5 @@
+name: 'General Management Module'
+type: module
+description: 'Custom module for general management.'
+core_version_requirement: ^10
+package: Custom

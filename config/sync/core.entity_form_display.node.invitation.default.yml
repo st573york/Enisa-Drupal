@@ -1,0 +1,144 @@
+uuid: d6239a3c-8f7d-4905-804a-4e1a3c46a0c2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.invitation.field_country
+    - field.field.node.invitation.field_email
+    - field.field.node.invitation.field_expired_date
+    - field.field.node.invitation.field_hash
+    - field.field.node.invitation.field_invitation_state
+    - field.field.node.invitation.field_invited_date
+    - field.field.node.invitation.field_inviter_user
+    - field.field.node.invitation.field_registered_date
+    - field.field.node.invitation.field_role
+    - node.type.invitation
+  module:
+    - path
+id: node.invitation.default
+targetEntityType: node
+bundle: invitation
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_country:
+    type: options_select
+    weight: 121
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_email:
+    type: email_default
+    weight: 123
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_expired_date:
+    type: datetime_timestamp
+    weight: 127
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_hash:
+    type: string_textarea
+    weight: 129
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_invitation_state:
+    type: options_select
+    weight: 130
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_invited_date:
+    type: datetime_timestamp
+    weight: 125
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_inviter_user:
+    type: options_select
+    weight: 124
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_registered_date:
+    type: datetime_timestamp
+    weight: 126
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_role:
+    type: options_select
+    weight: 122
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    weight: 15
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 120
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 16
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

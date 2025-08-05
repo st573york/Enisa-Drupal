@@ -1,0 +1,21 @@
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 0;
+    margin-bottom: 1rem;
+    list-style: none;
+
+    li::before{
+        content: " / ";
+        padding-right:8px;
+        color: #6c757d;
+    }
+
+    .breadcrumb-item{
+        font-size: 1rem;
+    }
+
+    .active{
+        color: #6c757d;
+    }
+}

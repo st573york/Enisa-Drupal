@@ -1,0 +1,9 @@
+id: area_migration_group
+label: 'Area Migration Group'
+description: 'Migration group for areas. Migration creates area nodes.'
+source_type: mysql
+shared_configuration: null
+dependencies:
+  enforced:
+    module:
+      - area_migration

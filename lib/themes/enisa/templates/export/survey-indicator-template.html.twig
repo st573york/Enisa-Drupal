@@ -1,0 +1,71 @@
+<table>
+    <caption>Survey Indicator Template</caption>
+    <thead>
+        <tr>
+            <th style="font-weight: bold; font-size: 14px;">{{ name }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% set accordion = null %}
+        {% for question_id, question_data in questions %}
+            {% set parts = question_id|split('-') %}
+            {% if accordion != parts[1] %}
+                <tr>
+                    <td></td>
+                    <td style="background-color: #bf8f00; color: #ffffff; font-weight: bold; vertical-align: top;">{{ question_data.section }}</td>
+                    <td></td>
+                </tr>
+            {% endif %}
+            {% set accordion = parts[1] %}
+            <tr>
+                <td style="font-weight: bold; vertical-align: top;">{{ 'Question (' ~ question_data.type ~ ')' }}</td>
+                <td style="background-color: #fff2cc; font-weight: bold; vertical-align: top;">{{ question_data.name }}</td>
+                <td style="vertical-align: top;">{{ (question_data.type == 'free-text') ? 'Provide your answer' : 'Choose answer' }}</td>
+                <td>{{ 'choice-' ~ parts[1] ~ '-' ~ parts[2] }}</td>
+            </tr>
+            {% if question_data.type == 'single-choice' or question_data.type == 'free-text' %}
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td style="background-color: #ebebeb; border: 2px solid black;"></td>
+                    <td>{{ question_data.type }}</td>
+                    <td>{{ 'option-' ~ parts[1] ~ '-' ~ parts[2] }}</td>
+                </tr>
+            {% elseif question_data.type == 'multiple-choice' %}
+                {% for option in question_data.options %}
+                    <tr>
+                        <td></td>
+                        <td>{{ option.name }}</td>
+                        <td style="background-color: #ebebeb; border: 2px solid black;"></td>
+                        <td>{{ question_data.type }}</td>
+                        <td>{{ 'option-' ~ parts[1] ~ '-' ~ parts[2] }}</td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+            <tr></tr>
+            <tr>
+                <td style="font-weight: bold; vertical-align: top;">Reference Year</td>
+                <td style="background-color: #ebebeb; border: 2px solid black; vertical-align: top;"></td>
+                <td></td>
+                <td>{{ 'reference_year-' ~ parts[1] ~ '-' ~ parts[2] }}</td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td style="font-weight: bold; vertical-align: top;">Reference Source</td>
+                <td style="background-color: #ebebeb; border: 2px solid black; vertical-align: top;"></td>
+                <td></td>
+                <td>{{ 'reference_source-' ~ parts[1] ~ '-' ~ parts[2] }}</td>
+            </tr>
+            <tr></tr>
+        {% endfor %}
+        <tr>
+            <td style="font-weight: bold;">Rating</td>
+            <td style="background-color: #ebebeb; border: 2px solid black;"></td>
+        </tr>
+        <tr></tr>
+        <tr>
+            <td style="font-weight: bold; vertical-align: top;">Comments</td>
+            <td style="background-color: #ebebeb; border: 2px solid black; vertical-align: top;"></td>
+        </tr>
+    </tbody>
+</table>

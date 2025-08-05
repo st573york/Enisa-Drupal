@@ -1,0 +1,27 @@
+id: area_migration
+label: 'Area Migration'
+migration_group: area_migration_group
+
+source:
+  plugin: area_sql
+  key: enisa
+
+process:
+  uid:
+    plugin: user_lookup
+    source: NULL
+    username: 'admin'
+  title: name
+  field_description: description
+  field_default_weight: default_weight
+  field_identifier: identifier
+  field_year: year
+  field_clone_year: clone_year
+  type:
+    plugin: default_value
+    default_value: area
+
+destination:
+  plugin: entity:node
+  default_bundle: area
+  update_existing: false

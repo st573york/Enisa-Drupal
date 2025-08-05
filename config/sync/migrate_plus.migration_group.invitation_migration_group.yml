@@ -1,0 +1,15 @@
+uuid: 5c27f8ef-337c-4d47-b4cf-752d6034cc09
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - invitation_migration
+_core:
+  default_config_hash: KVn7UiNFrODu-PlH7My8RxFp95TQngnUgUHJjo_HsoY
+id: invitation_migration_group
+label: 'Invitation Migration Group'
+description: 'Migration group for invitations. Migration creates invitation nodes.'
+source_type: mysql
+module: null
+shared_configuration: null

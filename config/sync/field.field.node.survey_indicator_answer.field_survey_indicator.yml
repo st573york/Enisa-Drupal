@@ -1,0 +1,29 @@
+uuid: db248099-6d6c-4b69-befd-ab0bee69b2a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_survey_indicator
+    - node.type.survey_indicator
+    - node.type.survey_indicator_answer
+id: node.survey_indicator_answer.field_survey_indicator
+field_name: field_survey_indicator
+entity_type: node
+bundle: survey_indicator_answer
+label: 'Survey Indicator'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      survey_indicator: survey_indicator
+    sort:
+      field: nid
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

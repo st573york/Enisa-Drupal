@@ -1,0 +1,17 @@
+<form id="import-properties">
+    <input hidden id="item-action"/>
+    <input hidden id="item-route"/>
+    <div class="alert alert-warning" role="alert">
+      <h5>{{ 'Warning'|t }}</h5>
+      <ul>
+        <li>{{ 'The uploaded content will overwrite the existing index & survey configuration.'|t }}</li>
+      </ul>
+    </div>
+    <div class="input-group row mt-3 mb-3 required">
+        <label for="formImportFile" class="col-form-label col-sm-2">{{ 'File'|t }}</label>
+        <div class="col-sm-10">
+          <input class="form-control form-control-sm" type="file" name="file" id="formImportFile" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+          <div class="invalid-feedback"></div>
+        </div>
+    </div>
+</form>

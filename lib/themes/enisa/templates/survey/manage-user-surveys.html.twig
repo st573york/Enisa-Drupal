@@ -1,0 +1,113 @@
+{{ attach_library('enisa/main') }}
+{{ attach_library('enisa/alert') }}
+{{ attach_library('enisa/list-user-surveys') }}
+{{ attach_library('enisa/survey-actions') }}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item active">{{ 'Surveys'|t }}</li>
+  </ol>
+</nav>
+
+<h1>{{ 'List of Surveys'|t }}</h1>
+
+<main id="enisa-main" class="bg-white">
+  <div class="container-fluid">
+
+    {% include '@enisa/components/alert.html.twig' with {'type': 'pageAlert'} %}
+    
+    {% if is_poc or surveys is empty or surveys_assigned is not empty %}
+      <div class="row mt-5">
+        <div class="col-12 ps-0 pe-0">
+          <div class="table-section col-12 mt-2">
+            <h2 class="mb-2">Surveys</h2>
+            <table id="surveys-table" class="display enisa-table-group">
+              <thead>
+                <tr>
+                  <th>{{ 'Survey'|t }}</th>
+                  <th>{{ 'Year'|t }}</th>
+                  <th>{{ 'Status'|t }}</th>
+                  {% if is_poc %}
+                    <th>{{ 'Submitted By'|t }}</th>
+                  {% endif %}
+                  <th>{{ 'Deadline'|t }}</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+
+    <div class="modal fade" id="pageModal" tabindex="-1" aria-labelledby="pageModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <input type="hidden" name="survey-id" id="survey-id" value=""/>
+          <input type="hidden" name="country-survey-id" id="country-survey-id" value=""/>
+          <div class="modal-header p-3">
+            <h5 class="modal-title" id="pageModalLabel">Fill In Survey Offline</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body p-3">
+            <div class="alert alert-warning mb-2 d-none" role="alert"></div>
+            <p>You can download the following template in order to fill your survey offline, and afterwards you import your filled in data.</p>
+            <div class="d-flex gap-2 justify-content-end">
+              <button type="button" class="btn btn-enisa download">{{ 'Download Template'|t }}</button>
+            </div>
+          </div>
+          <div class="modal-footer justify-content-end">
+            <form id="upload-completed-survey" method="POST" enctype="multipart/form-data">
+              <input type="hidden" name="csrf-token" id="csrf-token" value="{{ upload_survey_token }}">
+              <input type="file" name="file" id="formFile" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
+              <button type="button" class="btn btn-enisa-invert" onclick="document.getElementById('formFile').click();">{{ 'Import Completed Survey'|t }}</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="explicitModal" tabindex="-1" aria-labelledby="explicitModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header p-3">
+            <h5 class="modal-title" id="explicitModalLabel">{{ 'Indicator Conflict'|t }}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body p-3">
+            <p id="explicit-upload-body"></p>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-enisa" data-bs-dismiss="modal">{{ 'Cancel'|t }}</button>
+            <button type="button" class="btn btn-enisa-invert w-100" type="submit" id="submit-explicit">{{ 'Continue'|t }}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="printSurveyModal" class="printSurveyModalPrint" tabindex="-1" aria-labelledby="printSurveyModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header p-3">
+            <h5 class="modal-title" id="printSurveyModalLabel">Preview Survey With Answers</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-12 mt-2">
+                <div class="row survey-print" id="surveyContainer"></div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-enisa" data-bs-dismiss="modal">{{ 'Close'|t }}</button>
+            <button type="button" class="btn btn-enisa" onclick="saveReportPDF();" href="javascript:;">{{ 'Export | PDF'|t }}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>

@@ -1,0 +1,19 @@
+uuid: 5175a02c-2067-4e4d-b19c-68c5fb07d6f7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_report_date
+    - node.type.country_index
+id: node.country_index.field_report_date
+field_name: field_report_date
+entity_type: node
+bundle: country_index
+label: 'Report Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

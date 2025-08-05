@@ -1,0 +1,15 @@
+uuid: a5d5824c-96a3-408f-a45a-21974891c91b
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - subarea_migration
+_core:
+  default_config_hash: 2vDAdK2DczjP-ODqIPDD8DWBGRV3o7D_D9JfQCM-N7g
+id: subarea_migration_group
+label: 'Subarea Migration Group'
+description: 'Migration group for subareas. Migration creates subarea nodes.'
+source_type: mysql
+module: null
+shared_configuration: null

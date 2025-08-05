@@ -1,0 +1,29 @@
+uuid: ca25a7b5-cdc7-4b77-a69f-d2d4d9fdd375
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_accordion
+    - node.type.indicator_accordion
+    - node.type.indicator_accordion_question
+id: node.indicator_accordion_question.field_accordion
+field_name: field_accordion
+entity_type: node
+bundle: indicator_accordion_question
+label: Accordion
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      indicator_accordion: indicator_accordion
+    sort:
+      field: nid
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

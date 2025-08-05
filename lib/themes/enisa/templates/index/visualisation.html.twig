@@ -1,0 +1,60 @@
+{{ attach_library('enisa/main') }}
+{{ attach_library('enisa/alert') }}
+{{ attach_library('enisa/visualisation') }}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item active">{{ 'Index - Visualisations'|t }}</li>
+  </ol>
+</nav>
+
+<main id="enisa-main" class="bg-white">
+  <div class="container-fluid">
+
+    {% include '@enisa/components/alert.html.twig' with {'type': 'pageAlert'} %}
+
+    <div class="row mt-3">
+      <div class="col-12 ps-0 pe-0">
+        <div class="table-section col-12 mt-2">
+          <div class="row">
+            <div class="col-12">
+              <div class="d-flex gap-2">
+                <div>
+                  <h2 class="mt-2">{{ 'Year'|t }} -</h2>
+                </div>
+                <div class="mt-1">
+                  {% include '@enisa/components/year-dropdown.html.twig' with {'years': years} %}
+                </div>
+              </dv>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="visualisation-data"></div>
+
+    <div class="modal" tabindex="-1" id="indicator-modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body p-3">
+            <div class="row">
+              <div class="col-12" id="algorithm-container"></div>
+            </div>
+          </div>
+          <div class="modal-footer d-flex justify-content-between">
+            <button type="button" class="btn btn-enisa" data-bs-dismiss="modal">
+              {{ 'OK'|t }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>

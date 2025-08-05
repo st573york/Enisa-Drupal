@@ -1,0 +1,21 @@
+uuid: 4e6d5091-4eb5-4d35-9099-ff26fb7f5295
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_category
+    - node.type.indicator
+  module:
+    - options
+id: node.indicator.field_category
+field_name: field_category
+entity_type: node
+bundle: indicator
+label: Category
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

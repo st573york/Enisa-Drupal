@@ -1,0 +1,10 @@
+{
+    "name": "digit/enisa",
+    "type": "drupal-custom-theme",
+    "description": "Provides enisa theme package.",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "drupal/core": "^10 || ^11"
+    }
+}

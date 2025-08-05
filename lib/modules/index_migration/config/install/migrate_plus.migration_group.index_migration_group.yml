@@ -1,0 +1,9 @@
+id: index_migration_group
+label: 'Index Migration Group'
+description: 'Migration group for indexes. Migration creates index nodes.'
+source_type: mysql
+shared_configuration: null
+dependencies:
+  enforced:
+    module:
+      - index_migration

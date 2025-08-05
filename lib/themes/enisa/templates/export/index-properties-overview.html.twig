@@ -1,0 +1,64 @@
+<table>
+    <caption>Overview</caption>
+    <thead>
+        <tr>
+            <th></th>
+            <th>Area</th>
+            <th>Subarea</th>
+            <th>Weight</th>
+            {% for country_iso in countries_iso %}
+                <th style="text-align: center;">{{ country_iso }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Index</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            {% for value in properties_data.index %}
+                <td style="text-align: center;">{{ value }}</td>
+            {% endfor %}
+        </tr>
+        <tr></tr>
+        <tr></tr>
+        {% for row, area in properties_data.areas %}
+            <tr>
+                <td>{{ row }}</td>
+                <td>-</td>
+                <td>-</td>
+                <td>{{ area.weight }}</td>
+                {% for country_iso in countries_iso %}
+                    <td style="text-align: center;">{{ area[country_iso] }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        <tr></tr>
+        <tr></tr>
+        {% for row, subarea in properties_data.subareas %}
+            <tr>
+                <td>{{ row }}</td>
+                <td>{{ subarea.area }}</td>
+                <td>-</td>
+                <td>{{ subarea.weight }}</td>
+                {% for country_iso in countries_iso %}
+                    <td style="text-align: center;">{{ subarea[country_iso] }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        <tr></tr>
+        <tr></tr>
+        {% for row, indicator in properties_data.indicators %}
+            <tr>
+                <td>{{ row }}</td>
+                <td>{{ indicator.area }}</td>
+                <td>{{ indicator.subarea }}</td>
+                <td>{{ indicator.weight }}</td>
+                {% for country_iso in countries_iso %}
+                    <td style="text-align: center;">{{ indicator[country_iso] }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

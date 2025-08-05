@@ -1,0 +1,15 @@
+uuid: ce43a2b6-27b3-48af-890f-d5b666d3e3ef
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - eurostat_indicator_migration
+_core:
+  default_config_hash: HW4CHnQCtyaZBjzbfTXHaL2Uva5-1WMgfXFwy0GZ61k
+id: eurostat_indicator_migration_group
+label: 'Eurostat Indicator Migration Group'
+description: 'Migration group for eurostat indicators. Migration creates record in eurostat_indicators table.'
+source_type: mysql
+module: null
+shared_configuration: null

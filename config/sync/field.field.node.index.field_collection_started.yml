@@ -1,0 +1,19 @@
+uuid: 4f809fb7-4a03-45b3-931c-2b64a2b52280
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_collection_started
+    - node.type.index
+id: node.index.field_collection_started
+field_name: field_collection_started
+entity_type: node
+bundle: index
+label: 'Collection Started'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

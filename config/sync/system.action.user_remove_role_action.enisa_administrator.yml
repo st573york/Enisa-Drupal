@@ -1,0 +1,14 @@
+uuid: 661ccd00-62ab-4a9a-ab73-5e1fc3663c53
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.enisa_administrator
+  module:
+    - user
+id: user_remove_role_action.enisa_administrator
+label: 'Remove the ENISA Administrator role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: enisa_administrator

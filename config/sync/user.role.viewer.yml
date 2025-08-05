@@ -1,0 +1,13 @@
+uuid: c8110b50-52d2-4124-9ce7-77dede190ba8
+langcode: en
+status: true
+dependencies:
+  module:
+    - permission_management
+id: viewer
+label: Viewer
+weight: 9
+is_admin: null
+permissions:
+  - 'update user account'
+  - 'view user account'

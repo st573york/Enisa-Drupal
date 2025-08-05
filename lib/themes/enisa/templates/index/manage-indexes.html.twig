@@ -1,0 +1,56 @@
+{{ attach_library('enisa/main') }}
+{{ attach_library('enisa/alert') }}
+{{ attach_library('enisa/modal') }}
+{{ attach_library('enisa/list-indexes') }}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item active">{{ 'Indexes'|t }}</li>
+  </ol>
+</nav>
+
+<h1>{{ 'Manage Indexes'|t }}</h1>
+
+<main id="enisa-main" class="bg-white">
+  <div class="container-fluid">
+
+    {% include '@enisa/components/alert.html.twig' with {'type': 'pageAlert'} %}
+
+    <div class="row mt-5">
+      <div class="col-12 ps-0 pe-0">
+        <div class="table-section col-12 mt-2">
+          <h2 class="mb-2">Indexes <button class="clickable-icon btn-unstyle item-create" data-bs-toggle="tooltip" title="Create index" type="button"></button></h2>
+          <table id="indexes-table" class="display enisa-table-group">
+            <thead>
+              <tr>
+                <th>{{ 'Name'|t }}</th>
+                <th>{{ 'Year'|t }}</th>
+                <th>{{ 'Created By'|t }}</th>
+                <th>{{ 'Status'|t }}</th>
+                <th></th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="pageModal" tabindex="-1" aria-labelledby="pageModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header p-3">
+            <h5 class="modal-title" id="pageModalLabel"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body p-3"></div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-enisa" data-bs-dismiss="modal">{{ 'Close'|t }}</button>
+            <button type="button" class="btn btn-enisa process-data" id='process-data'></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>

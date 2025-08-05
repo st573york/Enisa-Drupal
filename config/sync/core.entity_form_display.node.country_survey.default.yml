@@ -1,0 +1,134 @@
+uuid: 6cc63f37-e06c-4a59-b172-86b43b8de1ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.country_survey.field_approved_user
+    - field.field.node.country_survey.field_completed
+    - field.field.node.country_survey.field_country
+    - field.field.node.country_survey.field_default_assignee
+    - field.field.node.country_survey.field_rc_submitted_date
+    - field.field.node.country_survey.field_submitted_date
+    - field.field.node.country_survey.field_submitted_user
+    - field.field.node.country_survey.field_survey
+    - node.type.country_survey
+  module:
+    - path
+id: node.country_survey.default
+targetEntityType: node
+bundle: country_survey
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_approved_user:
+    type: options_select
+    weight: 129
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_completed:
+    type: boolean_checkbox
+    weight: 126
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_country:
+    type: options_select
+    weight: 121
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_default_assignee:
+    type: options_select
+    weight: 123
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_rc_submitted_date:
+    type: datetime_timestamp
+    weight: 132
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_submitted_date:
+    type: datetime_timestamp
+    weight: 131
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_submitted_user:
+    type: options_select
+    weight: 130
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_survey:
+    type: options_select
+    weight: 122
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    weight: 15
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 120
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 16
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

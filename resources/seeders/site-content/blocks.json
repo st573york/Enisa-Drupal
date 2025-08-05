@@ -1,0 +1,37 @@
+[
+    {
+        "bundle": "block",
+        "type": "basic",
+        "description": "Footer Links",
+        "body_value": "<div class=\"d-flex flex-column justify-content-start\"><a href=\"\/sites\/default\/files\/documents\/data-privacy-statement.pdf\" download=\"\/sites\/default\/files\/documents\/data-privacy-statement.pdf\">Data Privacy Statement<\/a> <a href=\"\/sites\/default\/files\/documents\/end-user-statement.pdf\" download=\"\/sites\/default\/files\/documents\/end-user-statement.pdf\">End User Statement<\/a> <a href=\"\/contacts\">Contact<\/a><\/div>",
+        "body_format": "full_html"
+    },
+    {
+        "bundle": "block",
+        "type": "basic",
+        "description": "Footer Social",
+        "body_value": "<div class=\"social d-flex justify-content-end align-items-end\"><p class=\"mb-0\"><span class=\"me-3 connect text-end\">Connect with ENISA :<\/span><\/p><div class=\"social-wrapper d-flex align-items-end mt-3\"><a href=\"https:\/\/www.facebook.com\/ENISAEUAGENCY\" rel=\"noopener\" target=\"_blank\"><svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" fill=\"none\"><path d=\"M32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 23.9859 5.85094 30.6053 13.5 31.8056V20.625H9.4375V16H13.5V12.475C13.5 8.465 15.8888 6.25 19.5434 6.25C21.2934 6.25 23.125 6.5625 23.125 6.5625V10.5H21.1075C19.12 10.5 18.5 11.7334 18.5 13V16H22.9375L22.2281 20.625H18.5V31.8056C26.1491 30.6053 32 23.9859 32 16Z\" fill=\"white\"><\/path><\/svg><\/a><a href=\"https:\/\/twitter.com\/enisa_eu\" rel=\"noopener\" target=\"_blank\"><svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"32\" height=\"26\" viewBox=\"0 0 32 26\" fill=\"none\"><path d=\"M10.0669 26C22.1394 26 28.7444 15.9956 28.7444 7.32248C28.7444 7.04123 28.7381 6.75373 28.7256 6.47248C30.0105 5.54328 31.1193 4.39234 32 3.07373C30.8034 3.60613 29.5329 3.95384 28.2319 4.10498C29.6017 3.28388 30.6274 1.99396 31.1187 0.474356C29.8301 1.23808 28.4208 1.77682 26.9513 2.06748C25.9611 1.01541 24.652 0.318822 23.2262 0.0854013C21.8005 -0.148019 20.3376 0.0947339 19.0637 0.776129C17.7897 1.45752 16.7757 2.53961 16.1785 3.85508C15.5812 5.17056 15.4339 6.64615 15.7594 8.05373C13.15 7.92279 10.5972 7.24494 8.26664 6.06413C5.93604 4.88332 3.87959 3.22592 2.23062 1.19936C1.39253 2.64432 1.13608 4.35419 1.51337 5.98145C1.89067 7.60872 2.87342 9.03126 4.26188 9.95998C3.2195 9.92689 2.19997 9.64624 1.2875 9.14123V9.22248C1.28657 10.7389 1.8108 12.2088 2.77108 13.3824C3.73136 14.5559 5.06843 15.3607 6.555 15.66C5.58941 15.9242 4.57598 15.9627 3.59313 15.7725C4.01261 17.0766 4.82876 18.2172 5.92769 19.0351C7.02662 19.853 8.35349 20.3075 9.72313 20.335C7.3979 22.1615 4.52557 23.1522 1.56875 23.1475C1.04438 23.1467 0.520532 23.1145 0 23.0512C3.00381 24.9783 6.49804 26.0018 10.0669 26Z\" fill=\"white\"><\/path><\/svg><\/a><a href=\"https:\/\/www.linkedin.com\/organization-guest\/company\/european-union-agency-for-cybersecurity-enisa\" rel=\"noopener\" target=\"_blank\"><svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" fill=\"none\"><path d=\"M29.6313 0H2.3625C1.05625 0 0 1.03125 0 2.30625V29.6875C0 30.9625 1.05625 32 2.3625 32H29.6313C30.9375 32 32 30.9625 32 29.6938V2.30625C32 1.03125 30.9375 0 29.6313 0ZM9.49375 27.2687H4.74375V11.9937H9.49375V27.2687ZM7.11875 9.9125C5.59375 9.9125 4.3625 8.68125 4.3625 7.1625C4.3625 5.64375 5.59375 4.4125 7.11875 4.4125C8.6375 4.4125 9.86875 5.64375 9.86875 7.1625C9.86875 8.675 8.6375 9.9125 7.11875 9.9125ZM27.2687 27.2687H22.525V19.8438C22.525 18.075 22.4937 15.7937 20.0562 15.7937C17.5875 15.7937 17.2125 17.725 17.2125 19.7188V27.2687H12.475V11.9937H17.025V14.0813H17.0875C17.7188 12.8813 19.2688 11.6125 21.575 11.6125C26.3813 11.6125 27.2687 14.775 27.2687 18.8875V27.2687Z\" fill=\"white\"><\/path><\/svg><\/a><a href=\"https:\/\/www.youtube.com\/user\/ENISAvideos\" rel=\"noopener\" target=\"_blank\"><svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"32\" height=\"24\" viewBox=\"0 0 32 24\" fill=\"white\"><path d=\"M31.6812 5.60015C31.6812 5.60015 31.3688 3.3939 30.4062 2.42515C29.1875 1.15015 27.825 1.1439 27.2 1.0689C22.725 0.743896 16.0063 0.743896 16.0063 0.743896H15.9937C15.9937 0.743896 9.275 0.743896 4.8 1.0689C4.175 1.1439 2.8125 1.15015 1.59375 2.42515C0.63125 3.3939 0.325 5.60015 0.325 5.60015C0.325 5.60015 0 8.1939 0 10.7814V13.2064C0 15.7939 0.31875 18.3876 0.31875 18.3876C0.31875 18.3876 0.63125 20.5939 1.5875 21.5626C2.80625 22.8376 4.40625 22.7939 5.11875 22.9314C7.68125 23.1751 16 23.2501 16 23.2501C16 23.2501 22.725 23.2376 27.2 22.9189C27.825 22.8439 29.1875 22.8376 30.4062 21.5626C31.3688 20.5939 31.6812 18.3876 31.6812 18.3876C31.6812 18.3876 32 15.8001 32 13.2064V10.7814C32 8.1939 31.6812 5.60015 31.6812 5.60015ZM12.6938 16.1501V7.1564L21.3375 11.6689L12.6938 16.1501Z\" fill=\"white\"><\/path><\/svg><\/a><\/div><\/div>",
+        "body_format": "full_html"
+    },
+    {
+        "bundle": "block",
+        "type": "basic",
+        "description": "Footer Agency",
+        "body_value": "<div class=\"d-flex justify-content-end align-items-center\"><img src=\"\/sites\/default\/files\/inline-images\/eu-flag.png\" data-align=\"left\" data-entity-uuid=\"6fa14e9c-969d-4c07-83b9-d52e5facb5c5\" data-entity-type=\"file\" alt=\"eu flag\" width=\"38\" height=\"26\"> <span class=\"ms-1\">ENISA is an agency of the European Union.&nbsp;<\/span><\/div>",
+        "body_format": "full_html"
+    },
+    {
+        "bundle": "block",
+        "type": "basic",
+        "description": "Footer Copyrights",
+        "body_value": "<p>\u00a9 2005-2025 by the European Union Agency for Cybersecurity.<br>EU Cybersecurity Index Platform v3.14.1<\/p>",
+        "body_format": "basic_html"
+    },
+    {
+        "bundle": "block",
+        "type": "basic",
+        "description": "European Union (Header)",
+        "body_value": "<div class=\"globan globan-dropdown-collapsed dark logo-flag d-flex justify-content-between align-items-center\" style=\"z-index:40;\" data-nosnippet=\"true\" id=\"globan\"><div class=\"globan-center\"><div class=\"globan-content\"><span>An official website of the European Union<\/span> <span>An official EU website<\/span> <a class=\"wt-link\" href=\"javascript:;\" id=\"wt-link\" aria-controls=\"globan-dropdown-nqacis1thwg\" aria-expanded=\"false\"><span class=\"\">How do you know?<\/span>&nbsp;<\/a><\/div><div class=\"globan-dropdown hidden\" id=\"globan-dropdown-enisa\" aria-hidden=\"true\"><p class=\"wt-paragraph\">All official European Union website addresses are in the <strong>europa.eu<\/strong>.<\/p><p class=\"wt-paragraph\"><a class=\"wt-link\" href=\"https:\/\/european-union.europa.eu\/institutions-law-budget\/institutions-and-bodies\/institutions-and-bodies-profiles_en\" rel=\"noopener\" target=\"_blank\" aria-expanded=\"false\">See all EU institutions and bodies&nbsp;<\/a><\/p><\/div><\/div><div id=\"language-switcher\">&nbsp;<\/div><\/div>",
+        "body_format": "full_html"
+    }
+]

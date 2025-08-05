@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @file
+ * Index and survey configuration management module.
+ */
+
+/**
+ * Implements hook_theme().
+ *
+ * This hook is rendering a twig template.
+ */
+function index_and_survey_configuration_management_theme() {
+  return [
+    'manage-configuration' => [
+      'variables' => [
+        'years' => NULL,
+        'publishedIndex' => NULL,
+        'publishedSurvey' => NULL,
+        'canPreviewSurvey' => NULL,
+      ],
+    ],
+    'manage-indicator-survey' => [
+      'variables' => [
+        'canPreviewIndicator' => NULL,
+        'canPreviewSurvey' => NULL,
+        'canLoadLastIndicatorSurvey' => NULL,
+        'indicator_data' => NULL,
+        'indicator_survey_data' => NULL,
+      ],
+    ],
+  ];
+}

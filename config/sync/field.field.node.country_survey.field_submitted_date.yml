@@ -1,0 +1,19 @@
+uuid: 49e45425-52a1-4f23-aadb-c596d723ba16
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_submitted_date
+    - node.type.country_survey
+id: node.country_survey.field_submitted_date
+field_name: field_submitted_date
+entity_type: node
+bundle: country_survey
+label: 'Submitted Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

@@ -1,0 +1,21 @@
+uuid: bdd22b7a-3728-410e-854c-d9c3eecb19be
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_answers_loaded
+    - node.type.survey_indicator
+id: node.survey_indicator.field_answers_loaded
+field_name: field_answers_loaded
+entity_type: node
+bundle: survey_indicator
+label: 'Answers Loaded'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

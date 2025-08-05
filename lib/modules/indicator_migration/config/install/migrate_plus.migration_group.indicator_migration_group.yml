@@ -1,0 +1,9 @@
+id: indicator_migration_group
+label: 'Indicator Migration Group'
+description: 'Migration group for indicators. Migration creates indicator nodes.'
+source_type: mysql
+shared_configuration: null
+dependencies:
+  enforced:
+    module:
+      - indicator_migration

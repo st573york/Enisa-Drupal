@@ -1,0 +1,10 @@
+{
+    "name": "digit/country_survey_migration",
+    "type": "drupal-custom-module",
+    "description": "Provides country_survey_migration package.",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "drupal/core": "^10 || ^11"
+    }
+}

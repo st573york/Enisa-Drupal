@@ -1,0 +1,19 @@
+uuid: 864d0d0d-657e-4406-a00c-316732993a69
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_rc_submitted_date
+    - node.type.country_survey
+id: node.country_survey.field_rc_submitted_date
+field_name: field_rc_submitted_date
+entity_type: node
+bundle: country_survey
+label: 'Requested Changes Submitted Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

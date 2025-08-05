@@ -1,0 +1,45 @@
+id: indicator_migration
+label: 'Indicator Migration'
+migration_group: indicator_migration_group
+
+source:
+  plugin: indicator_sql
+  key: enisa
+
+process:
+  uid:
+    plugin: user_lookup
+    source: NULL
+    username: 'admin'
+  field_order: order
+  field_validated: validated
+  title: name
+  field_short_name: short_name
+  field_description: description
+  field_default_subarea:
+    plugin: subarea_lookup
+    additional_fields:
+      subarea_name: subarea_name
+      subarea_identifier: subarea_identifier
+      year: year
+  field_default_weight: default_weight
+  field_algorithm: algorithm
+  field_source: source
+  field_comment: comment
+  field_identifier: identifier
+  field_report_year: report_year
+  field_category: category
+  field_year: year
+  field_clone_year: clone_year
+  type:
+    plugin: default_value
+    default_value: indicator
+
+destination:
+  plugin: entity:node
+  default_bundle: indicator
+  update_existing: false
+
+migration_dependencies:
+  required:
+    - subarea_migration

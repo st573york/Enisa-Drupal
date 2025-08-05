@@ -1,0 +1,20 @@
+uuid: ee912b06-7937-4cd1-b643-cf57981ab289
+langcode: en
+status: true
+dependencies:
+  theme:
+    - enisa
+_core:
+  default_config_hash: B6RfSGoyrgQ0o5bTFUtuSghG0EKJCWRYGMkq-Ijc944
+id: enisa_local_actions
+theme: enisa
+region: content
+weight: -2
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

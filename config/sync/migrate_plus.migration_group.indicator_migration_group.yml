@@ -1,0 +1,15 @@
+uuid: 443a381d-553d-4f82-b174-11c5695c87a1
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - indicator_migration
+_core:
+  default_config_hash: 1C3uS1CiqL116myX2tD-g5Cl4MzsCkOpNyjha1PiB3Q
+id: indicator_migration_group
+label: 'Indicator Migration Group'
+description: 'Migration group for indicators. Migration creates indicator nodes.'
+source_type: mysql
+module: null
+shared_configuration: null

@@ -1,0 +1,29 @@
+uuid: b9cbc98d-b011-4745-84b0-a5876d60fc37
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_indicator
+    - node.type.indicator
+    - node.type.survey_indicator
+id: node.survey_indicator.field_indicator
+field_name: field_indicator
+entity_type: node
+bundle: survey_indicator
+label: Indicator
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      indicator: indicator
+    sort:
+      field: field_identifier
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

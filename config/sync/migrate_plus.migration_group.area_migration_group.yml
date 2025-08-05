@@ -1,0 +1,15 @@
+uuid: ca360357-518b-4e52-adb5-7c3c642120da
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - area_migration
+_core:
+  default_config_hash: xLM3Dfb-tcvmj77ab-2c1WkbZVRLYU3gHJ9TONt7_PQ
+id: area_migration_group
+label: 'Area Migration Group'
+description: 'Migration group for areas. Migration creates area nodes.'
+source_type: mysql
+module: null
+shared_configuration: null

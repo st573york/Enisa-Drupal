@@ -1,0 +1,9 @@
+id: country_survey_migration_group
+label: 'Country Survey Migration Group'
+description: 'Migration group for country_surveys. Migration creates country_survey nodes.'
+source_type: mysql
+shared_configuration: null
+dependencies:
+  enforced:
+    module:
+      - country_survey_migration

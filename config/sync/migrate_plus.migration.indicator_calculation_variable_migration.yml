@@ -1,0 +1,45 @@
+uuid: 5e841c07-7c06-497e-842d-1162d88083e1
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: D8iNgp4qMi01jVy7w0FYX69H36vqEAZTgEslAxXBQXo
+id: indicator_calculation_variable_migration
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: indicator_calculation_variable_migration_group
+label: 'Indicator Calculation Variable Migration'
+source:
+  plugin: indicator_calculation_variable_sql
+  key: enisa
+process:
+  id: id
+  indicator_id:
+    plugin: indicator_lookup
+    additional_fields:
+      indicator_name: indicator_name
+      indicator_identifier: indicator_identifier
+      indicator_year: indicator_year
+  question_id: question_id
+  algorithm: algorithm
+  type:
+    plugin: question_type_lookup
+    source: type
+  neutral_score: neutral_score
+  predefined_divider: predefined_divider
+  normalize: normalize
+  inverse_value: inverse_value
+  custom_function_name: custom_function_name
+destination:
+  plugin: table
+  table_name: indicator_calculation_variables
+  id_fields:
+    id:
+      type: integer
+idMap: {  }
+migration_dependencies:
+  required:
+    - indicator_migration
+include: null

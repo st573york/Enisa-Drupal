@@ -1,0 +1,32 @@
+uuid: 275ace3f-db8d-46b2-bf72-eebd70290b4e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.eu_index.field_description
+    - field.field.node.eu_index.field_index
+    - field.field.node.eu_index.field_json_data
+    - field.field.node.eu_index.field_report_date
+    - field.field.node.eu_index.field_report_json_data
+    - node.type.eu_index
+  module:
+    - user
+id: node.eu_index.teaser
+targetEntityType: node
+bundle: eu_index
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_description: true
+  field_index: true
+  field_json_data: true
+  field_report_date: true
+  field_report_json_data: true
+  langcode: true
+  search_api_excerpt: true

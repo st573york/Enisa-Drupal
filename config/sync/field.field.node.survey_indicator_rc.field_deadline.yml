@@ -1,0 +1,21 @@
+uuid: 935653f1-2558-4bb5-bf8d-f0422438f0c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_deadline
+    - node.type.survey_indicator_rc
+  module:
+    - datetime
+id: node.survey_indicator_rc.field_deadline
+field_name: field_deadline
+entity_type: node
+bundle: survey_indicator_rc
+label: Deadline
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

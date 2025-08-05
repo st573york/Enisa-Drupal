@@ -1,0 +1,29 @@
+uuid: 6722d4f5-8529-4cba-8242-62e703c94318
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_survey
+    - node.type.country_survey
+    - node.type.survey
+id: node.country_survey.field_survey
+field_name: field_survey
+entity_type: node
+bundle: country_survey
+label: Survey
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      survey: survey
+    sort:
+      field: field_year
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

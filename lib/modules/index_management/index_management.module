@@ -1,0 +1,36 @@
+<?php
+
+/**
+ * @file
+ * Index management module.
+ */
+
+/**
+ * Implements hook_theme().
+ *
+ * This hook is rendering a twig template.
+ */
+function index_management_theme() {
+  return [
+    'visualisation' => [
+      'variables' => [
+        'is_admin' => NULL,
+        'years' => NULL,
+      ],
+    ],
+    'reports-and-data' => [
+      'variables' => [
+        'is_admin' => NULL,
+        'is_enisa' => NULL,
+        'years' => NULL,
+        'loaded_index_data' => NULL,
+        'countries_index' => NULL,
+        'data_available' => NULL,
+        'data' => NULL,
+      ],
+    ],
+    'manage-indexes' => [
+      'variables' => [],
+    ],
+  ];
+}

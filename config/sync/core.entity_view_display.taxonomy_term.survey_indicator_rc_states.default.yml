@@ -1,0 +1,33 @@
+uuid: 2c425c1e-b43a-4c9a-8cf6-5fca27f836af
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.survey_indicator_rc_states.field_state_id
+    - taxonomy.vocabulary.survey_indicator_rc_states
+  module:
+    - text
+id: taxonomy_term.survey_indicator_rc_states.default
+targetEntityType: taxonomy_term
+bundle: survey_indicator_rc_states
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_state_id:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

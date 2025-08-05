@@ -1,0 +1,25 @@
+<form id="area-manage">
+  <input hidden id="item-action"/>
+  <input hidden id="item-route"/>
+  <div class="input-group row mb-3 required">
+    <label for="formName" class="col-form-label col-lg-4">{{ 'Name'|t }}</label>
+    <div class="col-lg-8">
+      <input class="form-control" type="text" name="title" id="formName" placeholder="Name" value="{{ selected_area ? selected_area.name : '' }}">
+      <div class="invalid-feedback"></div>
+    </div>
+  </div>
+  <div class="input-group row mb-3">
+    <label for="formDescription" class="col-form-label col-lg-4">{{ 'Description'|t }}</label>
+      <div class="col-lg-8">
+        <textarea class="form-control" name="description" id="formDescription" placeholder="Description" value="">{{ selected_area ? selected_area.description : '' }}</textarea>
+        <div class="invalid-feedback"></div>
+      </div>
+  </div>
+  <div class="input-group row mb-3 required">
+    <label for="formYear" class="col-form-label col-lg-4">{{ 'Weight'|t }}</label>
+    <div class="col-lg-8">
+      <input class="form-control" type="number" name="default_weight" id="formWeight" placeholder="Weight" value="{{ selected_area ? selected_area.weight : '1' }}">
+      <div class="invalid-feedback"></div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,22 @@
+uuid: cd3d4c5d-0725-4a36-a1fc-d6c1098000d6
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - enisa
+_core:
+  default_config_hash: '-0do_-GLeZWld5QLSXaIpqWhmlrJKyUW3DHZ3bS10gI'
+id: enisa_powered_by_drupal
+theme: enisa
+region: header
+weight: 0
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

@@ -1,0 +1,30 @@
+uuid: 26c25d42-ee37-4bc5-99c4-c37fbd785973
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:76e0d370-d375-461c-aa02-0a10c6d02d8f'
+  module:
+    - block_content
+    - system
+  theme:
+    - enisa
+id: enisa_footercopyrights
+theme: enisa
+region: third_footer
+weight: 0
+provider: null
+plugin: 'block_content:76e0d370-d375-461c-aa02-0a10c6d02d8f'
+settings:
+  id: 'block_content:76e0d370-d375-461c-aa02-0a10c6d02d8f'
+  label: 'Footer Copyrights'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/*'

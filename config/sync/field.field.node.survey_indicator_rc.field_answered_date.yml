@@ -1,0 +1,19 @@
+uuid: 87ecf086-b8c6-4102-a236-fa4050005239
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_answered_date
+    - node.type.survey_indicator_rc
+id: node.survey_indicator_rc.field_answered_date
+field_name: field_answered_date
+entity_type: node
+bundle: survey_indicator_rc
+label: 'Answered Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

@@ -1,0 +1,23 @@
+uuid: e30b11e8-ff57-4a7a-9447-501a5e268084
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_identifier
+    - node.type.area
+id: node.area.field_identifier
+field_name: field_identifier
+entity_type: node
+bundle: area
+label: Identifier
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

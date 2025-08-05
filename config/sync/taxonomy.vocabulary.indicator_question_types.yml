@@ -1,0 +1,9 @@
+uuid: 85f809f4-97b5-4be3-9574-240d82590bab
+langcode: en
+status: true
+dependencies: {  }
+name: 'Indicator Question Types'
+vid: indicator_question_types
+description: 'List of indicator question types'
+weight: -6
+new_revision: false

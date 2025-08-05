@@ -1,0 +1,9 @@
+id: indicator_accordion_migration_group
+label: 'Indicator Accordion Migration Group'
+description: 'Migration group for indicator_accordions. Migration creates indicator_accordion nodes.'
+source_type: mysql
+shared_configuration: null
+dependencies:
+  enforced:
+    module:
+      - indicator_accordion_migration

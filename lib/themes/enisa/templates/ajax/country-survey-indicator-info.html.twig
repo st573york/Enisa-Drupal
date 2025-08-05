@@ -1,0 +1,18 @@
+<input hidden id="item-data"/>
+<input hidden id="item-action"/>
+<input hidden id="item-route"/>
+<div class="row">
+    <div class="col-12">
+        {% set count = 0 %}
+        <div>{{ survey_indicator_data.indicator.algorithm|raw }}</div>
+        {% for accordion in survey_indicator_data.accordions %}
+            <div class="mt-3 mb-3">
+                <h6>{{ accordion.title|raw }}</h6>
+            </div>
+            {% for question in accordion.questions %}
+                {% set count = count + 1 %}
+                <div class="mt-3">{{ survey_indicator_data.indicator.order }}.{{ count }}. {{ question.title|raw }}</div>
+            {% endfor %}
+        {% endfor %}
+    </div>
+</div>

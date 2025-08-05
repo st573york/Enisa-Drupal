@@ -1,0 +1,10 @@
+{
+    "name": "digit/country_survey_management",
+    "type": "drupal-custom-module",
+    "description": "Provides country_survey_management package.",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "drupal/core": "^10 || ^11"
+    }
+}

@@ -1,0 +1,24 @@
+uuid: 1da3bdbb-8f39-42e9-bfc6-9e86885ed0b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_algorithm
+    - filter.format.basic_html
+    - node.type.indicator
+  module:
+    - text
+id: node.indicator.field_algorithm
+field_name: field_algorithm
+entity_type: node
+bundle: indicator
+label: Algorithm
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

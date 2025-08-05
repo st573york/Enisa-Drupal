@@ -1,0 +1,274 @@
+country_survey_management.manage-user-surveys:
+  path: '/survey/user/management'
+  defaults:
+    _controller: '\Drupal\country_survey_management\Controller\CountrySurveyThemeController::manageUserSurveys'
+    _title: 'Manage user surveys data'
+  requirements:
+    _permission: 'manage user surveys'
+
+country_survey_management.view-country-survey:
+  path: '/country/survey/view/{country_survey_id}'
+  defaults:
+    _controller: '\Drupal\country_survey_management\Controller\CountrySurveyThemeController::viewCountrySurvey'
+    _title: 'View country survey data'
+  requirements:
+    _permission: 'view country survey'
+    country_survey_id: \d+
+  methods: [POST]
+
+country_survey_management.load-country-survey-indicator-answers:
+  path: '/country/survey/indicator/answers/load/{country_survey_id}'
+  defaults:
+    _controller: '\Drupal\country_survey_management\Controller\CountrySurveyActionController::loadCountrySurveyIndicatorAnswers'
+    _title: 'Load country survey indicator answers'
+  requirements:
+    _permission: 'load country survey indicator answers'
+    country_survey_id: \d+
+  options:
+    _format: 'json'
+  methods: [POST]
+
+country_survey_management.reset-country-survey-indicator-answers:
+  path: '/country/survey/indicator/answers/reset/{country_survey_id}'
+  defaults:
+    _controller: '\Drupal\country_survey_management\Controller\CountrySurveyActionController::resetCountrySurveyIndicatorAnswers'
+    _title: 'Reset country survey indicator answers'
+  requirements:
+    _permission: 'reset country survey indicator answers'
+    country_survey_id: \d+
+  options:
+    _format: 'json'
+  methods: [POST]
+
+country_survey_management.save-country-survey:
+  path: '/country/survey/save/{country_survey_id}'
+  defaults:
+    _controller: '\Drupal\country_survey_management\Controller\CountrySurveyActionController::saveCountrySurvey'
+    _title: 'Save country survey data'
+  requirements:
+    _permission: 'save country survey'
+    country_survey_id: \d+
+  methods: [POST]
+
+country_survey_management.validate-country-survey-indicator:
+  path: '/country/survey/indicator/validate/{country_survey_id}'
+  defaults:
+    _controller: '\Drupal\country_survey_management\Controller\CountrySurveyActionController::validateCountrySurveyIndicator'
+    _title: 'Validate country survey indicator data'
+  requirements:
+    _permission: 'validate country survey indicator'
+    country_survey_id: \d+
+  methods: [POST]
+
+country_survey_management.preview-country-survey:
+  path: '/country/survey/preview/{indicator_id?}'
+  defaults:
+    _controller: '\Drupal\country_survey_management\Controller\CountrySurveyTwigController::previewCountrySurvey'
+    _title: 'Preview country survey data'
+    indicator_id: null
+  requirements:
+    _permission: 'preview country survey'
+  options:
+    _format: 'json'
+
+country_survey_management.validate-country-survey-offline:
+  path: '/country/survey/offline/validate/{country_survey_id}'
+  defaults:
+    _controller: '\Drupal\country_survey_management\Controller\CountrySurveyActionController::validateCountrySurveyOffline'
+    _title: 'Validate country survey offline'
+  requirements:
+    _permission: 'validate country survey offline'
+  options:
+    _format: 'json'
+    country_survey_id: \d+
+
+country_survey_management.upload-country-survey:
+  path: '/country/survey/upload/{country_survey_id}'
+  defaults:
+    _controller: '\Drupal\country_survey_management\Controller\CountrySurveyActionController::uploadCountrySurvey'
+    _title: 'Upload country survey'
+  requirements:
+    _permission: 'upload country survey'
+  options:
+    _format: 'json'
+    country_survey_id: \d+
+  methods: [POST]
+
+country_survey_management.manage-survey-dashboard:
+  path: '/survey/dashboard/management/{survey_id}'
+  defaults:
+    _controller: '\Drupal\country_survey_management\Controller\CountrySurveyThemeController::manageSurveyDashboard'
+    _title: 'Manage survey dashboard'
+  requirements:
+    _permission: 'manage survey dashboard'
+    survey_id: \d+
+
+country_survey_management.list-survey-dashboard:
+  path: '/survey/dashboard/management/list/{survey_id}'
+  defaults:
+    _controller: '\Drupal\country_survey_management\Controller\CountrySurveyDatatableController::listSurveyDashboard'
+    _title: 'List survey dashboard data'
+  requirements:
+    _permission: 'list survey dashboard'
+    survey_id: \d+
+  options:
+    _format: 'json'
+
+country_survey_management.manage-country-survey-dashboard:
+  path: '/country/survey/dashboard/management/{country_survey_id}'
+  defaults:
+    _controller: '\Drupal\country_survey_management\Controller\CountrySurveyThemeController::manageCountrySurveyDashboard'
+    _title: 'Manage country survey dashboard'
+  requirements:
+    _permission: 'manage country survey dashboard'
+    country_survey_id: \d+
+
+country_survey_management.list-country-survey-dashboard:
+  path: '/country/survey/dashboard/management/list/{country_survey_id}'
+  defaults:
+    _controller: '\Drupal\country_survey_management\Controller\CountrySurveyDatatableController::listCountrySurveyDashboard'
+    _title: 'List country survey dashboard'
+  requirements:
+    _permission: 'list country survey dashboard'
+    country_survey_id: \d+
+  options:
+    _format: 'json'
+
+country_survey_management.get-country-survey-indicator-info:
+  path: '/country/survey/dashboard/management/indicator/info/{indicator_id}'
+  defaults:
+    _controller: '\Drupal\country_survey_management\Controller\CountrySurveyTwigController::getCountrySurveyIndicatorInfo'
+    _title: 'Get country survey indicator info data'
+  requirements:
+    _permission: 'get country survey indicator info'
+    indicator_id: \d+
+  options:
+    _format: 'json'
+
+country_survey_management.get-country-survey-single-indicator:
+  path: '/country/survey/dashboard/management/indicator/single/edit/{indicator_id}'
+  defaults:
+    _controller: '\Drupal\country_survey_management\Controller\CountrySurveyTwigController::getCountrySurveyIndicatorData'
+    _title: 'Get country survey single indicator data'
+  requirements:
+    _permission: 'get country survey single indicator'
+    indicator_id: \d+
+  options:
+    _format: 'json'
+
+country_survey_management.get-country-survey-multiple-indicators:
+  path: '/country/survey/dashboard/management/indicator/multiple/edit'
+  defaults:
+    _controller: '\Drupal\country_survey_management\Controller\CountrySurveyTwigController::getCountrySurveyIndicatorsData'
+    _title: 'Get country survey multiple indicators data'
+  requirements:
+    _permission: 'get country survey multiple indicators'
+  options:
+    _format: 'json'
+
+country_survey_management.update-country-survey-single-indicator:
+  path: '/country/survey/dashboard/management/indicator/single/update/{indicator_id}'
+  defaults:
+    _controller: '\Drupal\country_survey_management\Controller\CountrySurveyActionController::updateCountrySurveyIndicator'
+    _title: 'Update country survey single indicator data'
+  requirements:
+    _permission: 'update country survey single indicator'
+    indicator_id: \d+
+  options:
+    _format: 'json'
+  methods: [POST]
+
+country_survey_management.update-country-survey-multiple-indicator:
+  path: '/country/survey/dashboard/management/indicator/multiple/update'
+  defaults:
+    _controller: '\Drupal\country_survey_management\Controller\CountrySurveyActionController::updateCountrySurveyIndicators'
+    _title: 'Update country survey multiple indicators data'
+  requirements:
+    _permission: 'update country survey multiple indicators'
+  options:
+    _format: 'json'
+  methods: [POST]
+
+country_survey_management.request-changes-country-survey-indicator:
+  path: '/country/survey/indicator/request_changes/{indicator_id}'
+  defaults:
+    _controller: '\Drupal\country_survey_management\Controller\CountrySurveyRequestChangeController::requestChangesCountrySurveyIndicator'
+    _title: 'Request changes country survey indicator'
+  requirements:
+    _permission: 'request changes country survey indicator'
+    indicator_id: \d+
+  methods: [POST]
+
+country_survey_management.discard-requested-changes-country-survey-indicator:
+  path: '/country/survey/indicator/discard_requested_changes/{indicator_id}'
+  defaults:
+    _controller: '\Drupal\country_survey_management\Controller\CountrySurveyRequestChangeController::discardRequestedChangesCountrySurveyIndicator'
+    _title: 'Discard requested changes country survey indicator'
+  requirements:
+    _permission: 'discard requested changes country survey indicator'
+    indicator_id: \d+
+  methods: [POST]
+
+country_survey_management.submit-country-survey-requested-changes:
+  path: '/country/survey/dashboard/management/submit_requested_changes'
+  defaults:
+    _controller: '\Drupal\country_survey_management\Controller\CountrySurveyRequestChangeController::submitCountrySurveyRequestedChanges'
+    _title: 'Submit country survey requested changes'
+  requirements:
+    _permission: 'submit country survey requested changes'
+  options:
+    _format: 'json'
+  methods: [POST]
+
+country_survey_management.finalise-country-survey:
+  path: '/country/survey/dashboard/management/finalise'
+  defaults:
+    _controller: '\Drupal\country_survey_management\Controller\CountrySurveyActionController::finaliseCountrySurvey'
+    _title: 'Finalise country survey'
+  requirements:
+    _permission: 'finalise country survey'
+  options:
+    _format: 'json'
+  methods: [POST]
+
+country_survey_management.view-country-survey-summary-data:
+  path: '/country/survey/dashboard/summarydata/{country_survey_id}'
+  defaults:
+    _controller: '\Drupal\country_survey_management\Controller\CountrySurveyThemeController::viewCountrySurveySummaryData'
+    _title: 'View country survey summary data'
+  requirements:
+    _permission: 'view country survey summary data'
+    country_survey_id: \d+
+
+country_survey_management.export-survey-excel-template:
+  path: '/survey/excel/template/export/{survey_id}'
+  defaults:
+    _controller: '\Drupal\country_survey_management\Controller\CountrySurveyExportController::exportSurveyExcelTemplate'
+    _title: 'Export survey excel template'
+  requirements:
+    _permission: 'export survey excel template'
+    survey_id: \d+
+  options:
+    _format: 'json'
+  methods: [POST]
+
+country_survey_management.export-survey-excel-with-answers:
+  path: '/survey/excel/with-answers/export/{survey_id}'
+  defaults:
+    _controller: '\Drupal\country_survey_management\Controller\CountrySurveyExportController::exportSurveyExcelWithAnswers'
+    _title: 'Export survey excel with answers'
+  requirements:
+    _permission: 'export survey excel with answers'
+    survey_id: \d+
+  options:
+    _format: 'json'
+  methods: [POST]
+
+country_survey_management.download-survey-excel:
+  path: '/survey/excel/download/{filename}'
+  defaults:
+    _controller: '\Drupal\country_survey_management\Controller\CountrySurveyExportController::downloadSurveyExcel'
+    _title: 'Download survey excel'
+  requirements:
+    _permission: 'download survey excel'
+    filename: '[A-Za-z0-9_.-]+'

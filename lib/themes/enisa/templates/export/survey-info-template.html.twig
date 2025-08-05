@@ -1,0 +1,21 @@
+<table>
+    <caption>Survey Info Template</caption>
+    <thead>
+        <tr>
+            <th></th>
+            <th style="font-weight: bold; font-size: 18px; color: #cb0538;">EU Cybersecurity Index</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr></tr>
+        <tr>
+            <td style="font-weight: bold; font-size: 14px;">List of Indicators</td>
+        </tr>
+        {% for indicator_data in indicators_data %}
+            <tr>
+                <td>{{ indicator_data.order }}</td>
+                <td>{{ indicator_data.name }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

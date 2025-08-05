@@ -1,0 +1,18 @@
+uuid: a0d93f34-f502-459d-80df-95f9797ec87c
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'EU Index'
+type: eu_index
+description: 'EU index content type'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

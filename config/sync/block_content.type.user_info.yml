@@ -1,0 +1,8 @@
+uuid: 045e0b93-6faf-446d-bf93-4676c0040b70
+langcode: en
+status: true
+dependencies: {  }
+id: user_info
+label: 'User info'
+revision: false
+description: 'Display username, user email and user country'

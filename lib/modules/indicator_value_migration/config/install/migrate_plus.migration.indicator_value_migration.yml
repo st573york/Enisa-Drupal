@@ -1,0 +1,32 @@
+id: indicator_value_migration
+label: 'Indicator Value Migration'
+migration_group: indicator_value_migration_group
+
+source:
+  plugin: indicator_value_sql
+  key: enisa
+
+process:
+  id: id
+  indicator_id:
+    plugin: indicator_lookup
+    additional_fields:
+      indicator_name: indicator_name
+      indicator_identifier: indicator_identifier
+      indicator_year: indicator_year
+  country_id:
+    plugin: country_lookup_by_name
+    source: country_name
+  value: value
+  year: year
+
+destination:
+  plugin: table
+  table_name: indicator_values
+  id_fields:
+    id:
+      type: integer
+
+migration_dependencies:
+  required:
+    - indicator_migration

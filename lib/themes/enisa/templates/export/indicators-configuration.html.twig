@@ -1,0 +1,64 @@
+<table>
+    <caption>Indicator Export</caption>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Short Name</th>
+            <th>Description</th>
+            <th>Number</th>
+            <th>Source</th>
+            <th>Category</th>
+            <th>Algorithm</th>
+            <th>Comment</th>
+            <th>Direction</th>
+            <th>New Indicator</th>
+            <th>Min Max 0037_1</th>
+            <th>Min Max</th>
+            <th>Predefined Divider</th>
+            <th>Normalize</th>
+            <th>Inverse Value</th>
+            <th>Report Year</th>
+            <th>Subarea</th>
+            <th>Weight</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for indicator_data in indicators_data %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ indicator_data.name }}</td>
+                <td>{{ indicator_data.short_name }}</td>
+                <td>{{ indicator_data.description }}</td>
+                <td>{{ indicator_data.identifier }}</td>
+                <td>{{ indicator_data.source }}</td>
+                <td>{{ indicator_data.category }}</td>
+                <td>{{ indicator_data.algorithm }}</td>
+                <td>{{ indicator_data.comment }}</td>
+                {% if indicator_data.disclaimers is not empty %}
+                    <td>{{ indicator_data.disclaimers.direction }}</td>
+                    <td>{{ indicator_data.disclaimers.new_indicator }}</td>
+                    <td>{{ indicator_data.disclaimers.min_max_0037_1 }}</td>
+                    <td>{{ indicator_data.disclaimers.min_max }}</td>
+                {% else %}
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                {% endif %}
+                {% if indicator_data.calculation_variables is not empty %}
+                    <td>{{ indicator_data.calculation_variables.predefined_divider }}</td>
+                    <td>{{ indicator_data.calculation_variables.normalize }}</td>
+                    <td>{{ indicator_data.calculation_variables.inverse_value }}</td>
+                {% else %}
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                {% endif %}
+                <td>{{ indicator_data.report_year }}</td>
+                <td>{{ indicator_data.subarea is not empty ? indicator_data.subarea.name : '-' }}</td>
+                <td>{{ indicator_data.default_weight }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

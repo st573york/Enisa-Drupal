@@ -1,0 +1,79 @@
+{{ attach_library('enisa/main') }}
+{{ attach_library('enisa/survey-dashboard') }}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item"><a href="/survey/management">{{ 'Surveys'|t }}</a></li>
+      <li class="breadcrumb-item active">{{ 'Survey Dashboard'|t }} - {{ survey_data.title }}</li>
+  </ol>
+</nav>
+
+<h1>{{ 'Survey Dashboard'|t }} - {{ survey_data.title }}</h1>
+
+<main id="enisa-main" class="bg-white">
+  <div class="container-fluid ">
+
+    <div class="row mt-5">
+      <div class="col-12 ps-0 pe-0">
+        <div class="table-section col-12 mt-2">
+          <div class="row">
+            <div class="col-12">
+              <div class="d-flex gap-2">
+                <div>
+                  <h2 class="mt-2">{{ 'Survey'|t }} -</h2>
+                </div>
+                <div class="mt-1">
+                  <select class="form-select loaded-survey" name="loaded_survey" id="survey-year-select">
+                    {% for survey in published_surveys %}
+                      <option value={{ survey.id }} data-year="{{ survey.year }}" {{ survey.id == survey_data.id ? 'selected' : '' }}>{{ survey.title }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-12 ps-0 pe-0">
+        <div class="table-section col-12 mt-2">
+          <h2 class="mb-2">Dashboard</h2>
+          <table id="survey-dashboard-table" class="display enisa-table-group">
+            <thead>
+              <tr>
+                <th>{{ 'Country'|t }}</th>
+                <th>{{ 'Progress'|t }}</th>
+                <th>{{ 'Status'|t }}</th>
+                <th>{{ 'PPoC'|t }}</th>
+                <th>{{ 'Survey Submission'|t }}</th>
+                <th>{{ 'Requests Submission'|t }}</th>
+                <th>{{ 'Requests Deadline'|t }}</th>
+                <th></th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="pageModal" tabindex="-1" aria-labelledby="pageModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header p-3">
+            <h5 class="modal-title" id="pageModalLabel"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body p-3"></div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-enisa" data-bs-dismiss="modal">{{ 'Close'|t }}</button>
+            <button type="button" class="btn btn-enisa process-data" id='process-data'></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>

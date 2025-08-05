@@ -1,0 +1,23 @@
+<table>
+    <caption>EU Wide - Indicator Values</caption>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Source</th>
+            <th>Year</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for identifier, indicator_value in indicator_values_data %}
+            <tr>
+                <td>{{ identifier }}</td>
+                <td>{{ indicator_value.name }}</td>
+                <td>{{ indicator_value.source }}</td>
+                <td>{{ indicator_value.year }}</td>
+                <td>{{ indicator_value.value }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

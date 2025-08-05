@@ -1,0 +1,20 @@
+uuid: 596e2b21-0a61-4394-b9d4-e94edd0a4419
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_indicator_prev_state
+field_name: field_indicator_prev_state
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,15 @@
+uuid: 0664f075-cb3d-423a-a5f2-f00a05eb1f87
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - indicator_disclaimer_migration
+_core:
+  default_config_hash: Fy8ctepGjv2wwItsu9vVFSc7JxBep8V1XQqdPvwlGbc
+id: indicator_disclaimer_migration_group
+label: 'Indicator Disclaimer Migration Group'
+description: 'Migration group for indicator disclaimers. Migration creates record in indicator_disclaimers table.'
+source_type: mysql
+module: null
+shared_configuration: null

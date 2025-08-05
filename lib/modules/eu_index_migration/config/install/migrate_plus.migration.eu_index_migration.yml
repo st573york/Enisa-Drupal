@@ -1,0 +1,40 @@
+id: eu_index_migration
+label: 'EU Index Migration'
+migration_group: eu_index_migration_group
+
+source:
+  plugin: eu_index_sql
+  key: enisa
+
+process:
+  uid:
+    plugin: user_lookup
+    source: NULL
+    username: 'admin'
+  title: name
+  field_description/value: description
+  field_description/format:
+    plugin: default_value
+    default_value: basic_html
+  field_index:
+    plugin: index_lookup_by_name
+    source: index_name
+  field_json_data: json_data
+  field_report_json_data: report_json
+  field_report_date:
+    plugin: format_date
+    source: report_date
+    from_format: 'Y-m-d H:i:s'
+    to_format: 'U'
+  type:
+    plugin: default_value
+    default_value: eu_index
+
+destination:
+  plugin: entity:node
+  default_bundle: eu_index
+  update_existing: false
+
+migration_dependencies:
+  required:
+    - index_migration

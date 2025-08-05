@@ -1,0 +1,18 @@
+uuid: 7915329b-5d16-4bfc-85b9-2ad4b1063a67
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Survey Indicator Requested Change'
+type: survey_indicator_rc
+description: 'Survey indicator requested change content type'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

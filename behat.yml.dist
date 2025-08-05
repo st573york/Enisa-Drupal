@@ -1,0 +1,52 @@
+default:
+  suites:
+    default:
+      paths:
+        - '%paths.base%/tests/features'
+      contexts:
+        - Drupal\DrupalExtension\Context\DrushContext
+        - Drupal\DrupalExtension\Context\MarkupContext
+        - Drupal\DrupalExtension\Context\MessageContext
+        - Drupal\DrupalExtension\Context\MinkContext
+        - Digit\Site\Tests\Behat\DrupalContext
+        - Digit\Site\Tests\Behat\FeatureContext
+      filters:
+        tags: '~@wip&&${toolkit.test.behat.tags.clone}'
+  extensions:
+    Drupal\MinkExtension:
+      browserkit_http: ~
+      ajax_timeout: 10
+      browser_name: '${selenium.browser}'
+      javascript_session: 'selenium2'
+      selenium2:
+        wd_host: '${selenium.host}:${selenium.port}/wd/hub'
+        capabilities: { 'browser': '${selenium.browser}', 'version': '*', '${selenium.browser}': {'switches':['--start-maximized','--start-fullscreen']}}
+      base_url: '${toolkit.test.behat.base_url}'
+      files_path: '%paths.base%/tests/files'
+    Drupal\DrupalExtension:
+      api_driver: 'drupal'
+      drush:
+        alias: '@self'
+      drupal:
+        drupal_root: '${drupal.root}'
+      region_map:
+        page: 'body'
+        navigation: '#toolbar-item-administration-tray'
+        user_login_form: '#user-login-form'
+        user_register_form: '#user-register-form'
+      selectors:
+        message_selector: '.messages'
+        error_message_selector: '.messages--error'
+        success_message_selector: '.messages__content'
+        warning_message_selector: '.messages--warning'
+        login_form_selector: '#user-login-form'
+      text:
+        log_in: 'Log in'
+        log_out: 'Log out'
+  formatters:
+    progress:
+clean:
+  suites:
+    default:
+      filters:
+        tags: '~@wip&&${toolkit.test.behat.tags.clean}'

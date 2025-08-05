@@ -1,0 +1,23 @@
+<table>
+    <caption>Area Export</caption>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Number</th>
+            <th>Weight</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for area_data in areas_data %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ area_data.name }}</td>
+                <td>{{ area_data.description }}</td>
+                <td>{{ area_data.identifier }}</td>
+                <td>{{ area_data.weight }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

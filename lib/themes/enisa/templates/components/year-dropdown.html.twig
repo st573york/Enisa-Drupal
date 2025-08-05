@@ -1,0 +1,5 @@
+<select class="form-select" id="index-year-select">
+    {% for id, year in years %}
+        <option value="{{ year }}" data-id="{{ id }}" data-year="{{ year }}">{{ year }}</option>
+    {% endfor %}
+</select>

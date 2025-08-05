@@ -1,0 +1,19 @@
+uuid: 1f3660b9-9c5a-40d5-bc7d-6ffec7c37598
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_free_text
+    - node.type.survey_indicator_answer
+id: node.survey_indicator_answer.field_free_text
+field_name: field_free_text
+entity_type: node
+bundle: survey_indicator_answer
+label: 'Free Text'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

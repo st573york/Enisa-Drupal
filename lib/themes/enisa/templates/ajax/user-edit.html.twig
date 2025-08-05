@@ -1,0 +1,73 @@
+<form id="user-edit">
+    <input hidden id="item-route"/>
+    <div class="row">
+        {% if users|length == 1 %}
+            <div class="col-12 mb-2 required">
+                <label class="col-form-label" for="country-select">{{ 'Country'|t }}</label>
+                {% set db_country = users.0.country.id %}
+                <select class="form-select me-2" aria-label="{{ 'Country'|t }}" name="country" id="country-select">
+                    <option value="" selected disabled>{{ 'Choose...'|t }}</option>
+                    {% for country in countries %}
+                        <option value="{{ country.id }}" {% if db_country == country.id %}selected{% endif %}>{{ country.label }}</option>
+                    {% endfor %}
+                </select>
+                <div class="invalid-feedback"></div>
+            </div>
+            <div class="col-12 mb-2 required">
+                <label class="col-form-label" for="role-select">{{ 'Role'|t }}</label>
+                {% set db_role = users.0.role.id %}
+                <select class="form-select me-2" aria-label="{{ 'Role'|t }}" name="role" id="role-select">
+                    <option value="" selected disabled>{{ 'Choose...'|t }}</option>
+                    {% for role in roles %}
+                        <option value="{{ role.id }}" {% if db_role == role.id %}selected{% endif %}>{{ role.label }}</option>
+                    {% endfor %}
+                </select>
+                <div class="invalid-feedback"></div>
+            </div>
+        {% endif %}
+        <div class="col-12 d-flex flex-column">
+            <span>{{ 'Status'|t }}</span>
+            <div>
+                <div class="form-check form-switch d-flex gap-2 justify-content-start">
+                    {% set id = 'id="toggle-text"' %}
+                    {% set blocked = '<span ' ~ id ~ ' class="text-danger pt-1">' ~ 'Blocked'|t ~ '</span>' %}
+                    {% set enabled = '<span ' ~ id ~ ' class="pt-1">' ~ 'Enabled'|t ~ '</span>' %}
+                    <input class="form-check-input switch modal-switch
+                        {% if users|length == 1 and users.0.id == logged_in_user_data.id %}switch-deactivated{% endif %}"
+                        type="checkbox" name="blocked" id="status"
+                        {% if users|length == 1 and users.0.status == 'Blocked' %}checked{% endif %}>
+                    {% if users|length == 1 %}
+                        {% if users.0.status == 'Blocked' %}
+                            {{ blocked|raw }}
+                        {% else %}
+                            {{ enabled|raw }}
+                        {% endif %}
+                    {% else %}
+                        {{ enabled|raw }}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script>
+    var user_group = {{ USER_GROUP | json_encode | raw }};
+    
+    jQuery(function($) {
+        $(document).on('change', 'select[name="country"]', function() {
+            toggleRoles(user_group);
+        });
+
+        $(document).on('change', 'select[name="role"]', function() {
+            toggleCountries(user_group);
+        });
+
+        $(document).on('click', '.modal-switch', function() {
+            var checked = $(this).is(':checked');
+            $('#toggle-text')
+                .text(checked ? 'Blocked' : 'Enabled')
+                .toggleClass('text-danger', checked);
+        });
+    });
+</script>

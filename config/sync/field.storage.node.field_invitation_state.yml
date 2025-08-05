@@ -1,0 +1,20 @@
+uuid: 4e8d547b-71d5-402f-94a8-e105a679d5bf
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_invitation_state
+field_name: field_invitation_state
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

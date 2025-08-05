@@ -1,0 +1,21 @@
+uuid: 88e4b30c-bfe0-47ea-a97e-d906fabc6201
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_eu_published
+    - node.type.index
+id: node.index.field_eu_published
+field_name: field_eu_published
+entity_type: node
+bundle: index
+label: 'EU Published'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

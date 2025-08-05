@@ -1,0 +1,27 @@
+<table>
+    <caption>Subarea Export</caption>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Short Name</th>
+            <th>Description</th>
+            <th>Number</th>
+            <th>Area</th>
+            <th>Weight</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for subarea_data in subareas_data %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ subarea_data.name }}</td>
+                <td>{{ subarea_data.short_name }}</td>
+                <td>{{ subarea_data.description }}</td>
+                <td>{{ subarea_data.identifier }}</td>
+                <td>{{ subarea_data.area.name }}</td>
+                <td>{{ subarea_data.weight }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

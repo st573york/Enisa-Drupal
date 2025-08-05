@@ -1,0 +1,23 @@
+uuid: 85cd11e3-8733-4883-8d65-879656323856
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_identifier
+    - node.type.indicator
+id: node.indicator.field_identifier
+field_name: field_identifier
+entity_type: node
+bundle: indicator
+label: Identifier
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

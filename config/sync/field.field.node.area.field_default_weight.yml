@@ -1,0 +1,23 @@
+uuid: 7d138f9a-adbd-47da-8b99-1a41625c70ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_default_weight
+    - node.type.area
+id: node.area.field_default_weight
+field_name: field_default_weight
+entity_type: node
+bundle: area
+label: 'Default Weight'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

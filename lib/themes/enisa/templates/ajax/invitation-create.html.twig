@@ -1,0 +1,54 @@
+<form id="invitation-create">
+    <input hidden id="item-route"/>
+    <div class="row">
+        <div class="col-12 mb-2 required">
+            <label class="col-form-label" for="formFirstName">{{ 'First Name'|t }}</label>
+            <input class="form-control" type="text" name="firstname" id="formFirstName" placeholder="First Name">
+            <div class="invalid-feedback"></div>
+        </div>
+        <div class="col-12 mb-2 required">
+            <label class="col-form-label" for="formLastName">{{ 'Last Name'|t }}</label>
+            <input class="form-control" type="text" name="lastname" id="formLastName" placeholder="Last Name">
+            <div class="invalid-feedback"></div>
+        </div>
+        <div class="col-12 mb-2 required">
+            <label class="col-form-label" for="formEmailAddress">{{ 'Email Address'|t }}</label>
+            <input class="form-control" type="text" name="email" id="formEmailAddress" placeholder="Email Address">
+            <div class="invalid-feedback"></div>
+        </div>
+        <div class="col-12 mb-2 required">
+            <label class="col-form-label" for="country-select">{{ 'Country'|t }}</label>
+            <select class="form-select me-2" aria-label="Country" name="country" id="country-select">
+                <option value="" selected disabled>{{ 'Choose...'|t }}</option>
+                {% for country in countries %}
+                    <option value="{{ country.id }}">{{ country.label }}</option>
+                {% endfor %}
+            </select>
+            <div class="invalid-feedback"></div>
+        </div>
+        <div class="col-12 mb-2 required">
+            <label class="col-form-label" for="role-select">{{ 'Role'|t }}</label>
+            <select class="form-select me-2" aria-label="Role" name="role" id="role-select">
+                <option value="" selected disabled>{{ 'Choose...'|t }}</option>
+                {% for role in roles %}
+                    <option value="{{ role.id }}">{{ role.label }}</option>
+                {% endfor %}
+            </select>
+            <div class="invalid-feedback"></div>
+        </div>
+    </div>
+</form>
+
+<script>
+    var user_group = {{ USER_GROUP | json_encode | raw }};
+
+    jQuery(function($) {
+        $(document).on('change', 'select[name="country"]', function() {
+            toggleRoles(user_group);
+        });
+
+        $(document).on('change', 'select[name="role"]', function() {
+            toggleCountries(user_group);
+        });
+    });
+</script>

@@ -1,0 +1,9 @@
+id: eurostat_indicator_variable_migration_group
+label: 'Eurostat Indicator Variable Migration Group'
+description: 'Migration group for eurostat indicator variables. Migration creates record in eurostat_indicator_variables table.'
+source_type: mysql
+shared_configuration: null
+dependencies:
+  enforced:
+    module:
+      - eurostat_indicator_variable_migration

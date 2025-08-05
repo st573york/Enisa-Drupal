@@ -1,0 +1,36 @@
+uuid: 50addba2-d40a-4cfa-bb28-872f0a4f9a98
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.subarea.field_clone_year
+    - field.field.node.subarea.field_default_area
+    - field.field.node.subarea.field_default_weight
+    - field.field.node.subarea.field_description
+    - field.field.node.subarea.field_identifier
+    - field.field.node.subarea.field_short_name
+    - field.field.node.subarea.field_year
+    - node.type.subarea
+  module:
+    - user
+id: node.subarea.teaser
+targetEntityType: node
+bundle: subarea
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_clone_year: true
+  field_default_area: true
+  field_default_weight: true
+  field_description: true
+  field_identifier: true
+  field_short_name: true
+  field_year: true
+  langcode: true
+  search_api_excerpt: true

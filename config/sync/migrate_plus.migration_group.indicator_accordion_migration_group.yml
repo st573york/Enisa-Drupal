@@ -1,0 +1,15 @@
+uuid: 98739688-3cae-4406-877a-e6fbecb1f03c
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - indicator_accordion_migration
+_core:
+  default_config_hash: k3da8f3-ZV2iQoYWCiyLMHAI_VgbGB5JKEoPK1bsN3w
+id: indicator_accordion_migration_group
+label: 'Indicator Accordion Migration Group'
+description: 'Migration group for indicator_accordions. Migration creates indicator_accordion nodes.'
+source_type: mysql
+module: null
+shared_configuration: null

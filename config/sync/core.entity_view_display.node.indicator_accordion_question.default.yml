@@ -1,0 +1,98 @@
+uuid: e468edc0-fb9b-4735-a66f-8bea1d84d1c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.indicator_accordion_question.field_accordion
+    - field.field.node.indicator_accordion_question.field_answers_required
+    - field.field.node.indicator_accordion_question.field_compatible
+    - field.field.node.indicator_accordion_question.field_full_title
+    - field.field.node.indicator_accordion_question.field_info
+    - field.field.node.indicator_accordion_question.field_order
+    - field.field.node.indicator_accordion_question.field_reference_required
+    - field.field.node.indicator_accordion_question.field_type
+    - node.type.indicator_accordion_question
+  module:
+    - user
+id: node.indicator_accordion_question.default
+targetEntityType: node
+bundle: indicator_accordion_question
+mode: default
+content:
+  field_accordion:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 112
+    region: content
+  field_answers_required:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 116
+    region: content
+  field_compatible:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 115
+    region: content
+  field_full_title:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 112
+    region: content
+  field_info:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 114
+    region: content
+  field_order:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 111
+    region: content
+  field_reference_required:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 117
+    region: content
+  field_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 118
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

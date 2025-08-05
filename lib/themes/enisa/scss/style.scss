@@ -1,0 +1,42 @@
+$form-check-input-checked-bg-color: #000;
+
+// Sub theme styling.
+@import 'variables_drupal';
+
+// Bootstrap overridden variables.
+// @see https://getbootstrap.com/docs/5.2/customize/sass/#variable-defaults.
+@import 'variables_bootstrap';
+
+// Include bootstrap.
+@import '../../../../themes/contrib/bootstrap5/scss/style';
+
+// Include pages 
+@import 'pages/document.scss';
+
+// Include layout
+@import 'layout/footer.scss';
+@import 'layout/menu.scss';
+
+// Inculde breadcrumb
+@import 'layout/breadcrumb.scss';
+
+// Include general
+@import 'layout/general.scss';
+
+// Include main
+@import 'main/variables.scss';
+@import 'main/utilities.scss';
+@import 'main/enisa-style.scss';
+@import 'main/enisa-basic-style.scss';
+@import 'main/icons.scss';
+@import 'main/buttons.scss';
+@import 'main/modals.scss';
+@import 'main/select2.scss';
+@import 'main/configure-index-properties.scss';
+@import 'main/edit-index.scss';
+@import 'main/tinymce-style.scss';
+@import 'main/reports.scss';
+@import 'main/survey-builder.scss';
+@import 'main/survey-print.scss';
+
+@import 'main/dataTables.scss';

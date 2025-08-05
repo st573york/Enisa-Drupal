@@ -1,0 +1,9 @@
+uuid: 70a59efb-b591-4d8f-8ae0-382a1025efc6
+langcode: en
+status: true
+dependencies: {  }
+name: 'Indicator Question Choices'
+vid: indicator_question_choices
+description: 'List of indicator question choices'
+weight: -5
+new_revision: false

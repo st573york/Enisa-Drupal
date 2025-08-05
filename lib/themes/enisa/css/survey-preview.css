@@ -1,0 +1,7 @@
+.info-icon-black::after {
+  content: url('/sites/default/files/inline-images/info-icon-black.svg');
+}
+
+.tooltip-inner {
+  font-size: 0.75rem;
+}

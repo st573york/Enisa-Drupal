@@ -1,0 +1,124 @@
+<?php
+
+/**
+ * @file
+ * User managment module.
+ */
+
+use Drupal\user_management\Helper\UserHelper;
+use Drupal\user_management\Helper\UserPermissionsHelper;
+use Drupal\user\Entity\User;
+
+/**
+ * Get user data for preprocess hooks.
+ */
+function user_management_get_user_data() {
+  $entityTypeManager = \Drupal::entityTypeManager();
+  $dateFormatter = \Drupal::service('date.formatter');
+  $user = User::load(\Drupal::currentUser()->id());
+
+  $user_data = UserHelper::getUserData($entityTypeManager, $dateFormatter, $user);
+
+  $user_data = [
+    'user_id' => $user_data['id'],
+    'user_name' => $user_data['username'],
+    'user_full_name' => $user_data['name'],
+    'user_email' => $user_data['email'],
+    'user_country' => $user_data['country'],
+    'is_blocked' => ($user_data['status'] == 'Blocked') ? 1 : 0,
+    'is_enisa' => UserPermissionsHelper::isEnisa($entityTypeManager, $user, $dateFormatter),
+    'is_admin' => UserPermissionsHelper::isAdmin($entityTypeManager, $user),
+    'is_primary_poc' => UserPermissionsHelper::isPrimaryPoC($entityTypeManager, $user),
+    'is_poc' => UserPermissionsHelper::isPoC($entityTypeManager, $user),
+    'is_operator' => UserPermissionsHelper::isOperator($entityTypeManager, $user),
+    'is_viewer' => UserPermissionsHelper::isViewer($entityTypeManager, $user),
+  ];
+
+  return $user_data;
+}
+
+/**
+ * Implements hook_preprocess_views_view().
+ *
+ * This hook is triggered every time a view is being rendered.
+ */
+function user_management_preprocess_views_view(&$data) {
+  $user_data = user_management_get_user_data();
+
+  // Pass data to Twig templates.
+  $data = array_merge($data, $user_data);
+
+  // Pass data to javascript files.
+  $data['#attached']['drupalSettings']['userData'] = $user_data;
+
+  // Disable cache.
+  $data['#cache']['max-age'] = 0;
+}
+
+/**
+ * Implements hook_preprocess_page().
+ *
+ * This hook is triggered every time a page is being rendered.
+ */
+function user_management_preprocess_page(&$data) {
+  $user_data = user_management_get_user_data();
+
+  // Pass data to Twig templates.
+  $data = array_merge($data, $user_data);
+
+  // Pass data to javascript files.
+  $data['#attached']['drupalSettings']['userData'] = $user_data;
+
+  // Disable cache.
+  $data['#cache']['max-age'] = 0;
+}
+
+/**
+ * Implements hook_mail().
+ */
+function user_management_mail($key, &$message, $params) {
+  // Mark $key as intentionally unused.
+  unset($key);
+
+  $message['subject'] = $params['subject'];
+  $message['body'][] = $params['message'];
+}
+
+/**
+ * Implements hook_mail_alter().
+ */
+function user_management_mail_alter(&$message) {
+  $message['headers']['Content-Type'] = 'text/html; charset=UTF-8';
+}
+
+/**
+ * Implements hook_theme().
+ *
+ * This hook is rendering a twig template.
+ */
+function user_management_theme() {
+  $path = \Drupal::service('extension.list.theme')->get('enisa')->getPath() . '/templates/email';
+
+  return [
+    'manage-users' => [
+      'variables' => [],
+    ],
+    'account' => [
+      'variables' => [
+        'user_data' => NULL,
+        'countries' => NULL,
+      ],
+    ],
+    'user_access' => [
+      'variables' => [
+        'user' => NULL,
+        'status' => NULL,
+        'author_name' => NULL,
+        'author_email' => NULL,
+        'url' => NULL,
+      ],
+      'template' => 'user_access',
+      'path' => $path,
+    ],
+  ];
+}

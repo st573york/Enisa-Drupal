@@ -1,0 +1,66 @@
+id: indicator_requested_change_migration
+label: 'Indicator Requested Change Migration'
+migration_group: indicator_requested_change_migration_group
+
+source:
+  plugin: indicator_requested_change_sql
+  key: enisa
+
+process:
+  uid:
+    plugin: user_lookup
+    source: NULL
+    username: 'admin'
+  title: requested_to_name
+  field_country_survey:
+    plugin: country_survey_lookup
+    additional_fields:
+      survey_name: questionnaire_name
+      country_name: country_name
+  field_indicator:
+    plugin: indicator_lookup
+    additional_fields:
+      indicator_name: indicator_name
+      indicator_identifier: indicator_identifier
+      indicator_year: indicator_year
+  field_changes: changes
+  field_deadline: deadline
+  field_requested_user:
+    plugin: user_lookup
+    source: requested_by_email
+  field_assignee:
+    plugin: user_lookup
+    source: requested_to_email
+  field_requested_date:
+    plugin: format_date
+    source: requested_at
+    from_format: 'Y-m-d H:i:s'
+    to_format: 'U'
+  field_answered_date:
+    plugin: format_date
+    source: answered_at
+    from_format: 'Y-m-d H:i:s'
+    to_format: 'U'
+  field_survey_indicator_rc_state:
+    plugin: indicator_requested_change_state_lookup
+    source: state
+  field_indicator_prev_state:
+    plugin: indicator_state_lookup
+    source: indicator_previous_state
+  field_indicator_prev_assignee:
+    plugin: user_lookup
+    source: indicator_previous_assignee_email
+  type:
+    plugin: default_value
+    default_value: survey_indicator_rc
+
+destination:
+  plugin: entity:node
+  default_bundle: survey_indicator_rc
+  update_existing: false
+
+migration_dependencies:
+  required:
+    - user_migration
+    - country_survey_migration
+    - indicator_migration

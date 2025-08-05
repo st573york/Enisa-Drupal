@@ -1,0 +1,149 @@
+uuid: 912b5c7a-bf45-4c7e-8dd7-6f9c33d563a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.survey.field_assigned_indicators
+    - field.field.node.survey.field_assigned_users
+    - field.field.node.survey.field_deadline
+    - field.field.node.survey.field_description
+    - field.field.node.survey.field_index
+    - field.field.node.survey.field_published
+    - field.field.node.survey.field_year
+    - node.type.survey
+  module:
+    - datetime
+    - multiselect_dropdown
+    - path
+    - text
+id: node.survey.default
+targetEntityType: node
+bundle: survey
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_assigned_indicators:
+    type: multiselect_dropdown
+    weight: 11
+    region: content
+    settings:
+      label_aria: 'Toggle the list of Indicators'
+      label_none: 'No Indicators Selected'
+      label_all: 'All Indicators Selected'
+      label_single: '%d Indicator Selected'
+      label_plural: '%d Indicators Selected'
+      label_select_all: 'Select All'
+      label_select_none: 'Deselect All'
+      search_title: ''
+      search_title_display: ''
+      search_placeholder: ''
+      search_character_threshold: null
+    third_party_settings: {  }
+  field_assigned_users:
+    type: multiselect_dropdown
+    weight: 26
+    region: content
+    settings:
+      label_aria: 'Toggle the list of Users'
+      label_none: 'No Users Selected'
+      label_all: 'All Users Selected'
+      label_single: '%d User Selected'
+      label_plural: '%d Users Selected'
+      label_select_all: 'Select All'
+      label_select_none: 'Deselect All'
+      search_title: ''
+      search_title_display: ''
+      search_placeholder: ''
+      search_character_threshold: null
+    third_party_settings: {  }
+  field_deadline:
+    type: datetime_default
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_description:
+    type: text_textarea
+    weight: 7
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_index:
+    type: options_select
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_year:
+    type: number
+    weight: 8
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    weight: 3
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 6
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 4
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_published: true

@@ -1,0 +1,29 @@
+uuid: 4a169996-570c-45de-888f-5c4a850c7e5a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_type
+    - node.type.indicator_accordion_question
+    - taxonomy.vocabulary.indicator_question_types
+id: node.indicator_accordion_question.field_type
+field_name: field_type
+entity_type: node
+bundle: indicator_accordion_question
+label: Type
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      indicator_question_types: indicator_question_types
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

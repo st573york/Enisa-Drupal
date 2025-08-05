@@ -1,0 +1,60 @@
+uuid: 2c8fc0b7-4f7e-4089-a270-5f7aee6a2230
+langcode: en
+status: true
+dependencies:
+  module:
+    - permission_management
+id: poc
+label: PoC
+weight: 7
+is_admin: null
+permissions:
+  - 'discard requested changes country survey indicator'
+  - 'download reports and data eu report pdf'
+  - 'download reports and data ms raw data excel'
+  - 'download reports and data ms report pdf'
+  - 'download reports and data ms results excel'
+  - 'download reports and data report excel'
+  - 'download survey excel'
+  - 'export reports and data ms raw data excel'
+  - 'export reports and data report excel'
+  - 'export survey excel template'
+  - 'export survey excel with answers'
+  - 'get country survey indicator info'
+  - 'get country survey multiple indicators'
+  - 'get country survey single indicator'
+  - 'get reports and data eu report chart data'
+  - 'get reports and data ms report chart data'
+  - 'get user'
+  - 'get users'
+  - 'get visualisations'
+  - 'get visualisations node'
+  - 'get visualisations sliderchart'
+  - 'get visualisations sunburst'
+  - 'list country survey dashboard'
+  - 'list users'
+  - 'load country survey indicator answers'
+  - 'manage country survey dashboard'
+  - 'manage user surveys'
+  - 'manage users'
+  - 'preview country survey'
+  - 'request changes country survey indicator'
+  - 'reset country survey indicator answers'
+  - 'save country survey'
+  - 'submit country survey requested changes'
+  - 'toggle block user'
+  - 'update country survey multiple indicators'
+  - 'update country survey single indicator'
+  - 'update user'
+  - 'update user account'
+  - 'update users'
+  - 'upload country survey'
+  - 'validate country survey indicator'
+  - 'validate country survey offline'
+  - 'view country survey'
+  - 'view country survey summary data'
+  - 'view reports and data'
+  - 'view reports and data eu report'
+  - 'view reports and data ms report'
+  - 'view user account'
+  - 'view visualisations'

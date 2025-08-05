@@ -1,0 +1,38 @@
+uuid: 60d5cdaa-af60-4d53-997e-5d50120b877b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.survey_indicator_answer.field_choice
+    - field.field.node.survey_indicator_answer.field_free_text
+    - field.field.node.survey_indicator_answer.field_last_saved
+    - field.field.node.survey_indicator_answer.field_options
+    - field.field.node.survey_indicator_answer.field_question
+    - field.field.node.survey_indicator_answer.field_reference_source
+    - field.field.node.survey_indicator_answer.field_reference_year
+    - field.field.node.survey_indicator_answer.field_survey_indicator
+    - node.type.survey_indicator_answer
+  module:
+    - user
+id: node.survey_indicator_answer.teaser
+targetEntityType: node
+bundle: survey_indicator_answer
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_choice: true
+  field_free_text: true
+  field_last_saved: true
+  field_options: true
+  field_question: true
+  field_reference_source: true
+  field_reference_year: true
+  field_survey_indicator: true
+  langcode: true
+  search_api_excerpt: true

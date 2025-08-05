@@ -1,0 +1,107 @@
+survey_management.manage-surveys:
+  path: '/survey/management'
+  defaults:
+    _controller: '\Drupal\survey_management\Controller\SurveyController::manageSurveys'
+    _title: 'Manage surveys'
+  requirements:
+    _permission: 'manage surveys'
+
+survey_management.list-surveys:
+  path: '/survey/management/list'
+  defaults:
+    _controller: '\Drupal\survey_management\Controller\SurveyController::listSurveys'
+    _title: 'List surveys data'
+  requirements:
+    _permission: 'list surveys'
+  options:
+    _format: 'json'
+
+survey_management.create-survey:
+  path: '/survey/management/create'
+  defaults:
+    _controller: '\Drupal\survey_management\Controller\SurveyController::createSurvey'
+    _title: 'Create survey data'
+  requirements:
+    _permission: 'create survey'
+  options:
+    _format: 'json'
+
+survey_management.show-survey:
+  path: '/survey/management/show/{survey_id}' 
+  defaults:
+    _controller: '\Drupal\survey_management\Controller\SurveyController::showSurvey'
+    _title: 'Show survey data'
+  requirements:
+    _permission: 'show survey'
+    survey_id: \d+
+  options:
+    _format: 'json'
+
+survey_management.show-publish-survey:
+  path: '/survey/management/publish/show/{survey_id}'
+  defaults:
+    _controller: '\Drupal\survey_management\Controller\SurveyController::showPublishSurvey'
+    _title: 'Show publish survey data'
+  requirements:
+    _permission: 'show publish survey'
+    survey_id: \d+
+  options:
+    _format: 'json'
+
+survey_management.list-publish-users:
+  path: '/survey/management/publish/users/list/{survey_id}'
+  defaults:
+    _controller: '\Drupal\survey_management\Controller\SurveyController::listPublishUsers'
+    _title: 'List publish users data'
+  requirements:
+    _permission: 'list publish users'
+    survey_id: \d+
+  options:
+    _format: 'json'
+
+survey_management.create-publish-survey:
+  path: '/survey/management/publish/create/{survey_id}'
+  defaults:
+    _controller: '\Drupal\survey_management\Controller\SurveyController::createPublishSurvey'
+    _title: 'Create publish survey data'
+  requirements:
+    _permission: 'create publish survey'
+    survey_id: \d+
+  options:
+    _format: 'json'
+  methods: [POST]
+
+survey_management.store-survey:
+  path: '/survey/management/store'
+  defaults:
+    _controller: '\Drupal\survey_management\Controller\SurveyController::storeSurvey'
+    _title: 'Create survey data'
+  requirements:
+    _permission: 'create survey'
+  options:
+    _format: 'json'
+  methods: [POST]
+
+survey_management.update-survey:
+  path: '/survey/management/update/{survey_id}'
+  defaults:
+    _controller: '\Drupal\survey_management\Controller\SurveyController::updateSurvey'
+    _title: 'Update survey data'
+  requirements:
+    _permission: 'update survey'
+    survey_id: \d+
+  options:
+    _format: 'json'
+  methods: [POST]
+
+survey_management.delete-survey:
+  path: '/survey/management/delete/{survey_id}'
+  defaults:
+    _controller: '\Drupal\survey_management\Controller\SurveyController::deleteSurvey'
+    _title: 'Delete survey data'
+  requirements:
+    _permission: 'delete survey'
+    survey_id: \d+
+  options:
+    _format: 'json'
+  methods: [POST]

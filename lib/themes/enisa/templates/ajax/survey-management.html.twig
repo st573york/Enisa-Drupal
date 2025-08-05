@@ -1,0 +1,89 @@
+<form id="survey-manage">
+  <input type="hidden" id="item-id"/>
+  <input type="hidden" id="item-action"/>
+  <input type="hidden" id="item-route"/>
+  {% if action == 'create' or action == 'show' %}
+    <div class="input-group row mb-3 required">
+      <label for="formSurvey" class="col-form-label col-lg-3">{{ 'Index'|t }}</label>
+      <div class="col-lg-9">
+        <select class="form-select mr-sm-2" name="survey_configuration_id" for="formSurvey">
+          <option value="" selected disabled>{{ 'Choose...'|t }}</option>
+          {% for index_data in indexes %}
+            <option value="{{ index_data.id }}" {% if selected_survey and selected_survey.index.id == index_data.id %}selected{% endif %}>{{ index_data.title|raw }}</option>
+          {% endfor %}
+        </select>
+        <div class="invalid-feedback"></div>
+      </div>
+    </div>
+    <div class="input-group row mb-3 required">
+      <label for="formTitle" class="col-form-label col-lg-3">{{ 'Title'|t }}</label>
+      <div class="col-lg-9">
+        <input class="form-control" type="text" name="title" id="formTitle" placeholder="Title" value="{{ selected_survey ? selected_survey.title : '' }}">
+        <div class="invalid-feedback"></div>
+      </div>
+    </div>
+    <div class="input-group row mb-3 required">
+      <label for="formDate" class="col-form-label col-lg-3">{{ 'Deadline'|t }}</label>
+      <div class="col-lg-9">
+        <div class="input-group">
+          <input type="text" class="form-control datepicker" name="deadline" id="formDate" placeholder="Deadline" value="{{ selected_survey ? selected_survey.deadline|date('d-m-Y') : '' }}"/>
+          <span class="input-group-append"></span>
+          <span class="icon-calendar"></span>
+        </div>
+        <div class="invalid-feedback"></div>
+      </div>
+    </div>
+    <div class="input-group row mb-3">
+      <label for="formScope" class="col-form-label col-lg-3">{{ 'Scope'|t }}</label>
+      <div class="col-lg-9">
+        <textarea class="form-control tinymce" name="description" id="formScope">{{ selected_survey ? selected_survey.description : '' }}</textarea>
+      </div>
+    </div>
+  {% elseif action == 'publish' %}
+    <div class="col-12 mt-2">
+      <p>
+        <span class="fw-bold">{{ 'You are about to publish the following survey:'|t }}</span>
+        <span class="modal-content-title">{{ selected_survey.title|raw }}</span>
+        <br>
+        <span class="small">{{ 'When published, this survey will be only accessible by EUCSI registered users. You can either publish this survey to all EUCSI Country PPoCs, or select specific registered users.'|t }}</span>
+      </p>
+    </div>
+    <div class="col-12 mt-2">
+      <p class="fw-bold">{{ 'How would you like to proceed?'|t }}</p>
+      <div class="d-flex gap-4">
+        <div class="form-check">
+          <input type="radio" id="radio-all" class="form-input form-check-input publish_users" name="publish_users" value="{{ 'Notify all PPoCs'|t }}" checked/>
+          <label class="form-check-label" for="radio-all">
+            {{ 'Notify all PPoCs'|t }}
+          </label>
+        </div>
+        <div>
+          <input type="radio" id="radio-specific" class="form-input form-check-input publish_users" name="publish_users" value="{{ 'Select specific EUCSI users'|t }}"/>
+          <label class="form-check-label" for="radio-specific">
+            {{ 'Select specific EUCSI users'|t }}
+          </label>
+        </div>
+      </div>
+    </div>
+    {% include '@enisa/components/alert.html.twig' with {'type': 'pageModalAlert'} %}
+    <div class="table-section col-12 mt-2" style="transform: none;">
+      <h2 class="mb-2">Users</h2>
+      <table id="publish-users-table" class="display enisa-table-group">
+        <thead>
+          <tr>
+            <th></th>
+            <th>{{ 'Name'|t }}</th>
+            <th>{{ 'Email'|t }}</th>
+            <th>{{ 'Role'|t }}</th>
+            <th>{{ 'Country'|t }}</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  {% endif %}
+</form>
+
+<script>
+  Drupal.tinymce.initTinyMCE();
+</script>
+

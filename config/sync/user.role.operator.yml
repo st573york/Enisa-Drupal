@@ -1,0 +1,26 @@
+uuid: e7234712-7ff4-42c6-8e6f-dad1db921990
+langcode: en
+status: true
+dependencies:
+  module:
+    - permission_management
+id: operator
+label: Operator
+weight: 8
+is_admin: null
+permissions:
+  - 'download survey excel'
+  - 'export survey excel template'
+  - 'export survey excel with answers'
+  - 'load country survey indicator answers'
+  - 'manage user surveys'
+  - 'preview country survey'
+  - 'reset country survey indicator answers'
+  - 'save country survey'
+  - 'update user account'
+  - 'upload country survey'
+  - 'validate country survey indicator'
+  - 'validate country survey offline'
+  - 'view country survey'
+  - 'view country survey summary data'
+  - 'view user account'

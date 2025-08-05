@@ -1,0 +1,22 @@
+uuid: 9d79568a-856c-4f35-a5cc-d0be75c1f778
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - enisa
+_core:
+  default_config_hash: 5uIcpHwEae5IK-SVhgZk8W0Q82cPI2L0hiciAfo0alQ
+id: enisa_messages
+theme: enisa
+region: content
+weight: -7
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: Messages
+  label_display: '0'
+  provider: system
+visibility: {  }

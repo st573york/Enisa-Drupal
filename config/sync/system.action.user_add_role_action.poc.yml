@@ -1,0 +1,14 @@
+uuid: 4dfdf1e6-1b72-4881-88d0-110589a5a7ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.poc
+  module:
+    - user
+id: user_add_role_action.poc
+label: 'Add the PoC role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: poc

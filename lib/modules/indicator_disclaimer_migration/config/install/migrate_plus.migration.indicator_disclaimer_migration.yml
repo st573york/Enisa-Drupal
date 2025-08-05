@@ -1,0 +1,37 @@
+id: indicator_disclaimer_migration
+label: 'Indicator Disclaimer Migration'
+migration_group: indicator_disclaimer_migration_group
+
+source:
+  plugin: indicator_disclaimer_sql
+  key: enisa
+
+process:
+  id: id
+  indicator_id:
+    plugin: indicator_lookup
+    additional_fields:
+      indicator_name: indicator_name
+      indicator_identifier: indicator_identifier
+      indicator_year: indicator_year
+  what_100_means_eu: what_100_means_eu
+  what_100_means_ms: what_100_means_ms
+  frac_max_norm: frac_max_norm
+  rank_norm: rank_norm
+  target_100: target_100
+  target_75: target_75
+  direction: direction
+  new_indicator: new_indicator
+  min_max_0037_1: min_max_0037_1
+  min_max: min_max
+
+destination:
+  plugin: table
+  table_name: indicator_disclaimers
+  id_fields:
+    id:
+      type: integer
+
+migration_dependencies:
+  required:
+    - indicator_migration

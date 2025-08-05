@@ -1,0 +1,68 @@
+<table>
+    <caption>Survey - Raw Values</caption>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Area</th>
+            <th>Subarea</th>
+            <th>Section</th>
+            <th>Type</th>
+            <th>Question</th>
+            <th>Question ID</th>
+            <th>Answer</th>
+            <th>Score</th>
+            {% for country_iso in countries_iso %}
+                <th style="text-align: center;">{{ country_iso }}</th>
+            {% endfor %}
+            {% if countries_iso|length > 1 %}
+                <th style="text-align: center;">Total</th>
+            {% endif %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for identifier, indicator_value in indicator_values_data %}
+            {% for question_id, question_data in indicator_value.questions %}
+                {% if question_data.type == 'single-choice' or question_data.type == 'multiple-choice' %}
+                    {% for option in question_data.options %}
+                        <tr>
+                            <td>{{ identifier }}</td>
+                            <td>{{ indicator_value.name }}</td>
+                            <td>{{ indicator_value.area }}</td>
+                            <td>{{ indicator_value.subarea }}</td>
+                            <td>{{ question_data.section }}</td>
+                            <td>{{ question_data.type }}</td>
+                            <td>{{ question_data.name }}</td>
+                            <td>{{ question_id }} </td>
+                            <td>{{ option.name }}</td>
+                            <td>{{ option.score }}</td>
+                            {% for country_iso in countries_iso %}
+                                <td style="text-align: center;">{{ (country_iso in option.selected) ? 'x' : '' }}</td>
+                            {% endfor %}
+                            {% if countries_iso|length > 1 %}
+                                <td style="text-align: center;">{{ option.selected|length }}</td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                {% elseif question_data.type == 'free-text' %}
+                    <tr>
+                        <td>{{ identifier }}</td>
+                        <td>{{ indicator_value.name }}</td>
+                        <td>{{ indicator_value.area }}</td>
+                        <td>{{ indicator_value.subarea }}</td>
+                        <td>{{ question_data.section }}</td>
+                        <td>{{ question_data.type }}</td>
+                        <td>{{ question_data.name }}</td>
+                        <td>{{ question_id }} </td>
+                        <td></td>
+                        <td></td>
+                        {% for country_iso in countries_iso %}
+                            <td></td>
+                        {% endfor %}
+                        <td></td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </tbody>
+</table>

@@ -1,0 +1,26 @@
+uuid: 864dedeb-201b-4e79-99dc-bc0e9f1ef8ca
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - enisa
+_core:
+  default_config_hash: QFA24Y0VdiVT_CNnOhZn9VbC818ye_KJ5Opj1pvOXWI
+id: enisa_breadcrumbs
+theme: enisa
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: '/*'

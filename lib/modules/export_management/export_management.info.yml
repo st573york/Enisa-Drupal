@@ -1,0 +1,5 @@
+name: 'Export Management Module'
+type: module
+description: 'Custom module for export management.'
+core_version_requirement: ^10
+package: Custom

@@ -1,0 +1,23 @@
+uuid: 90337f14-9190-46f5-af2a-07276cf42685
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_year
+    - node.type.survey
+id: node.survey.field_year
+field_name: field_year
+entity_type: node
+bundle: survey
+label: Year
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

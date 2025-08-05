@@ -1,0 +1,9 @@
+id: survey_indicator_answer_migration_group
+label: 'Survey Indicator Answer Migration Group'
+description: 'Migration group for survey indicator answers. Migration creates survey_indicator_answer nodes.'
+source_type: mysql
+shared_configuration: null
+dependencies:
+  enforced:
+    module:
+      - survey_indicator_answer_migration

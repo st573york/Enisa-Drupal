@@ -1,0 +1,26 @@
+uuid: de37acf4-2688-4fac-8044-df10887c8162
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_changes
+    - filter.format.basic_html
+    - filter.format.full_html
+    - node.type.survey_indicator_rc
+  module:
+    - text
+id: node.survey_indicator_rc.field_changes
+field_name: field_changes
+entity_type: node
+bundle: survey_indicator_rc
+label: Changes
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+    - full_html
+field_type: text_long

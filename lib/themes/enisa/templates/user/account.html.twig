@@ -1,0 +1,60 @@
+{{ attach_library('enisa/main') }}
+{{ attach_library('enisa/alert') }}
+{{ attach_library('enisa/user-account') }}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item active">{{ 'My Account'|t }}</li>
+  </ol>
+</nav>
+
+<h1>{{ 'My Account'|t }}</h1>
+    
+<main id="enisa-main" class="bg-white">
+    <div class="container-fluid">
+
+        {% include '@enisa/components/alert.html.twig' with {'type': 'pageAlert'} %}
+
+        <div class="row mt-5">
+            <div class="col-12 ps-0 pe-0">
+                <div class="table-section col-12 mt-2">
+                    <form id="user-account">
+                        <div class="input-group mb-3">
+                            <label for="formName" class="col-form-label col-sm-2">Name</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" disabled type="text" name="name" id="formName" placeholder="Name" value="{{ user_data.name }}">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <label for="formEmail" class="col-form-label col-sm-2">Email</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" disabled type="email" name="email" id="formEmail" placeholder="Email" value="{{ user_data.email }}">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3 required">
+                            <label for="country-select" class="col-form-label col-sm-2">Country</label>
+                            <div class="col-sm-10">
+                                <select class="form-select mr-sm-2" data-flag="true" id="country-select" name="country">
+                                    <option value="" selected disabled>Choose...</option>
+                                    {% for country in countries %}
+                                        <option value="{{ country.id }}" {{ (country.id == user_data.country.id) ? 'selected' : '' }}>{{ country.name.value }}</option>
+                                    {% endfor %}
+                                </select>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="row mt-3">
+                    <div class="d-flex justify-content-start">
+                        <button id="process-data" type="button" class="btn btn-enisa">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</main>

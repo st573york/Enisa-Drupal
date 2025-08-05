@@ -1,0 +1,15 @@
+uuid: 0b2ccb55-7c6d-4632-9f39-fe3dc6555130
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - indicator_value_migration
+_core:
+  default_config_hash: ybXSaKF-6JbvidtrwUkmszzqpGpA4XsUbxhckn2ayR4
+id: indicator_value_migration_group
+label: 'Indicator Value Migration Group'
+description: 'Migration group for indicator values. Migration creates record in indicator_values table.'
+source_type: mysql
+module: null
+shared_configuration: null

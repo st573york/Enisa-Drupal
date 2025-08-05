@@ -1,0 +1,9 @@
+uuid: a93954c6-d6ca-4063-9aa0-974d06816051
+langcode: en
+status: true
+dependencies: {  }
+name: 'Survey Indicator Requested Change States'
+vid: survey_indicator_rc_states
+description: 'List of survey indicator requested change states'
+weight: 0
+new_revision: false

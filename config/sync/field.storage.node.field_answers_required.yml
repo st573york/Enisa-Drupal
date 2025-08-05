@@ -1,0 +1,18 @@
+uuid: a53d98b1-c47c-4dbe-b2c6-82259ccdbad9
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_answers_required
+field_name: field_answers_required
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

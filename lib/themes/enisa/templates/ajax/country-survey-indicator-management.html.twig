@@ -1,0 +1,66 @@
+<form id="indicator-manage">
+    <input hidden id="item-action" />
+    <input hidden id="item-route" />
+    {% if processed_indicators|length %}
+        <div class="alert alert-warning" role="alert">
+            {% if indicators|length > 1 %}
+                <strong>The following indicators re-assigning, have already been processed. You can either keep or reset the answers by choosing one of the options below.</strong>
+                <hr>
+                <ul>
+                    {% for indicator in processed_indicators %}
+                        <li>{{ indicator.order }}. {{ indicator.name|raw }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <strong>The indicator you are re-assigning has already been processed. You can either keep or reset the answers by choosing one of the options below.</strong>
+            {% endif %}
+        </div>
+        <div class="row mt-2">
+            <div class="col-12 d-flex flex-column">
+                <div>
+                    <div class="form-check form-switch d-flex gap-2 justify-content-start">
+                        <input class="form-check-input switch modal-switch" type="checkbox" name="reset-answers">
+                        <span id="toggle-text" class="pt-1">{{ 'Keep Answers'|t }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    <div class="row">
+        <div class="col-md-6 required">
+            <label class="col-form-label" for="assignee-select">{{ 'Assignee'|t }}</label>
+            <select class="form-select me-2" aria-label="Assignee" name="assignee" id="assignee-select">
+                <option value="" selected disabled>{{ 'Choose...'|t }}</option>
+                {% for user in users %}
+                    <option value="{{ user.id }}"
+                        {% if indicators|length == 1 and indicators.0.assignee.id == user.id %}selected{% endif %}>
+                        {{ user.name }}
+                        ({% if current_user.id == user.id %}'you'{% else %}{{ user.role.name }}{% endif %})
+                    </option>
+                {% endfor %}
+            </select>
+            <div class="invalid-feedback"></div>
+        </div>
+        <div class="col-md-6 required">
+            <label for="formDate" class="col-form-label">{{ 'Deadline'|t }}</label>
+            <div class="input-group date">
+                <input type="text" class="form-control datepicker" name="deadline" id="formDate" placeholder="Deadline"
+                    value="{{ indicators|length == 1 ? indicators.0.deadline|date('d-m-Y') : country_survey.survey.deadline|date('d-m-Y') }}" />
+                <span class="input-group-append"></span>
+                <span class="icon-calendar"> </span>
+                <div class="invalid-feedback"></div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script>
+    jQuery(function($) {
+        $(document).on('click', '.modal-switch', function() {
+            var checked = $(this).is(':checked');
+            $('#toggle-text')
+                .text((checked ? 'Reset' : 'Keep') + ' Answers')
+                .toggleClass('text-danger', checked);
+        });
+    });
+</script>

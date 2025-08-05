@@ -1,0 +1,21 @@
+uuid: 0d1f08b0-05a5-4c5b-9e79-5a836f550ecd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_compatible
+    - node.type.indicator_accordion_question
+id: node.indicator_accordion_question.field_compatible
+field_name: field_compatible
+entity_type: node
+bundle: indicator_accordion_question
+label: Compatible
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

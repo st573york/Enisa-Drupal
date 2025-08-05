@@ -1,0 +1,23 @@
+uuid: a259fa2e-d805-4684-bdb1-aefce7e6bf1f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_state_id
+    - taxonomy.vocabulary.survey_indicator_rc_states
+id: taxonomy_term.survey_indicator_rc_states.field_state_id
+field_name: field_state_id
+entity_type: taxonomy_term
+bundle: survey_indicator_rc_states
+label: 'State ID'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

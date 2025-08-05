@@ -1,0 +1,56 @@
+<table>
+    <caption>Survey Indicator Configuration</caption>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Section</th>
+            <th>Type</th>
+            <th>Question</th>
+            <th>Question ID</th>
+            <th>Required</th>
+            <th>Answer</th>
+            <th>Master Option</th>
+            <th>Score</th>
+            <th>Info</th>
+            <th>Compatible</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for question_id, question_data in questions %}
+            {% if question_data.type == 'single-choice' or question_data.type == 'multiple-choice' %}
+                {% for option in question_data.options %}
+                    <tr>
+                        <td>{{ identifier }}</td>
+                        <td>{{ name }}</td>
+                        <td>{{ question_data.section }}</td>
+                        <td>{{ question_data.type }}</td>
+                        <td>{{ question_data.name }}</td>
+                        <td>{{ question_id }} </td>
+                        <td>{{ question_data.required }}</td>
+                        <td>{{ option.name }}</td>
+                        <td>{{ option.master }}</td>
+                        <td>{{ option.score }}</td>
+                        <td>{{ question_data.info }}</td>
+                        <td>{{ question_data.compatible }}</td>
+                    </tr>
+                {% endfor %}
+            {% elseif question_data.type == 'free-text' %}
+                <tr>
+                    <td>{{ identifier }}</td>
+                    <td>{{ name }}</td>
+                    <td>{{ question_data.section }}</td>
+                    <td>{{ question_data.type }}</td>
+                    <td>{{ question_data.name }}</td>
+                    <td>{{ question_id }} </td>
+                    <td>{{ question_data.required }}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>{{ question_data.info }}</td>
+                    <td>{{ question_data.compatible }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </tbody>
+</table>

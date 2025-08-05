@@ -1,0 +1,30 @@
+uuid: a56f2a08-5bfb-48fd-8a8b-7157dc0bb70b
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_last_action
+field_name: field_last_action
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: calculate_index
+      label: 'Calculate Index'
+    -
+      value: import_data
+      label: 'Import Data'
+    -
+      value: collect_external_data
+      label: 'Collect External Data'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

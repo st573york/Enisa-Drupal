@@ -1,0 +1,19 @@
+uuid: 8956a5d2-b13f-48fd-87a9-2cd4f46aba98
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_registered_date
+    - node.type.invitation
+id: node.invitation.field_registered_date
+field_name: field_registered_date
+entity_type: node
+bundle: invitation
+label: 'Registered Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

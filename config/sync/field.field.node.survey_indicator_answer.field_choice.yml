@@ -1,0 +1,29 @@
+uuid: dd45dde3-ca3e-48d0-8612-26b156e70394
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_choice
+    - node.type.survey_indicator_answer
+    - taxonomy.vocabulary.indicator_question_choices
+id: node.survey_indicator_answer.field_choice
+field_name: field_choice
+entity_type: node
+bundle: survey_indicator_answer
+label: Choice
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      indicator_question_choices: indicator_question_choices
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

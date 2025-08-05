@@ -1,0 +1,168 @@
+[
+    {
+        "bundle": "menu_link_content",
+        "title": "Index Reports & Visuals",
+        "menu_name": "main",
+        "link": "internal:#",
+        "weight": "-50",
+        "enabled": true,
+        "menu_item_roles": [
+            {
+                "target_id": "administrator"
+            },
+            {
+                "target_id": "enisa_administrator"
+            },
+            {
+                "target_id": "poc"
+            },
+            {
+                "target_id": "primary_poc"
+            }
+        ],
+        "children": [
+            {
+                "bundle": "menu_link_content",
+                "title": "Visualisations",
+                "menu_name": "main",
+                "link": "internal:\/index\/visualisation",
+                "weight": "-50",
+                "enabled": true,
+                "menu_item_roles": []
+            },
+            {
+                "bundle": "menu_link_content",
+                "title": "Reports & Data",
+                "menu_name": "main",
+                "link": "internal:\/index\/report-and-data",
+                "weight": "-49",
+                "enabled": true,
+                "menu_item_roles": []
+            }
+        ]
+    },
+    {
+        "bundle": "menu_link_content",
+        "title": "Management",
+        "menu_name": "main",
+        "link": "internal:#",
+        "weight": "-48",
+        "enabled": true,
+        "menu_item_roles": [
+            {
+                "target_id": "administrator"
+            },
+            {
+                "target_id": "enisa_administrator"
+            },
+            {
+                "target_id": "poc"
+            },
+            {
+                "target_id": "primary_poc"
+            }
+        ],
+        "children": [
+            {
+                "bundle": "menu_link_content",
+                "title": "Surveys",
+                "menu_name": "main",
+                "link": "internal:\/survey\/management",
+                "weight": "-48",
+                "enabled": true,
+                "menu_item_roles": []
+            },
+            {
+                "bundle": "menu_link_content",
+                "title": "Invitations",
+                "menu_name": "main",
+                "link": "internal:\/invitation\/management",
+                "weight": "-46",
+                "enabled": true,
+                "menu_item_roles": []
+            },
+            {
+                "bundle": "menu_link_content",
+                "title": "Users",
+                "menu_name": "main",
+                "link": "internal:\/user\/management",
+                "weight": "-47",
+                "enabled": true,
+                "menu_item_roles": []
+            },
+            {
+                "bundle": "menu_link_content",
+                "title": "Indexes",
+                "menu_name": "main",
+                "link": "internal:\/index\/management",
+                "weight": "-50",
+                "enabled": true,
+                "menu_item_roles": []
+            },
+            {
+                "bundle": "menu_link_content",
+                "title": "Data Collection",
+                "menu_name": "main",
+                "link": "internal:\/index\/data-collection\/management",
+                "weight": "-45",
+                "enabled": true,
+                "menu_item_roles": []
+            },
+            {
+                "bundle": "menu_link_content",
+                "title": "Index & Survey Configuration",
+                "menu_name": "main",
+                "link": "internal:\/index\/survey\/configuration\/management",
+                "weight": "-49",
+                "enabled": true,
+                "menu_item_roles": []
+            },
+            {
+                "bundle": "menu_link_content",
+                "title": "Auditing",
+                "menu_name": "main",
+                "link": "internal:\/audit",
+                "weight": "-44",
+                "enabled": true,
+                "menu_item_roles": [
+                    {
+                        "target_id": "administrator"
+                    },
+                    {
+                        "target_id": "enisa_administrator"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "bundle": "menu_link_content",
+        "title": "Surveys",
+        "menu_name": "main",
+        "link": "internal:\/survey\/user\/management",
+        "weight": "-49",
+        "enabled": true,
+        "menu_item_roles": [
+            {
+                "target_id": "operator"
+            },
+            {
+                "target_id": "poc"
+            },
+            {
+                "target_id": "primary_poc"
+            }
+        ],
+        "children": []
+    },
+    {
+        "bundle": "menu_link_content",
+        "title": "About EU-CSI",
+        "menu_name": "main",
+        "link": "internal:\/about-eu-csi",
+        "weight": "-46",
+        "enabled": true,
+        "menu_item_roles": [],
+        "children": []
+    }
+]

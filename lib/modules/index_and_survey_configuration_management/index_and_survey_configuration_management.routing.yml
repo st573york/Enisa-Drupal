@@ -1,0 +1,312 @@
+index_and_survey_configuration_management.manage-configuration:
+  path: '/index/survey/configuration/management'
+  defaults:
+    _controller: '\Drupal\index_and_survey_configuration_management\Controller\IndexAndSurveyConfigController::manageIndexAndSurveyConfiguration'
+    _title: 'Manage configuration'
+  requirements:
+    _permission: 'manage configuration'
+
+index_and_survey_configuration_management.show-configuration-import:
+  path: '/index/configuration/import/show'
+  defaults:
+    _controller: '\Drupal\index_and_survey_configuration_management\Controller\IndexAndSurveyConfigController::showIndexAndSurveyConfigurationImport'
+    _title: 'Show configuration import'
+  requirements:
+    _permission: 'show configuration import'
+  options:
+    _format: 'json'
+
+index_and_survey_configuration_management.store-configuration-import:
+  path: '/index/configuration/import/store'
+  defaults:
+    _controller: '\Drupal\index_and_survey_configuration_management\Controller\IndexAndSurveyConfigController::storeIndexAndSurveyConfigurationImport'
+    _title: 'Store configuration import'
+  requirements:
+    _permission: 'store configuration import'
+  options:
+    _format: 'json'
+  methods: [POST]
+
+index_and_survey_configuration_management.show-configuration-clone:
+  path: '/index/configuration/clone/show'
+  defaults:
+    _controller: '\Drupal\index_and_survey_configuration_management\Controller\IndexAndSurveyConfigController::showIndexAndSurveyConfigurationClone'
+    _title: 'Show configuration clone'
+  requirements:
+    _permission: 'show configuration clone'
+  options:
+    _format: 'json'
+
+index_and_survey_configuration_management.store-configuration-clone:
+  path: '/index/configuration/clone/store'
+  defaults:
+    _controller: '\Drupal\index_and_survey_configuration_management\Controller\IndexAndSurveyConfigController::storeIndexAndSurveyConfigurationClone'
+    _title: 'Store configuration clone'
+  requirements:
+    _permission: 'store configuration clone'
+  options:
+    _format: 'json'
+  methods: [POST]
+
+index_and_survey_configuration_management.export-configuration-excel:
+  path: '/index/configuration/excel/export/{year}'
+  defaults:
+    _controller: '\Drupal\index_and_survey_configuration_management\Controller\IndexAndSurveyConfigExportController::exportIndexAndSurveyConfigurationExcel'
+    _title: 'Export configuration excel'
+  requirements:
+    _permission: 'export configuration excel'
+    year: \d+
+  options:
+    _format: 'json'
+  methods: [POST]
+
+index_and_survey_configuration_management.download-configuration-excel:
+  path: '/index/configuration/excel/download/{filename}'
+  defaults:
+    _controller: '\Drupal\index_and_survey_configuration_management\Controller\IndexAndSurveyConfigExportController::downloadIndexAndSurveyConfigurationExcel'
+    _title: 'Download configuration excel'
+  requirements:
+    _permission: 'download configuration excel'
+    filename: '[A-Za-z0-9_.-]+'
+
+index_and_survey_configuration_management.list-areas:
+  path: '/area/list'
+  defaults:
+    _controller: '\Drupal\index_and_survey_configuration_management\Controller\AreaController::listAreas'
+    _title: 'List areas data'
+  requirements:
+    _permission: 'list areas'
+  options:
+    _format: 'json'
+
+index_and_survey_configuration_management.create-area:
+  path: '/area/create'
+  defaults:
+    _controller: '\Drupal\index_and_survey_configuration_management\Controller\AreaController::createOrShowArea'
+    _title: 'Create area data'
+  requirements:
+    _permission: 'create area'
+  options:
+    _format: 'json'
+
+index_and_survey_configuration_management.show-area:
+  path: '/area/show/{area_id}' 
+  defaults:
+    _controller: '\Drupal\index_and_survey_configuration_management\Controller\AreaController::showArea'
+    _title: 'Show area data'
+  requirements:
+    _permission: 'show area'
+    area_id: \d+
+  options:
+    _format: 'json'
+
+index_and_survey_configuration_management.store-area:
+  path: '/area/store'
+  defaults:
+    _controller: '\Drupal\index_and_survey_configuration_management\Controller\AreaController::storeArea'
+    _title: 'Create area data'
+  requirements:
+    _permission: 'create area'
+  options:
+    _format: 'json'
+  methods: [POST]
+
+index_and_survey_configuration_management.update-area:
+  path: '/area/update/{area_id}'
+  defaults:
+    _controller: '\Drupal\index_and_survey_configuration_management\Controller\AreaController::updateArea'
+    _title: 'Update area data'
+  requirements:
+    _permission: 'update area'
+    area_id: \d+
+  options:
+    _format: 'json'
+  methods: [POST]
+
+index_and_survey_configuration_management.delete-area:
+  path: '/area/delete/{area_id}'
+  defaults:
+    _controller: '\Drupal\index_and_survey_configuration_management\Controller\AreaController::deleteArea'
+    _title: 'Delete area data'
+  requirements:
+    _permission: 'delete area'
+    area_id: \d+
+  options:
+    _format: 'json'
+  methods: [POST]
+
+index_and_survey_configuration_management.list-subareas:
+  path: '/subarea/list'
+  defaults:
+    _controller: '\Drupal\index_and_survey_configuration_management\Controller\SubareaController::listSubareas'
+    _title: 'List subareas data'
+  requirements:
+    _permission: 'list subareas'
+  options:
+    _format: 'json'
+
+index_and_survey_configuration_management.create-subarea:
+  path: '/subarea/create'
+  defaults:
+    _controller: '\Drupal\index_and_survey_configuration_management\Controller\SubareaController::createOrShowSubarea'
+    _title: 'Create subarea data'
+  requirements:
+    _permission: 'create subarea'
+  options:
+    _format: 'json'
+
+index_and_survey_configuration_management.show-subarea:
+  path: '/subarea/show/{subarea_id}' 
+  defaults:
+    _controller: '\Drupal\index_and_survey_configuration_management\Controller\SubareaController::showSubarea'
+    _title: 'Show subarea data'
+  requirements:
+    _permission: 'show subarea'
+    subarea_id: \d+
+  options:
+    _format: 'json'
+
+index_and_survey_configuration_management.store-subarea:
+  path: '/subarea/store'
+  defaults:
+    _controller: '\Drupal\index_and_survey_configuration_management\Controller\SubareaController::storeSubarea'
+    _title: 'Create subarea data'
+  requirements:
+    _permission: 'create subarea'
+  options:
+    _format: 'json'
+  methods: [POST]
+
+index_and_survey_configuration_management.update-subarea:
+  path: '/subarea/update/{subarea_id}'
+  defaults:
+    _controller: '\Drupal\index_and_survey_configuration_management\Controller\SubareaController::updateSubarea'
+    _title: 'Update subarea data'
+  requirements:
+    _permission: 'update subarea'
+    subarea_id: \d+
+  options:
+    _format: 'json'
+  methods: [POST]
+
+index_and_survey_configuration_management.delete-subarea:
+  path: '/subarea/delete/{subarea_id}'
+  defaults:
+    _controller: '\Drupal\index_and_survey_configuration_management\Controller\SubareaController::deleteSubarea'
+    _title: 'Delete subarea data'
+  requirements:
+    _permission: 'delete subarea'
+    subarea_id: \d+
+  options:
+    _format: 'json'
+  methods: [POST]
+
+index_and_survey_configuration_management.list-indicators:
+  path: '/indicator/list'
+  defaults:
+    _controller: '\Drupal\index_and_survey_configuration_management\Controller\IndicatorController::listIndicators'
+    _title: 'List indicators data'
+  requirements:
+    _permission: 'list indicators'
+  options:
+    _format: 'json'
+
+index_and_survey_configuration_management.create-indicator:
+  path: '/indicator/create'
+  defaults:
+    _controller: '\Drupal\index_and_survey_configuration_management\Controller\IndicatorController::createOrShowIndicator'
+    _title: 'Create indicator data'
+  requirements:
+    _permission: 'create indicator'
+  options:
+    _format: 'json'
+
+index_and_survey_configuration_management.show-indicator:
+  path: '/indicator/show/{indicator_id}' 
+  defaults:
+    _controller: '\Drupal\index_and_survey_configuration_management\Controller\IndicatorController::showIndicator'
+    _title: 'Show indicator data'
+  requirements:
+    _permission: 'show indicator'
+    indicator_id: \d+
+  options:
+    _format: 'json'
+
+index_and_survey_configuration_management.store-indicator:
+  path: '/indicator/store'
+  defaults:
+    _controller: '\Drupal\index_and_survey_configuration_management\Controller\IndicatorController::storeIndicator'
+    _title: 'Store indicator data'
+  requirements:
+    _permission: 'store indicator'
+  options:
+    _format: 'json'
+  methods: [POST]
+
+index_and_survey_configuration_management.update-indicator:
+  path: '/indicator/update/{indicator_id}'
+  defaults:
+    _controller: '\Drupal\index_and_survey_configuration_management\Controller\IndicatorController::updateIndicator'
+    _title: 'Update indicator data'
+  requirements:
+    _permission: 'update indicator'
+    indicator_id: \d+
+  options:
+    _format: 'json'
+  methods: [POST]
+
+index_and_survey_configuration_management.delete-indicator:
+  path: '/indicator/delete/{indicator_id}'
+  defaults:
+    _controller: '\Drupal\index_and_survey_configuration_management\Controller\IndicatorController::deleteIndicator'
+    _title: 'Delete indicator data'
+  requirements:
+    _permission: 'delete indicator'
+    indicator_id: \d+
+  options:
+    _format: 'json'
+  methods: [POST]
+
+index_and_survey_configuration_management.manage-indicator-survey:
+  path: '/indicator/survey/management/{indicator_id}'
+  defaults:
+    _controller: '\Drupal\index_and_survey_configuration_management\Controller\IndicatorController::manageIndicatorSurvey'
+    _title: 'Manage indicator survey'
+  requirements:
+    _permission: 'manage indicator survey'
+    indicator_id: \d+
+
+index_and_survey_configuration_management.store-indicator-survey:
+  path: '/indicator/survey/store/{indicator_id}'
+  defaults:
+    _controller: '\Drupal\index_and_survey_configuration_management\Controller\IndicatorController::storeIndicatorSurvey'
+    _title: 'Store indicator survey data'
+  requirements:
+    _permission: 'store indicator survey'
+  options:
+    _format: 'json'
+    indicator_id: \d+
+  methods: [POST]
+
+index_and_survey_configuration_management.load-indicator-survey:
+  path: '/indicator/survey/load/{indicator_id}'
+  defaults:
+    _controller: '\Drupal\index_and_survey_configuration_management\Controller\IndicatorController::loadIndicatorSurvey'
+    _title: 'Load indicator survey data'
+  requirements:
+    _permission: 'load indicator survey'
+  options:
+    _format: 'json'
+    indicator_id: \d+
+  methods: [POST]
+
+index_and_survey_configuration_management.update-indicators-order:
+  path: '/indicator/order/update'
+  defaults:
+    _controller: '\Drupal\index_and_survey_configuration_management\Controller\IndicatorController::updateIndicatorsOrder'
+    _title: 'Update indicators order'
+  requirements:
+    _permission: 'update indicators order'
+  options:
+    _format: 'json'
+  methods: [POST]

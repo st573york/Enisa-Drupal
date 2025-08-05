@@ -1,0 +1,29 @@
+uuid: 3038cf99-305d-4469-8afc-6e2f98e62df0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_question
+    - node.type.indicator_accordion_question
+    - node.type.survey_indicator_answer
+id: node.survey_indicator_answer.field_question
+field_name: field_question
+entity_type: node
+bundle: survey_indicator_answer
+label: Question
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      indicator_accordion_question: indicator_accordion_question
+    sort:
+      field: nid
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

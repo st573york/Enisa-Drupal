@@ -1,0 +1,23 @@
+uuid: 70a40196-1224-4cb2-bff9-4cc0b1ac4e7c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_value
+    - node.type.indicator_accordion_question_opt
+id: node.indicator_accordion_question_opt.field_value
+field_name: field_value
+entity_type: node
+bundle: indicator_accordion_question_opt
+label: Value
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

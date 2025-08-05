@@ -1,0 +1,9 @@
+id: indicator_disclaimer_migration_group
+label: 'Indicator Disclaimer Migration Group'
+description: 'Migration group for indicator disclaimers. Migration creates record in indicator_disclaimers table.'
+source_type: mysql
+shared_configuration: null
+dependencies:
+  enforced:
+    module:
+      - indicator_disclaimer_migration

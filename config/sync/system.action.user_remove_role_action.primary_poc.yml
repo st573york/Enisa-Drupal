@@ -1,0 +1,14 @@
+uuid: 6c50768f-3d36-4ff6-9fdf-023927fd82c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.primary_poc
+  module:
+    - user
+id: user_remove_role_action.primary_poc
+label: 'Remove the Primary PoC role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: primary_poc

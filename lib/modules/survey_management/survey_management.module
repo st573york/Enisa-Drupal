@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Survey management module.
+ */
+
+/**
+ * Implements hook_theme().
+ *
+ * This hook is rendering a twig template.
+ */
+function survey_management_theme() {
+  return [
+    'manage-surveys' => [
+      'variables' => [],
+    ],
+  ];
+}

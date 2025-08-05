@@ -1,0 +1,21 @@
+uuid: 96c1a12e-f6ee-4382-80f9-f2d99defaf48
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ms_published
+    - node.type.index
+id: node.index.field_ms_published
+field_name: field_ms_published
+entity_type: node
+bundle: index
+label: 'MS Published'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

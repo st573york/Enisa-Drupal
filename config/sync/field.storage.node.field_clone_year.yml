@@ -1,0 +1,20 @@
+uuid: fe0d89af-3bc8-4afb-be9a-0e2743edc7ee
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_clone_year
+field_name: field_clone_year
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,22 @@
+uuid: d690ef94-06e8-4611-a01f-dac78f1ad35e
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - enisa
+_core:
+  default_config_hash: N-r9OZnRHiiKbtoW9bghU2Hoix7o0-1p6molx4mXJSM
+id: enisa_content
+theme: enisa
+region: content
+weight: -1
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

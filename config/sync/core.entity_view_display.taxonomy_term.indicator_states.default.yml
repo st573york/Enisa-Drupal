@@ -1,0 +1,33 @@
+uuid: a883a9c1-42d3-408f-a0f6-2ba1a56885a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.indicator_states.field_state_id
+    - taxonomy.vocabulary.indicator_states
+  module:
+    - text
+id: taxonomy_term.indicator_states.default
+targetEntityType: taxonomy_term
+bundle: indicator_states
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_state_id:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

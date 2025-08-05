@@ -1,0 +1,44 @@
+uuid: ecfd2108-c5a2-46b3-88af-1617d576abeb
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.survey_indicator.field_answers_loaded
+    - field.field.node.survey_indicator.field_approved_user
+    - field.field.node.survey_indicator.field_assignee
+    - field.field.node.survey_indicator.field_comments
+    - field.field.node.survey_indicator.field_country_survey
+    - field.field.node.survey_indicator.field_deadline
+    - field.field.node.survey_indicator.field_indicator
+    - field.field.node.survey_indicator.field_indicator_dashboard_state
+    - field.field.node.survey_indicator.field_indicator_state
+    - field.field.node.survey_indicator.field_last_saved
+    - field.field.node.survey_indicator.field_rating
+    - node.type.survey_indicator
+  module:
+    - user
+id: node.survey_indicator.teaser
+targetEntityType: node
+bundle: survey_indicator
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_answers_loaded: true
+  field_approved_user: true
+  field_assignee: true
+  field_comments: true
+  field_country_survey: true
+  field_deadline: true
+  field_indicator: true
+  field_indicator_dashboard_state: true
+  field_indicator_state: true
+  field_last_saved: true
+  field_rating: true
+  langcode: true
+  search_api_excerpt: true

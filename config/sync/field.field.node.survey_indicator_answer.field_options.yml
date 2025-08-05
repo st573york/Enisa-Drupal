@@ -1,0 +1,29 @@
+uuid: 52e88027-7745-4fbd-a8db-26a20948cdca
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_options
+    - node.type.indicator_accordion_question_opt
+    - node.type.survey_indicator_answer
+id: node.survey_indicator_answer.field_options
+field_name: field_options
+entity_type: node
+bundle: survey_indicator_answer
+label: Options
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      indicator_accordion_question_opt: indicator_accordion_question_opt
+    sort:
+      field: nid
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,15 @@
+uuid: 286855fe-a114-415b-ac1b-504751293c73
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - indicator_requested_change_migration
+_core:
+  default_config_hash: e0c3zAFf_B8GMaacxuuopEiHdQ8fB50q49XGtBrM1og
+id: indicator_requested_change_migration_group
+label: 'Indicator Requested Change Migration Group'
+description: 'Migration group for indicator requested changes. Migration creates survey_indicator_rc nodes.'
+source_type: mysql
+module: null
+shared_configuration: null

@@ -1,0 +1,23 @@
+uuid: 79caf5cc-c1e0-4366-b62b-dc2d3508c098
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_order
+    - node.type.indicator_accordion_question
+id: node.indicator_accordion_question.field_order
+field_name: field_order
+entity_type: node
+bundle: indicator_accordion_question
+label: Order
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

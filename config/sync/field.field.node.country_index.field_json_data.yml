@@ -1,0 +1,19 @@
+uuid: 76cafb26-d0c7-4644-b63a-b5146a765b10
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_json_data
+    - node.type.country_index
+id: node.country_index.field_json_data
+field_name: field_json_data
+entity_type: node
+bundle: country_index
+label: 'JSON Data'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

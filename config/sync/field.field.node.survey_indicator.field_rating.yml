@@ -1,0 +1,23 @@
+uuid: df6bcd9a-31af-4ef7-9c39-342f3e38b798
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_rating
+    - node.type.survey_indicator
+id: node.survey_indicator.field_rating
+field_name: field_rating
+entity_type: node
+bundle: survey_indicator
+label: Rating
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

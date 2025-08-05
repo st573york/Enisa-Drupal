@@ -1,0 +1,19 @@
+uuid: ed279983-83e1-4bcb-97a4-27d97cd28409
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hash
+    - node.type.invitation
+id: node.invitation.field_hash
+field_name: field_hash
+entity_type: node
+bundle: invitation
+label: Hash
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

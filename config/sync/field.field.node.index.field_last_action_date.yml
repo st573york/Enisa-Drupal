@@ -1,0 +1,19 @@
+uuid: bb83ab10-36de-4a67-96b0-ff7817d18987
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_last_action_date
+    - node.type.index
+id: node.index.field_last_action_date
+field_name: field_last_action_date
+entity_type: node
+bundle: index
+label: 'Last Action Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

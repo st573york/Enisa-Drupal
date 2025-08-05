@@ -1,0 +1,150 @@
+uuid: 82ad71d0-58e6-46e1-93a5-e3007d564bf2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.survey_indicator_answer.field_choice
+    - field.field.node.survey_indicator_answer.field_free_text
+    - field.field.node.survey_indicator_answer.field_last_saved
+    - field.field.node.survey_indicator_answer.field_options
+    - field.field.node.survey_indicator_answer.field_question
+    - field.field.node.survey_indicator_answer.field_reference_source
+    - field.field.node.survey_indicator_answer.field_reference_year
+    - field.field.node.survey_indicator_answer.field_survey_indicator
+    - node.type.survey_indicator_answer
+  module:
+    - multiselect_dropdown
+    - path
+id: node.survey_indicator_answer.default
+targetEntityType: node
+bundle: survey_indicator_answer
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_choice:
+    type: options_select
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_free_text:
+    type: string_textarea
+    weight: 11
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_last_saved:
+    type: datetime_timestamp
+    weight: 14
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_options:
+    type: multiselect_dropdown
+    weight: 10
+    region: content
+    settings:
+      label_aria: 'Toggle the list of Options'
+      label_none: 'No Options Selected'
+      label_all: 'All Options Selected'
+      label_single: '%d Option Selected'
+      label_plural: '%d Options Selected'
+      label_select_all: 'Select All'
+      label_select_none: 'Deselect All'
+      search_title: ''
+      search_title_display: ''
+      search_placeholder: ''
+      search_character_threshold: null
+    third_party_settings: {  }
+  field_question:
+    type: options_select
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_reference_source:
+    type: string_textarea
+    weight: 13
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_reference_year:
+    type: number
+    weight: 12
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_survey_indicator:
+    type: options_select
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    weight: 3
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 6
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 4
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

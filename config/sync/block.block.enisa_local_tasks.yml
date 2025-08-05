@@ -1,0 +1,28 @@
+uuid: 73b32fe9-3f13-4ff0-a577-ccaf5071913d
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - enisa
+_core:
+  default_config_hash: wEWFHgn2HUJQOdsKAgDfDSAo8euEGrw3Io_UR25iVA8
+id: enisa_local_tasks
+theme: enisa
+region: content
+weight: -4
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: '/*'

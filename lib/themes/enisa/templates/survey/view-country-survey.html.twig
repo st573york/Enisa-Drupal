@@ -1,0 +1,720 @@
+{{ attach_library('enisa/main') }}
+{{ attach_library('enisa/modal') }}
+{{ attach_library('enisa/alert') }}
+{{ attach_library('enisa/datepicker-custom') }}
+{{ attach_library('enisa/tinymce-custom') }}
+{{ attach_library('enisa/datepicker-library') }}
+{{ attach_library('enisa/tinymce-library') }}
+{{ attach_library('enisa/country-survey') }}
+{{ attach_library('enisa/country-survey-wizard') }}
+{{ attach_library('enisa/survey-actions') }}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      {% for breadcrumb in page_data.breadcrumb_list %}
+        <li class="breadcrumb-item"><a href={{ breadcrumb.link }}>{{ breadcrumb.label }}</a></li>
+      {% endfor %}
+      <li class="breadcrumb-item active">{{ assignee_country_survey_data.survey.title|raw }}</li>
+  </ol>
+</nav>
+
+<main id="enisa-main" class="bg-white">
+  <div class="container-fluid">
+    
+    {% set is_authorised = (is_poc or is_admin) ? true : false %}
+    {% set is_assignee_indicators_submitted = (assignee_country_survey_data.indicators_submitted) ? true : false %}
+    {% set is_country_survey_submitted = (assignee_country_survey_data.submitted_user is not empty) ? true : false %}
+    {% set is_country_survey_approved = (assignee_country_survey_data.approved_user is not empty) ? true : false %}
+    {% set is_last_country_survey_submitted = (last_country_survey_data.submitted_user is not empty) ? true : false %}
+    <div class="row">
+      <div class="col-12 d-flex ps-0 pe-0">
+        <div class="me-auto">
+          <h1 class="country-survey-title">{{ assignee_country_survey_data.survey.title|raw }}</h1>
+        </div>
+        {% if not view_all %}
+          <div class="row" style="margin-top: 0.8rem;">
+            <div class="d-flex">
+              <div style="margin-top: -5px;">
+                <button class="icon-dropdown-menu btn-unstyle" type="button"></button>
+              </div>
+              <div class="dropdown">
+                <a id="surveyNavigationDropdown" href="#" class="dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ 'Survey navigation'|t }}</a>
+                <ul class="dropdown-menu dropdown-menu-end" role="menu" aria-labelledby="dLabel">
+                  <div class="dropdown-menu-wrapper pe-4">
+                    <div class="row">
+                      <div class="col-12 mt-2 ms-3">
+                        <h4>{{ 'Survey Outline'|t }}</h4>
+                      </div>
+                      <div class="col-12 tree-column mt-2 mb-2 ms-3">
+                        <ul>
+                          <li>
+                            <div class="step-choice step-info current" id="step-page-0" data-id="-1" data-type="info">
+                              <span>{{ 'Participant Information and Background and scope'|t }}</span>
+                            </div>
+                          </li>
+                          <li>
+                            <span class="ms-span">{{ 'Content of the Surveys'|t }}</span>
+                            <ul>
+                              {% for survey_indicator in survey_indicators_data %}
+                                {% set indicator = survey_indicator.indicator %}
+                                {% set indicator_assigned_style = (survey_indicator.assignee.id == current_user_data.id) ? 'assigned' : 'not_assigned' %}
+                                <li>
+                                  <div class="step-choice indicators step-form-indicator {{ indicator_assigned_style }}"
+                                    id="step-page-{{ indicator.id }}"
+                                    data-id="{{ indicator.id }}" data-type="form-indicator">
+                                    <span>{{ indicator.order }}. {{ indicator.name|raw }}</span>
+                                  </div>
+                                </li>
+                              {% endfor %}
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </ul>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    {% include '@enisa/components/alert.html.twig' with {'type': 'pageAlert'} %}
+
+    <div class="row alert-section d-none">
+      <div class="col-12 ps-0 pe-0 mt-2 d-flex justify-content-end">
+        <button type="button" class="btn btn-enisa" onclick="viewSurvey({country_survey_id: {{ assignee_country_survey_data.id }}});">{{ 'Start'|t }}</button>
+      </div>
+    </div>
+
+    {# Indicator State Content #}
+    {% for survey_indicator in survey_indicators_data %}
+      {% if survey_indicator.state.id > 2 %}
+        {% set indicator = survey_indicator.indicator %}
+        {% set latest_requested_change_state = (survey_indicator.latest_requested_change is not empty) ? survey_indicator.latest_requested_change.state.id : 0 %}
+        {% set latest_requested_change_deadline = (survey_indicator.latest_requested_change is not empty) ? survey_indicator.latest_requested_change.deadline : assignee_country_survey_data.survey.deadline|date('d-m-Y') %}
+        {% set latest_requested_change_author_id = (survey_indicator.latest_requested_change is not empty) ? survey_indicator.latest_requested_change.requested_user.id : null %}
+        {% set latest_requested_change_author_name = (survey_indicator.latest_requested_change is not empty) ? survey_indicator.latest_requested_change.requested_user.name : null %}
+        {% set latest_requested_change_author_role = (survey_indicator.latest_requested_change is not empty) ? survey_indicator.latest_requested_change.requested_user.role.weight : null %}
+        {% if (survey_indicator.latest_requested_change is not empty and not is_admin and latest_requested_change_author_role == 5) %}
+          {% set latest_requested_change_author_name = user_group %}
+        {% endif %}
+        {% set approved_author_id = (survey_indicator.approved_user is not empty) ? survey_indicator.approved_user.id : null %}
+        {% set approved_author_name = (survey_indicator.approved_user is not empty) ? survey_indicator.approved_user.name : null %}
+        {% set approved_author_role = (survey_indicator.approved_user is not empty) ? survey_indicator.approved_user.role.weight : null %}
+        {% if (survey_indicator.approved_user is not empty and not is_admin and approved_author_role == 5) %}
+          {% set approved_author_name = user_group %}
+        {% endif %}
+        <div class="row submitted-requested-changes-history d-none {{ (survey_indicator.submitted_requested_changes|length) ? 'history' : '' }}" data-id="{{ indicator.id }}">
+          <div class="col-12 d-flex justify-content-end ps-0 pe-2">
+            <div class="dropdown">
+              <a href="javascript:;" class="dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ 'Requested changes history'|t }}</a>
+              <ul class="dropdown-menu dropdown-menu-end" role="menu" aria-labelledby="dLabel">
+                <div class="dropdown-menu-wrapper pe-4">
+                  <div class="row">
+                    <div class="col-12 tree-column mt-2 mb-2 ms-3">
+                      {% for submitted_requested_change in survey_indicator.submitted_requested_changes %}
+                        <div>
+                          <div class="d-flex gap-2">
+                            <span class="submitted_requested_change_by">{{ (submitted_requested_change.requested_user.role.weight == 5 and not is_admin)
+                              ? user_group : submitted_requested_change.requested_user.name ~ ((submitted_requested_change.requested_user.id == current_user_data.id) ? ' (you)' : '') }}</span>
+                            <span class="submitted_requested_change_at">{{ submitted_requested_change.requested_date|date('d-m-Y H:i:s') }}</span>
+                          </div>
+                          <div>{{ submitted_requested_change.changes|striptags }}</div>
+                          {% if not loop.last %}
+                            <div class="dropdown-divider"></div>
+                          {% endif %}
+                        </div>
+                      {% endfor %}
+                    </div>
+                  </div>
+                </div>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row indicator-state d-none" id="page-{{ indicator.id }}" data-id="{{ indicator.id }}" data-latest-requested-change-state="{{ latest_requested_change_state }}">
+          <div class="col-12 ps-0 pe-0">
+            {# Requested Approval #}
+            {% if is_authorised %}
+              <div class="request-approval-wrap d-none">
+                <section class="request-approval-section ps-4 pe-4">
+                  <div class="row h-100 align-items-center">
+                    <div class="col-md-6">
+                      <div>
+                        <span>{{ 'This indicator needs validation.'|t }}<span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="d-flex justify-content-end gap-2 btns-approval">
+                        <div class="btn btn-approval btn-approve">
+                          <span>{{ 'Accept'|t }}</span>
+                        </div>
+                        <div class="btn btn-approval btn-request-changes">
+                          <span>{{ 'Request changes'|t }}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            {% endif %}
+            {# Request / Requested Changes #}
+            <div class="request-requested-changes-wrap d-none {{ (survey_indicator.state.id in [3, 5, 6]) ? 'mt-2' : '' }}">
+              <section class="request-requested-changes-section ps-4 pe-4">
+                <div class="row h-100 align-items-center">
+                  <div class="col-md-8">
+                    <div>
+                      <span class="request-changes-title d-none">{{ 'Request changes.'|t }}</span>
+                      <span class="requested-changes-title svg-requested d-none">{{ 'Changes have been requested.'|t }}
+                        <span class="requested-changes-title-info ps-1">
+                          {{ 'By:'|t }}
+                          <span class="requested-changes-title-author ps-1 pe-1" id="requested-changes-title-author-{{ indicator.id }}">{{ latest_requested_change_author_name ~ ((latest_requested_change_author_id == current_user_data.id) ? ' (you)' : '') }}</span>
+                          -
+                          {{ 'Deadline:'|t }}
+                          <span class="requested-changes-title-deadline ps-1">{{ latest_requested_change_deadline }}</span>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-md-4 request-changes-deadline d-none">
+                    <div class="d-flex justify-content-end gap-2">
+                      <div>
+                        <div class="input-group date">
+                          <label for="request-requested-changes-deadline-{{ indicator.id }}" class="col-form-label request-changes-title-info pe-2">{{ 'Deadline:'|t }}</label>
+                          <input type="text" class="form-control datepicker request-requested-changes-deadline" id="request-requested-changes-deadline-{{ indicator.id }}" placeholder="Deadline" value="{{ latest_requested_change_deadline }}" />
+                          <span class="input-group-append"></span>
+                          <span class="icon-calendar"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {% if is_authorised %}
+                    <div class="col-md-4 requested-changes-discard-edit d-none" data-latest-requested-change-author-role="{{ latest_requested_change_author_role }}">
+                      <div class="d-flex justify-content-end gap-2">
+                        <div class="d-flex justify-content-end gap-2">
+                          <a style="color:#fff;" href="javascript:;" class="btn-discard-requested-changes">{{ 'Discard'|t }}</a>
+                          <a style="color:#fff;" href="javascript:;" class="btn-edit-requested-changes">{{ 'Edit'|t }}</a>
+                        </div>
+                      </div>
+                    </div>
+                  {% endif %}
+                </div>
+              </section>
+              <div class="d-flex flex-column gap-2">
+                <div class="ps-2 pe-2 mt-2 mb-2">
+                  <textarea class="form-control tinymce" id="request-requested-changes-{{ indicator.id }}" disabled>{{ (survey_indicator.latest_requested_change is not empty) ? survey_indicator.latest_requested_change.changes : '' }}</textarea>
+                </div>
+                {% if is_authorised %}
+                  <div class="d-flex justify-content-end align-items-center request-changes-actions gap-2 pe-0 mt-2 mb-3 me-3 d-none">
+                    <a href="javascript:;" class="fw-bold d-flex align-items-center me-2 btn-cancel-request-changes">{{ 'Cancel'|t }}</a>
+                    <a href="javascript:;" class="btn btn-send-request-changes">{{ 'Save'|t }}</a>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+            {# Approved #}
+            <div class="approved-wrap d-none">
+              <section class="approved-section ps-4 pe-4">
+                <div class="row h-100 align-items-center">
+                  <div class="col-md-6">
+                    <div>
+                      <span class="svg-approved">{{ 'Indicator has been accepted.'|t }}
+                        <span class="approved-title-info ps-1">
+                          {{ 'By:'|t }}
+                          <span class="approved-title-author ps-1" id="approved-title-author-{{ indicator.id }}">{{ approved_author_name ~ ((approved_author_id == current_user_data.id) ? ' (you)' : '') }}</span>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-md-6 unapprove d-none">
+                    <div class="d-flex justify-content-end">
+                      <a href="javascript:;" class="btn-unapprove" style="color:#fff;">{{ 'Unapprove'|t }}</a>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+
+    <div class="row mt-3">
+      <div class="col-12 ps-0 pe-0">
+        <section class="wizard-section">
+          <div>
+            <div class="col-12 ps-0 pe-0">
+              <div class="form-wizard">
+                <div id="question-form" method="get" role="form">
+                  {% set user_data = (is_country_survey_submitted and is_admin) ? assignee_country_survey_data.submitted_user : current_user_data %}
+                  <fieldset class="wizard-fieldset show outline" id="page-0" data-id="-1" data-type="info">
+                    <div class="row">
+                      <div class="col-12 indicator-head">
+                        <h5><span>{{ 'Participant Information'|t }}</span></h5>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="form-indicator-text-content"></p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 d-flex flex-column">
+                        <div class="mb-3 row">
+                          <div class="col-12 col-lg-3 d-flex align-items-end pe-0">
+                            <label for="inputName" class="form-label">{{ 'Name'|t }}</label>
+                          </div>
+                          <div class="col-12 col-lg-5 d-flex align-items-end pe-0">
+                            <input type="text" class="form-control" id="inputName" aria-describedby="emailHelp" value='{{ user_data.name }} {{ (not user_data.is_active) ? user_inactive : '' }}' disabled>
+                          </div>
+                        </div>
+                        <div class="mb-3 row">
+                          <div class="col-12 col-lg-3 d-flex align-items-end pe-0">
+                            <label for="inputEmail" class="form-label">{{ 'Email Address'|t }}</label>
+                          </div>
+                          <div class="col-12  col-lg-5 d-flex align-items-end pe-0">
+                            <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" value={{ user_data.email }} disabled>
+                          </div>
+                        </div>
+                        <div class="mb-3 row">
+                          <div class="col-12 col-lg-3 d-flex align-items-end pe-0">
+                            <label for="country-select" class="form-label">{{ 'Country'|t }}</label>
+                          </div>
+                          <div class="col-12 col-lg-5 d-flex align-items-end pe-0">
+                            <select id="country-select" class="form-select" aria-label="Country Select" disabled>
+                              <option selected value="{{ user_data.country.id }}">{{ user_data.country.name }}</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 d-flex flex-column">
+                        <div class="mb-3 row">
+                          <div>
+                            <span style="color: var(--brand-color-1);">*</span>
+                            <span style="font-weight: 300;">{{ 'Important notice: Please note that for auditing and traceability purposes, the above name and email address will appear in logs used internally\nin the EU-CSI tool, for all actions realized during the completion of the survey (i.e., name, email, question answered, date of the provided answer).'|nl2br }}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                  <fieldset class="wizard-fieldset pt-0 show outline merged" id="page-1" data-id="-2" data-type="info">
+                    {% if (assignee_country_survey_data.survey.description is not empty) %}
+                      <div class="row">
+                        <div class="col-12 indicator-head">
+                          <h5><span>{{ 'Background and scope'|t }}</span></h5>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-12">
+                          <p>
+                            {{ assignee_country_survey_data.survey.description|raw }}
+                          </p>
+                        </div>
+                      </div>
+                    {% endif %}
+                    {% if not view_all %}
+                      <div class="row btm mt-5">
+                        <div class="col-12 d-flex justify-content-end mt-4 step-nav-buttons">
+                          <button type="button" class="form-wizard-next-btn btn btn-enisa validate step-change">{{ (assignee_country_survey_data.survey_started) ? 'Resume'|t : 'Start'|t }}</button>
+                        </div>
+                      </div>
+                    {% endif %}
+                  </fieldset>
+                  {% for survey_indicator in survey_indicators_data %}
+                    {% set indicator = survey_indicator.indicator %}
+                    {% set is_assigned = (indicator.id in assignee_country_survey_data.indicators_assigned.id) ? true : false %}
+                    {% set is_assigned_exact = (indicator.id in assignee_country_survey_data.indicators_assigned_exact.id) ? true : false %}
+                    {% set indicator_state = survey_indicator.state.id %}
+                    {% set indicator_assigned = (survey_indicator.assignee.id == current_user_data.id) ? true : false %}
+                    {% set indicator_assignee_info = '' %}
+                    {% if not survey_indicator.assignee.is_active %}
+                      {% set indicator_assignee_info = user_inactive %}
+                    {% elseif indicator_assigned %}
+                      {% set indicator_assignee_info = '(you)' %}
+                    {% endif %}
+                    {% set indicator_assigned_style = (indicator_assigned) ? 'assigned' : 'not_assigned' %}
+                    {% set indicator_answers_loaded = survey_indicator.answers_loaded %}
+                    {# Last year data #}
+                    {% if indicator_answers_loaded %}
+                      {% set last_survey_indicator = last_survey_indicators_data[indicator.identifier] %}
+                      {% set last_indicator_assigned = (last_survey_indicator.assignee.id == current_user_data.id) ? true : false %}
+                      {% set last_indicator_assignee_info = '' %}
+                      {% if not last_survey_indicator.assignee.is_active %}
+                        {% set last_indicator_assignee_info = user_inactive %}
+                      {% elseif last_indicator_assigned %}
+                        {% set last_indicator_assignee_info = '(you)' %}
+                      {% endif %}
+                    {% endif %}
+                    <fieldset class="wizard-fieldset {{ indicator_assigned_style }} {{ (view_all) ? 'mt-2 show' : '' }} outline"
+                      id="page-{{ indicator.id }}"
+                      data-id="{{ indicator.id }}"
+                      data-type="form-indicator"
+                      data-state="{{ indicator_state }}"
+                      data-assignee="{{ survey_indicator.assignee.id }}">
+                      <div class="row mb-2">
+                        <div class="col-8">
+                          <h4>
+                            <span class="form-indicator-assignee-title">{{ 'Validated by:'|t }} <span class="form-indicator-assignee {{ indicator_assigned_style }}">{{ survey_indicator.assignee.name }} {{ indicator_assignee_info }}</span></span>
+                          </h4>
+                        </div>
+                        <div class="col-4 d-flex justify-content-end mt-2 {{ (survey_indicator.last_saved is empty or view_all) ? 'd-none' : '' }}">
+                          <h6>
+                            <span class="form-indicator-last-saved-title">{{ 'Last saved:'|t }} <span class="form-indicator-last-saved local-timestamp">{{ survey_indicator.last_saved }}</span></span>
+                          </h6>
+                        </div>
+                        {% set progress = ((indicator.order / loop.length) * 100)|round %}
+                        <div>
+                          <span class="form-indicator-progress-percentage">{{ 'Indicator'|t }}
+                            {{ indicator.order }} {{ 'of'|t }}
+                            {{ loop.length }} {{ (is_assigned and not view_all ) ? '- ' ~ progress ~ '%' : '' }}
+                          </span>
+                        </div>
+                        {% if is_assigned and not view_all %}
+                          <div>
+                            <div class="progress form-indicator-progress-bar mt-1 mb-2">
+                              <div class="progress-bar bg-approved" role="progressbar" style="width: {{ progress }}%" aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                          </div>
+                        {% endif %}
+                      </div>
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="indicator-head">
+                            <div class="col-8">
+                              <h5>
+                                <div>
+                                  <span class="form-indicator-info">{{ indicator.subarea.area.name|raw }} /</span>
+                                  <span class="form-indicator-info">{{ indicator.subarea.name|raw }}</span>
+                                </div>
+                                <div>
+                                  <span class="form-indicator-id">{{ indicator.order }}</span>.
+                                  <span class="form-indicator-name">{{ indicator.name|raw }}</span>
+                                </div>
+                              </h5>
+                            </div>
+                            {% if is_assigned_exact and not view_all and is_last_country_survey_submitted and indicator_state not in [3, 6, 7] %}
+                              <div class="col-4 d-flex justify-content-end indicator-action">
+                                {% set action_load_reset = (indicator_answers_loaded) ? 'reset' : 'load' %}
+                                <button type="button" class="btn btn-indicator-head" onclick="loadResetCountrySurveyIndicatorAnswers('{{ action_load_reset }}');">{{ (action_load_reset == 'load' ? 'Pre-fill' : 'Reset')  ~ ' ' ~ last_country_survey_data.survey.year ~ ' Answers' }}</button>
+                              </div>
+                            {% endif %}
+                          </div>
+                          <div class="indicator-body pt-2">
+                            {% set count = 0 %}
+                            <div class="col-10 offset-1">
+                              <p class="form-indicator-text-content">{{ indicator.algorithm|raw }}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="accordion">
+                            {% for accordion in survey_indicator.accordions %}
+                              {% set title = '<span class="form-questions-title">' ~ accordion.title ~ '</span>' %}
+                              {% if view_all %}
+                                <div class="indicator-head">
+                                  <h5>{{ title|raw }}</h5>
+                                </div>
+                              {% else %}
+                                <div class="accordion-item">
+                                  <div class="accordion-header" id="accordion-heading-{{ indicator.id }}-{{ loop.index }}">
+                                    <button id="accordion-button-{{ indicator.id }}-{{ loop.index }}" class="accordion-button {{ (loop.index == 1) ? '' : 'collapsed' }}"
+                                      type="button" data-bs-toggle="collapse"
+                                      data-bs-target="#accordion-collapse-{{ indicator.id }}-{{ loop.index }}"
+                                      aria-expanded="{{ (loop.index == 1) ? 'true' : 'false' }}"
+                                      aria-controls="accordion-collapse-{{ indicator.id }}-{{ loop.index }}">
+                                      {{ title|raw }}
+                                    </button>
+                                  </div>
+                                </div>
+                              {% endif %}
+                              <div id="accordion-collapse-{{ indicator.id }}-{{ loop.index }}"
+                                class="accordion-collapse collapse {{ (loop.index == 1 or view_all) ? 'show' : '' }}"
+                                aria-labelledby="accordion-heading-{{ indicator.id }}-{{ loop.index }}"
+                                data-order="{{ accordion.order }}">
+                                {% for question in accordion.questions %}
+                                  {% set count = count + 1 %}
+                                  {% set question_number = indicator.order ~ '.' ~ count %}
+                                  {% set info = question.info ? '<span class="info-icon-black" data-bs-toggle="tooltip" data-bs-placement="right" title="' ~ question.info ~ '"></span>' : '' %}
+                                  {% if indicator_answers_loaded and question.compatible %}
+                                    {% set survey_indicator_answers = last_survey_indicator.accordions[accordion.order].questions[question.order].answers %}
+                                  {% else %}
+                                    {% set survey_indicator_answers = survey_indicator.accordions[accordion.order].questions[question.order].answers %}
+                                  {% endif %}
+                                  <div id="survey_indicator_question_{{ question.id }}" class="accordion-body indicator-body question-body pt-2">
+                                    <div class="form-question-text">
+                                      <p class="fw-bold">
+                                        <span {{ (question.answers_required) ? '' : 'class="d-none"' }} style="color: var(--brand-color-1);">*</span>
+                                        <span>{{ question_number }}</span>. {{ question.title|raw }}{{ info|raw }}
+                                      </p>
+                                    </div>
+                                    {% if not view_all %}
+                                      {% if is_assigned and indicator_answers_loaded %}
+                                        <div class="form-indicator-question-load-reset">
+                                          <p>
+                                            {% if question.compatible %}
+                                              <span class="answers-loaded">Answered by: {{ last_survey_indicator.assignee.name }} {{ last_indicator_assignee_info }} - on {{ survey_indicator_answers.last_saved }}</span>
+                                            {% else %}
+                                              <span class="answers-not-loaded">Unable to load previous answers. The possible answers have changed since last year.</span>
+                                            {% endif %}
+                                          </p>
+                                        </div>
+                                      {% endif %}
+                                      <div class="form-indicator-question-answer d-none">
+                                        <p>
+                                          <span class="answers-provided">Answered by: {{ survey_indicator.assignee.name }} {{ indicator_assignee_info }} - on <span class="answers-provided-timestamp local-timestamp">{{ survey_indicator_answers.last_saved }}</span></span>
+                                        </p>
+                                      </div>
+                                    {% endif %}
+                                    <div id="form-indicator-{{ indicator.id }}" data-number="form-indicator-{{ indicator.order }}" data-type="form-indicator" class="col-12 pe-0 mb-2 form-indicators">
+                                      <div class="input-wrapper d-flex gap-4 mb-3 input-choice required" data-order="{{ question.order }}">
+                                        {% for choice in question.choices %}
+                                          <div class="form-check" data-toggle="buttons">
+                                            <input type="radio"
+                                              class="form-input form-check-input {{ indicator_assigned_style }}"
+                                              name="form-indicator-{{ indicator.id }}-choice-{{ accordion.order }}-{{ question.order }}"
+                                              id="form-indicator-{{ indicator.id }}-choice-{{ accordion.order }}-{{ question.order }}-{{ loop.index }}"
+                                              value="{{ choice.id }}"
+                                              {{ (choice.id == survey_indicator_answers.choice.id or loop.first) ? 'checked' : '' }}/>
+                                            <label class="form-check-label"
+                                              for="form-indicator-{{ indicator.id }}-choice-{{ accordion.order }}-{{ question.order }}-{{ loop.index }}">
+                                              {{ choice.name|raw }}
+                                            </label>
+                                          </div>
+                                          <div class="clear-answers-container {{ (is_assigned_exact and not view_all and loop.last) ? '' : 'd-none' }}">
+                                            <a href="#" class="clear-answers">{{ 'Clear All Answers'|t }}</a>
+                                          </div>
+                                        {% endfor %}
+                                      </div>
+                                      <div class="invalid-feedback"></div>
+                                      <div class="input-wrapper actual-answers {{ question.type.name }} {{ (question.answers_required) ? 'required' : '' }}" data-order="{{ question.order }}">
+                                        {% if question.type.id == 1 %}
+                                          {% for option in question.options %}
+                                            <div class="form-check" data-toggle="buttons">
+                                              <input type="radio"
+                                                class="form-input form-check-input {{ indicator_assigned_style }}"
+                                                name="form-indicator-{{ indicator.id }}-answers-{{ accordion.order }}-{{ question.order }}"
+                                                id="form-indicator-{{ indicator.id }}-answers-{{ accordion.order }}-{{ question.order }}-{{ loop.index }}"
+                                                value="{{ option.value }}"
+                                                {{ (option.value in survey_indicator_answers.options) ? 'checked' : '' }}/>
+                                              <label class="form-check-label"
+                                                for="form-indicator-{{ indicator.id }}-answers-{{ accordion.order }}-{{ question.order }}-{{ loop.index }}">
+                                                {{ option.title|raw }}
+                                              </label>
+                                            </div>
+                                          {% endfor %}
+                                        {% elseif question.type.id == 2 %}
+                                          {% for option in question.options %}
+                                            <div class="form-check">
+                                              <input type="checkbox"
+                                                class="form-input form-check-input {{ indicator_assigned_style }} {{ option.master ? 'master' : '' }}"
+                                                name="form-indicator-{{ indicator.id }}-answers-{{ accordion.order }}-{{ question.order }}"
+                                                id="form-indicator-{{ indicator.id }}-answers-{{ accordion.order }}-{{ question.order }}-{{ loop.index }}"
+                                                value="{{ option.value }}"
+                                                {{ (option.value in survey_indicator_answers.options) ? 'checked' : '' }}/>
+                                              <label class="form-check-label"
+                                                for="form-indicator-{{ indicator.id }}-answers-{{ accordion.order }}-{{ question.order }}-{{ loop.index }}">
+                                                {{ option.title|raw }}
+                                              </label>
+                                            </div>
+                                          {% endfor %}
+                                        {% else %}
+                                          <div>
+                                            <input type="text"
+                                              class="form-input form-control {{ indicator_assigned_style }}"
+                                              name="form-indicator-{{ indicator.id }}-answers-{{ accordion.order }}-{{ question.order }}"
+                                              id="form-indicator-{{ indicator.id }}-answers-{{ accordion.order }}-{{ question.order }}-{{ loop.index }}"
+                                              value="{{ survey_indicator_answers.free_text|raw }}" />
+                                          </div>
+                                        {% endif %}
+                                      </div>
+                                      <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-12 mb-2 form-references {{ (question.reference_required) ? 'required' : '' }}">
+                                      <span class="{{ indicator_assigned_style }} {{ (question.reference_required) ? '' : 'd-none' }}" style="color: var(--brand-color-1);">*</span>
+                                      <label for="form-indicator-{{ indicator.id }}-reference-year-{{ accordion.order }}-{{ question.order }}" class="form-label mt-2 {{ indicator_assigned_style }}">{{ 'Reference Year'|t }}</label>
+                                      <select class="form-select {{ indicator_assigned_style }}" name="form-indicator-{{ indicator.id }}-reference-year-{{ accordion.order }}-{{ question.order }}" id="form-indicator-{{ indicator.id }}-reference-year-{{ accordion.order }}-{{ question.order }}" aria-label="Reference Year" style="width: 20%">
+                                        <option value="" selected disabled>{{ 'Choose...'|t }}</option>
+                                        {% for year in years %}
+                                          <option value="{{ year }}" {{ (year == survey_indicator_answers.reference_year) ? 'selected' : '' }}>{{ year }}</option>
+                                        {% endfor %}
+                                      </select>
+                                      <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-12 mb-4 form-references {{ (question.reference_required) ? 'required' : '' }}">
+                                      <span class="{{ indicator_assigned_style }} {{ (question.reference_required) ? '' : 'd-none' }}" style="color: var(--brand-color-1);">*</span>
+                                      <label for="form-indicator-{{ indicator.id }}-reference-source-{{ accordion.order }}-{{ question.order }}" class="form-label mt-2 {{ indicator_assigned_style }}">{{ 'Reference Source'|t }}</label>
+                                      <textarea class="form-control outline {{ indicator_assigned_style }}" name="form-indicator-{{ indicator.id }}-reference-source-{{ accordion.order }}-{{ question.order }}" id="form-indicator-{{ indicator.id }}-reference-source-{{ accordion.order }}-{{ question.order }}" placeholder="{{ 'Include here the source of data. Note that you should use the latest data available.'|t }}">{{ survey_indicator_answers.reference_source|raw }}</textarea>
+                                      <div class="invalid-feedback"></div>
+                                    </div>
+                                  </div>
+                                {% endfor %}
+                              </div>
+                            {% endfor %}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row btm mt-5">
+                        <div class="col-md-12">
+                          {# Rating / Comments #}
+                          <div>
+                            <form id="comments_and_rating">
+                              <fieldset>
+                                {% if indicator_answers_loaded %}
+                                  {% set indicator_rating = last_survey_indicator.rating %}
+                                  {% set indicator_comments = last_survey_indicator.comments %}
+                                {% else %}
+                                  {% set indicator_rating = survey_indicator.rating %}
+                                  {% set indicator_comments = survey_indicator.comments %}
+                                {% endif %}
+                                <div class="col-12 rating-wrapper mb-4">
+                                  {% if is_assigned and not view_all and indicator_answers_loaded %}
+                                    <div class="form-indicator-question-load-reset">
+                                      <p>
+                                        <span class="comments-and-rating-loaded">Rating provided by: {{ last_survey_indicator.assignee.name }} {{ last_indicator_assignee_info }} - on {{ last_survey_indicator.last_saved }}</span>
+                                      </p>
+                                    </div>
+                                  {% endif %}
+                                  <span style="color: var(--brand-color-1);">*</span>
+                                  <label for="form-indicator-{{ indicator.id }}-rating" class="{{ indicator_assigned_style }}">
+                                    {{ 'Please rate the relevance of the indicator by selecting 1-5 stars. The rating of the indicator will be used to calculate the weight for this indicator.'|t }}
+                                  </label>
+                                  <div class="form-rating rating {{ indicator_assigned_style }} required">
+                                    <span class="pe-1">Rating:</span>
+                                    {% for i in range(5, 1, -1) %}
+                                      <input
+                                        class="form-indicator-{{ indicator.id }}-rating" type="radio"
+                                        id="form-indicator-{{ indicator.id }}-rating-{{ i }}"
+                                        name="form-indicator-{{ indicator.id }}-rating"
+                                        value="{{ i }}"
+                                        {{ (indicator_rating == i) ? 'checked' : '' }} />
+                                      <label class="star" for="form-indicator-{{ indicator.id }}-rating-{{ i }}" aria-hidden="true"></label>
+                                    {% endfor %}
+                                  </div>
+                                  <div class="invalid-feedback"></div>
+                                </div>
+                                <div class="form-comments">
+                                  {% if is_assigned and not view_all and indicator_answers_loaded %}
+                                    <div class="form-indicator-question-load-reset">
+                                      <p>
+                                        <span class="comments-and-rating-loaded">Comments provided by: {{ last_survey_indicator.assignee.name }} {{ last_indicator_assignee_info }} - on {{ last_survey_indicator.last_saved }}</span>
+                                      </p>
+                                    </div>
+                                  {% endif %}
+                                  <textarea class="form-control user-comments outline {{ indicator_assigned_style }}" name="form-indicator-{{ indicator.id }}-comments" id="form-indicator-{{ indicator.id }}-comments" rows="5" placeholder="{{ 'Include here any remark that could be useful in the processing of data e.g. explaining if / why your country does not collect data\nfor a specific question; or if your country does not want to share the data.'|t }}">{{ indicator_comments|raw }}</textarea>
+                                </div>
+                              </fieldset>
+                            </form>
+                          </div>
+                        </div>
+                        {% if view_all %}
+                          {% if loop.last %}
+                            {% if page_data.return_to_label %}
+                              <div class="col-12 d-flex justify-content-end mt-4 step-nav-buttons">
+                                <button type="button" class="btn btn-enisa back" onclick="location.href='{{ page_data.previous }}'">{{ 'Back to'|t }} {{ page_data.return_to_label }}</button>
+                              </div>
+                            {% endif %}
+                          {% endif %}
+                        {% else %}
+                          {% set previous_btn = '<button type="button" class="form-wizard-previous-btn btn-enisa-invert btn btn-enisa validate step-change">' ~ 'Previous'|t ~ '</button>' %}
+                          {% set save_btn = '<button type="button" class="btn-enisa-invert btn btn-enisa step-save" disabled>' ~ 'Save'|t ~ '</button>' %}
+                          {% set next_btn = '<button type="button" class="form-wizard-next-btn btn btn-enisa validate step-change">' ~ 'Next'|t ~ '</button>' %}
+                          {% if loop.last %}
+                            {% if is_admin %}
+                              <div class="col-12 d-flex justify-content-between mt-4 step-nav-buttons">
+                                {{ previous_btn|raw }}
+                                {% if page_data.return_to_label %}
+                                  <button dusk="back_to_page" type="button" class="btn btn-enisa back" onclick="location.href='{{ page_data.previous }}'">{{ 'Back to'|t }} {{ page_data.return_to_label }}</button>
+                                {% endif %}
+                              </div>
+                            {% else %}
+                              <div class="col-12 d-flex mt-4 step-nav-buttons">
+                                <div class="me-auto">{{ previous_btn|raw }}</div>
+                                {% if is_assigned_exact and indicator_state in [1, 2, 5] %}
+                                  <div class="pe-2">{{ save_btn|raw }}</div>
+                                {% endif %}
+                                {% if not is_assignee_indicators_submitted or is_primary_poc %}
+                                  <div>
+                                    <button dusk="survey_review_and_submit" type="button" class="btn btn-enisa" id="country-survey-review">{{ 'Review & Submit'|t }}</button>
+                                  </div>
+                                {% else %}
+                                  {% if page_data.return_to_label %}
+                                    <button dusk="back_to_page" type="button" class="btn btn-enisa back" onclick="location.href='{{ page_data.previous }}'">{{ 'Back to'|t }} {{ page_data.return_to_label }}</button>
+                                  {% endif %}
+                                {% endif %}
+                              </div>
+                            {% endif %}
+                          {% else %}
+                            <div class="col-12 d-flex mt-4 step-nav-buttons">
+                              <div class="me-auto">
+                                {{ previous_btn|raw }}
+                              </div>
+                              {% if is_assigned_exact and indicator_state in [1, 2, 5] %}
+                                <div class="pe-2">{{ save_btn|raw }}</div>
+                              {% endif %}
+                              <div>{{ next_btn|raw }}</div>
+                            </div>
+                          {% endif %}
+                        {% endif %}
+                      </div>
+                    </fieldset>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div class="modal fade" id="pageModal" tabindex="-1" aria-labelledby="pageModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header p-3">
+            <h5 class="modal-title" id="pageModalLabel"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body p-3"></div>
+          <div class="modal-footer d-flex justify-content-between">
+            <button type="button" class="btn btn-enisa" data-bs-dismiss="modal">{{ 'Close'|t }}</button>
+            <button type="button" class="btn btn-enisa process-data" id="country-survey-submit"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="dirtyModal" tabindex="-1" aria-labelledby="dirtyModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header p-3">
+            <h5 class="modal-title" id="dirtyModalLabel">
+              <span id="status-message" class="error">You have unsaved changes!</span>
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body p-3">
+            This page has unsaved changes that will be lost. Save or discard the answers before leaving this page.
+          </div>
+          <div class="modal-footer d-flex">
+            <div class="me-auto">
+              <button type="button" class="btn btn-enisa" data-bs-dismiss="modal">{{ 'Close'|t }}</button>
+            </div>
+            <div>
+              <button type="button" class="btn btn-enisa" id="step-discard-goto">{{ 'Discard changes'|t }}</button>
+            </div>
+            <div>
+              <button type="button" class="btn btn-enisa" id="step-save-goto">{{ 'Save changes'|t }}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>

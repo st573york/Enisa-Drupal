@@ -1,0 +1,15 @@
+_core:
+  default_config_hash: l58O_yEXSo-SeJi19LXdzTU1tNJG3lmnIhCitRkM1tk
+langcode: en
+uuid: a7d05f13-9df1-494a-9fcb-a962a7296de8
+name: Enisa
+mail: DIGIT-DRUPAL-DEVSECOPS@ec.europa.eu
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /user/login
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: en
+mail_notification: null

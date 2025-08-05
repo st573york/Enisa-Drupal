@@ -1,0 +1,18 @@
+uuid: bce18563-4444-43bb-8949-ecd76ab96fb7
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_eu_published
+field_name: field_eu_published
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

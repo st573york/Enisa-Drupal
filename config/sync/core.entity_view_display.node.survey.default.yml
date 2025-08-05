@@ -1,0 +1,80 @@
+uuid: a534b2a5-7332-473d-9fd6-607ef8da5edc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.survey.field_assigned_indicators
+    - field.field.node.survey.field_assigned_users
+    - field.field.node.survey.field_deadline
+    - field.field.node.survey.field_description
+    - field.field.node.survey.field_index
+    - field.field.node.survey.field_published
+    - field.field.node.survey.field_year
+    - node.type.survey
+  module:
+    - datetime
+    - text
+    - user
+id: node.survey.default
+targetEntityType: node
+bundle: survey
+mode: default
+content:
+  field_assigned_indicators:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_assigned_users:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_deadline:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_index:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_year:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_published: true
+  langcode: true
+  search_api_excerpt: true

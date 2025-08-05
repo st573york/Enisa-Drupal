@@ -1,0 +1,32 @@
+uuid: 5be07e2d-187c-4c40-9b8b-282a81f28d79
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.area.field_clone_year
+    - field.field.node.area.field_default_weight
+    - field.field.node.area.field_description
+    - field.field.node.area.field_identifier
+    - field.field.node.area.field_year
+    - node.type.area
+  module:
+    - user
+id: node.area.teaser
+targetEntityType: node
+bundle: area
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_clone_year: true
+  field_default_weight: true
+  field_description: true
+  field_identifier: true
+  field_year: true
+  langcode: true
+  search_api_excerpt: true

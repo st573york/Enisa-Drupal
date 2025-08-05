@@ -1,0 +1,14 @@
+uuid: acf73477-5600-4605-b267-bf91f95f3594
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.primary_poc
+  module:
+    - user
+id: user_add_role_action.primary_poc
+label: 'Add the Primary PoC role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: primary_poc

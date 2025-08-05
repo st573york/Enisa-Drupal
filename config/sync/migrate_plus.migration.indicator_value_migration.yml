@@ -1,0 +1,40 @@
+uuid: 42653149-3810-4e4a-aaf5-79839d6a365f
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: n8DhuaI367lYI3KVCG5K-qhXMYJPkUwzc7l2gIis95s
+id: indicator_value_migration
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: indicator_value_migration_group
+label: 'Indicator Value Migration'
+source:
+  plugin: indicator_value_sql
+  key: enisa
+process:
+  id: id
+  indicator_id:
+    plugin: indicator_lookup
+    additional_fields:
+      indicator_name: indicator_name
+      indicator_identifier: indicator_identifier
+      indicator_year: indicator_year
+  country_id:
+    plugin: country_lookup_by_name
+    source: country_name
+  value: value
+  year: year
+destination:
+  plugin: table
+  table_name: indicator_values
+  id_fields:
+    id:
+      type: integer
+idMap: {  }
+migration_dependencies:
+  required:
+    - indicator_migration
+include: null

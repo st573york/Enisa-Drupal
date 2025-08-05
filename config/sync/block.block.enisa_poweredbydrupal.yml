@@ -1,0 +1,24 @@
+uuid: b0b6f78c-c2b8-411d-a89a-5a023b1c86f6
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - enisa
+id: enisa_poweredbydrupal
+theme: enisa
+region: header
+weight: -6
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: '/*'

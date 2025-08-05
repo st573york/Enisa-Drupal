@@ -1,0 +1,9 @@
+uuid: ae56c001-b591-4b5b-b95d-ea45a7ba46d7
+langcode: en
+status: true
+dependencies: {  }
+name: 'Index States'
+vid: index_states
+description: 'List of index states'
+weight: 0
+new_revision: false

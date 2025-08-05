@@ -1,0 +1,19 @@
+uuid: 48cf110e-5153-446e-83cb-9c7f1e1e4b1e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_email
+    - node.type.invitation
+id: node.invitation.field_email
+field_name: field_email
+entity_type: node
+bundle: invitation
+label: Email
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

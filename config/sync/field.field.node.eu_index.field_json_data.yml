@@ -1,0 +1,19 @@
+uuid: d6fd5c55-3292-47f1-9a92-6b76e1ab9a52
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_json_data
+    - node.type.eu_index
+id: node.eu_index.field_json_data
+field_name: field_json_data
+entity_type: node
+bundle: eu_index
+label: 'JSON Data'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

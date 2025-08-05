@@ -1,0 +1,53 @@
+uuid: 47f8fa04-7432-4dab-a7cb-8f627a0cc7a7
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: dRZ9FnQ25wk7NzGCwcsNf-_1Tlc1lSTAzflVv8-tb4g
+id: indicator_migration
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: indicator_migration_group
+label: 'Indicator Migration'
+source:
+  plugin: indicator_sql
+  key: enisa
+process:
+  uid:
+    plugin: user_lookup
+    source: null
+    username: admin
+  field_order: order
+  field_validated: validated
+  title: name
+  field_short_name: short_name
+  field_description: description
+  field_default_subarea:
+    plugin: subarea_lookup
+    additional_fields:
+      subarea_name: subarea_name
+      subarea_identifier: subarea_identifier
+      year: year
+  field_default_weight: default_weight
+  field_algorithm: algorithm
+  field_source: source
+  field_comment: comment
+  field_identifier: identifier
+  field_report_year: report_year
+  field_category: category
+  field_year: year
+  field_clone_year: clone_year
+  type:
+    plugin: default_value
+    default_value: indicator
+destination:
+  plugin: 'entity:node'
+  default_bundle: indicator
+  update_existing: false
+idMap: {  }
+migration_dependencies:
+  required:
+    - subarea_migration
+include: null

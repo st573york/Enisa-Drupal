@@ -1,0 +1,19 @@
+uuid: 482e4ef3-6da6-4411-9a0c-85c2e9801984
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_expired_date
+    - node.type.invitation
+id: node.invitation.field_expired_date
+field_name: field_expired_date
+entity_type: node
+bundle: invitation
+label: 'Expired Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

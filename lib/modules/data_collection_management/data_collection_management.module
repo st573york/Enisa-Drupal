@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * @file
+ * Data collection management module.
+ */
+
+/**
+ * Implements hook_theme().
+ *
+ * This hook is rendering a twig template.
+ */
+function data_collection_management_theme() {
+  return [
+    'manage-data-collection' => [
+      'variables' => [
+        'published_indexes' => NULL,
+        'loaded_index_data' => NULL,
+        'latest_index_data' => NULL,
+        'is_latest_index' => NULL,
+        'canDownload' => NULL,
+      ],
+    ],
+  ];
+}

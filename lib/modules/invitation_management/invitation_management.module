@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Invitation management module.
+ */
+
+/**
+ * Implements hook_theme().
+ *
+ * This hook is rendering a twig template.
+ */
+function invitation_management_theme() {
+  return [
+    'manage-invitations' => [
+      'variables' => [],
+    ],
+  ];
+}

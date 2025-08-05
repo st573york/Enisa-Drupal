@@ -1,0 +1,21 @@
+uuid: 49b212e3-594b-4149-b08c-e051a9c2a025
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_answers_required
+    - node.type.indicator_accordion_question
+id: node.indicator_accordion_question.field_answers_required
+field_name: field_answers_required
+entity_type: node
+bundle: indicator_accordion_question
+label: 'Answers Required'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,9 @@
+name: 'Survey Indicator Migration Module'
+type: module
+description: 'Custom module to migrate data from survey_indicators table.'
+core_version_requirement: ^10
+package: Custom
+dependencies:
+  - drupal:migrate
+  - drupal:migrate_plus
+  - drupal:migrate_tools

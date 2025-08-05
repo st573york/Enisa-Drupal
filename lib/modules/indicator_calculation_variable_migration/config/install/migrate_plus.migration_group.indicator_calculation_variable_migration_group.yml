@@ -1,0 +1,9 @@
+id: indicator_calculation_variable_migration_group
+label: 'Indicator Calculation Variable Migration Group'
+description: 'Migration group for indicator calculation variables. Migration creates record in indicator_calculation_variables table.'
+source_type: mysql
+shared_configuration: null
+dependencies:
+  enforced:
+    module:
+      - indicator_calculation_variable_migration

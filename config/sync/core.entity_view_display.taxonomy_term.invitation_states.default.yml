@@ -1,0 +1,33 @@
+uuid: cdc33e9c-d849-4ab8-b59f-4b86b9d015e0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.invitation_states.field_state_id
+    - taxonomy.vocabulary.invitation_states
+  module:
+    - text
+id: taxonomy_term.invitation_states.default
+targetEntityType: taxonomy_term
+bundle: invitation_states
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_state_id:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

@@ -1,0 +1,31 @@
+id: user_migration
+label: 'User Migration'
+migration_group: user_migration_group
+
+source:
+  plugin: user_sql
+  key: enisa
+
+process:
+  name: email
+  field_full_name: name
+  mail: email
+  pass: password
+  field_description: description
+  field_country:
+    plugin: country_lookup_by_name
+    source: country_name
+  roles:
+    plugin: role_lookup_by_name
+    source: role_name
+  field_phone: phone
+  field_blocked: blocked
+  field_inactive_notified: inactive_notified
+  field_inactive_deadline: inactive_deadline
+  status:
+    plugin: default_value
+    default_value: 1
+
+destination:
+  plugin: entity:user
+  update_existing: false

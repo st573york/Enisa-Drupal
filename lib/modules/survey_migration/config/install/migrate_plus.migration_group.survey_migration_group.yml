@@ -1,0 +1,9 @@
+id: survey_migration_group
+label: 'Survey Migration Group'
+description: 'Migration group for surveys. Migration creates survey nodes.'
+source_type: mysql
+shared_configuration: null
+dependencies:
+  enforced:
+    module:
+      - survey_migration

@@ -1,0 +1,42 @@
+#printSurveyModal .modal-dialog {
+  transform-origin: top;
+  min-width: 219mm;
+  // transform: scale(1.5γ);
+}  
+
+
+
+@media(min-width: 1024px) {
+  #printSurveyModal {
+      .modal-dialog {
+          min-width: 210mm; 
+      }
+
+      .modal-body {
+          padding: 0 !important;
+      }
+  }
+}
+ 
+html,
+.modal {
+  // Firefox
+  scrollbar-width: auto;
+  scrollbar-color: #141414 #ffffff;
+
+  // Chrome, Edge, and Safari
+  &::-webkit-scrollbar {
+      width: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+      background: #ffffff;
+  }
+
+  &::-webkit-scrollbar-thumb {
+      background-color: #141414;
+      border-radius: 9px;
+      border: 2px solid #ffffff;
+      min-height: 40px;
+  }
+}

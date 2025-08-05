@@ -1,0 +1,23 @@
+{# templates/email/components/button.html.twig #}
+
+{% macro button(url, label) %}
+    <table align="center" width="100%" cellpadding="0" cellspacing="0" style="margin: 30px auto;">
+        <tr>
+            <td align="center">
+                <table border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td align="center">
+                            <table border="0" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td>
+                                        <a href="{{ url }}" class="button button-primary" target="_blank" rel="noopener">{{ label }}</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+{% endmacro %}

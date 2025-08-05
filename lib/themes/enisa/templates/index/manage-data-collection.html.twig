@@ -1,0 +1,146 @@
+{{ attach_library('enisa/main') }}
+{{ attach_library('enisa/alert') }}
+{{ attach_library('enisa/modal') }}
+{{ attach_library('enisa/list-data-collection') }}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        {% set index_name = loaded_index_data.title %}
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active">{{ 'Data Collection'|t }} - {{ index_name|raw }}</li>
+    </ol>
+</nav>
+
+<h1>{{ 'Data Collection'|t }} - {{ index_name|raw }}</h1>
+
+<main id="enisa-main" class="bg-white">
+    <div class="container-fluid">
+
+        {% include '@enisa/components/alert.html.twig' with {'type': 'pageAlert'} %}
+
+        {% set last_state_label = '' %}
+        {% set last_date_label = '' %}
+        {% if loaded_index_data.last_action == 'calculate_index' %}
+            {% set last_state_label = 'Index calculation' %}
+            {% set last_date_label = 'calculation' %}
+        {% elseif loaded_index_data.last_action == 'import_data' %}
+            {% set last_state_label = 'Import data' %}
+            {% set last_date_label = 'import' %}
+        {% elseif loaded_index_data.last_action == 'collect_external_data' %}
+            {% set last_state_label = 'External data collection' %}
+            {% set last_date_label = 'collection' %}
+        {% endif %}
+
+        <div class="row task-state mt-5 {{ (last_state_label is empty) ? 'd-none' : 'show' }}">
+            <div class="col-12 ps-0 pe-0">
+                {% set class = (loaded_index_data.last_action_state == 'completed') ? 'approved' : 'failed' %}
+                <div class="{{ class }}-wrap show">
+                    <section class="{{ class }}-section ps-4 pe-4">
+                        <div class="row h-100 align-items-center">
+                            <div class="col-md-12">
+                                <span class="svg-{{ class }}">{{ last_state_label|t }} {{ loaded_index_data.last_action_state }}.</span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-12 ps-0 pe-0">
+                <div class="table-section col-12 mt-2">
+                    <div class="row">
+                        <div class="col-12 col-lg-6 col-xl-6">
+                            <div class="d-flex gap-2">
+                                <div>
+                                    <h2 class="mt-2">{{ 'Index'|t }} -</h2>
+                                </div>
+                                <div class="mt-1">
+                                    <select class="form-select loaded-index" name="loaded_index" id="index-year-select">
+                                        {% for index_data in published_indexes %}
+                                            <option value="{{ index_data.year }}" data-year="{{ index_data.year }}"
+                                                {{ loaded_index_data.id == index_data.id ? 'selected' : '' }}>
+                                                {{ index_data.title|raw }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="d-flex gap-1 ps-2 overall">
+                                    <div class="mt-2">
+                                        <span style="line-height: 1.9;">{{ 'Overall'|t }}:</span>
+                                    </div>
+                                    <div>
+                                        <h2 class="mt-2"></h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 col-xl-6 {{ (last_date_label is empty) ? 'd-none' : '' }}">
+                            <div class="d-flex gap-2 justify-content-end ps-0 pe-0">
+                                <label for="last_action_date" class="col-form-label mt-1">Last {{ last_date_label }} date:</label>
+                                <div class="col-5 mt-1">
+                                    <div class="input-group date">
+                                        <input type="text" class="form-control datepicker" id="last_action_date"
+                                            value="{{ loaded_index_data.last_action_date }}" disabled />
+                                        <span class="input-group-append"></span>
+                                        <span class="icon-calendar"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-12 col-lg-4 col-xl-4">
+                            <div class="d-flex gap-3">
+                                <button type="button" class="btn btn-enisa calculate-index" {{ (is_latest_index) ? '' : 'disabled' }}>{{ 'Calculate Index'|t }}
+                                </button>
+                                <span>{{ 'Calculation status'|t }}:<br />
+                                    <span class="task-status">{{ (loaded_index_data.last_action is empty) ? 'No Calculation' : loaded_index_data.last_action_state|t|capitalize }}</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-8 col-xl-8">
+                            <div class="d-flex gap-1 justify-content-end ps-0 pe-0">
+                                <button type="button" class="btn btn-enisa-invert import-data" {{ (is_latest_index) ? '' : 'disabled' }}>{{ 'Import Data'|t }}</button>
+                                <button type="button" class="btn btn-enisa-invert collect-external-data" {{ (is_latest_index) ? '' : 'disabled' }}>{{ 'Collect External Data'|t }}</button>
+                                <button type="button" class="btn btn-enisa-invert download" {{ canDownload ? '' : 'disabled' }}>{{ 'Download Data'|t }}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-12 ps-0 pe-0">
+                <div class="table-section col-12 mt-2">
+                    <table id="data-collection-table" class="display enisa-table-group">
+                        <thead>
+                            <tr>
+                                <th>{{ 'Country'|t }}</th>
+                                <th>{{ 'Imported Indicators'|t }}</th>
+                                <th>{{ 'Survey Indicators'|t }}</th>
+                                <th>{{ 'External Sources Indicators'|t }}</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="pageModal" tabindex="-1" aria-labelledby="pageModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header p-3">
+                        <h5 class="modal-title" id="pageModalLabel"></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body p-3"></div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-enisa" data-bs-dismiss="modal">{{ 'Close'|t }}</button>
+                        <button type="button" class="btn btn-enisa process-data" id='process-data'></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>

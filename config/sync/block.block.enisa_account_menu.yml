@@ -1,0 +1,27 @@
+uuid: 97ea475c-2ad9-4d93-9da3-156f44b97bab
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - system
+  theme:
+    - enisa
+_core:
+  default_config_hash: y_N6mow1D333LS5jry1rzM-BlPCBcdpn010vLP8MJIg
+id: enisa_account_menu
+theme: enisa
+region: nav_additional
+weight: -7
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  id: 'system_menu_block:account'
+  label: 'User account menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

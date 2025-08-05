@@ -1,0 +1,10 @@
+{
+    "name": "digit/indicator_requested_change_migration",
+    "type": "drupal-custom-module",
+    "description": "Provides indicator_requested_change_migration package.",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "drupal/core": "^10 || ^11"
+    }
+}

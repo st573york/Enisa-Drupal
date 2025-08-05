@@ -1,0 +1,27 @@
+uuid: 6780efaa-dd26-4160-9e78-e5d3703a339c
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.footer
+  module:
+    - system
+  theme:
+    - enisa
+_core:
+  default_config_hash: DilNCit47K7-ATJBI1nYWUJOLZzLL0SNwbN0PUgo5og
+id: enisa_footer
+theme: enisa
+region: header
+weight: -6
+provider: null
+plugin: 'system_menu_block:footer'
+settings:
+  id: 'system_menu_block:footer'
+  label: Footer
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

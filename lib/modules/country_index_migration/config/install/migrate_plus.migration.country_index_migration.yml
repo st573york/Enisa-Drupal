@@ -1,0 +1,46 @@
+id: country_index_migration
+label: 'Country Index Migration'
+migration_group: country_index_migration_group
+
+source:
+  plugin: country_index_sql
+  key: enisa
+
+process:
+  uid:
+    plugin: user_lookup
+    source: NULL
+    username: 'admin'
+  title: name
+  field_description/value: description
+  field_description/format:
+    plugin: default_value
+    default_value: basic_html
+  field_country:
+    plugin: country_lookup_by_name
+    source: country_name
+  field_index:
+    plugin: index_lookup_by_name
+    source: index_name
+  field_index_state:
+    plugin: index_state_lookup
+    source: status_id
+  field_json_data: json_data
+  field_report_json_data: report_json
+  field_report_date:
+    plugin: format_date
+    source: report_date
+    from_format: 'Y-m-d H:i:s'
+    to_format: 'U'
+  type:
+    plugin: default_value
+    default_value: country_index
+
+destination:
+  plugin: entity:node
+  default_bundle: country_index
+  update_existing: false
+
+migration_dependencies:
+  required:
+    - index_migration

@@ -1,0 +1,8 @@
+_core:
+  default_config_hash: aPZPX5sqy2qM7h3ohxAFw2POuFUFUSstECg3KosyAo0
+protocol: eulogin
+register_path: register
+validation_path: TicketValidationService
+assurance_level: LOW
+ticket_types: 'SERVICE,PROXY'
+force_2fa: false

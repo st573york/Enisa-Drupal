@@ -1,0 +1,51 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the migrations module.
+ */
+
+use Drupal\migrations\Helper\MigrationsSchemaHelper;
+use Drupal\Core\Database\SchemaObjectExistsException;
+
+/**
+ * Implements hook_schema().
+ */
+function migrations_schema() {
+  $schema = [];
+
+  $schema['audits'] = MigrationsSchemaHelper::getAudits();
+  $schema['indicator_disclaimers'] = MigrationsSchemaHelper::getIndicatorDisclaimers();
+  $schema['indicator_calculation_variables'] = MigrationsSchemaHelper::getIndicatorCalculationVariables();
+  $schema['indicator_values'] = MigrationsSchemaHelper::getIndicatorValues();
+  $schema['eurostat_indicators'] = MigrationsSchemaHelper::getEurostatIndicators();
+  $schema['eurostat_indicator_variables'] = MigrationsSchemaHelper::getEurostatIndicatorVariables();
+
+  return $schema;
+}
+
+/**
+ * Implements hook_install().
+ */
+function migrations_install() {
+  $schema = migrations_schema();
+  foreach ($schema as $name => $definition) {
+    try {
+      \Drupal::database()->schema()->createTable($name, $definition);
+    }
+    catch (SchemaObjectExistsException $e) {
+      // Table already exists.
+    }
+  }
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function migrations_uninstall() {
+  \Drupal::database()->schema()->dropTable('indicator_disclaimers');
+  \Drupal::database()->schema()->dropTable('indicator_calculation_variables');
+  \Drupal::database()->schema()->dropTable('indicator_values');
+  \Drupal::database()->schema()->dropTable('eurostat_indicators');
+  \Drupal::database()->schema()->dropTable('eurostat_indicator_variables');
+}

@@ -1,0 +1,29 @@
+<table>
+    <caption>Shodan - Indicator Values</caption>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Area</th>
+            <th>Subarea</th>
+            <th>Year</th>
+            {% for country_iso in countries_iso %}
+                <th style="text-align: center;">{{ country_iso }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for identifier, indicator_value in indicator_values_data %}
+            <tr>
+                <td>{{ identifier }}</td>
+                <td>{{ indicator_value.name }}</td>
+                <td>{{ indicator_value.area }}</td>
+                <td>{{ indicator_value.subarea }}</td>
+                <td>{{ indicator_value.year }}</td>
+                {% for country_iso in countries_iso %}
+                    <td style="text-align: center;">{{ (indicator_value[country_iso] is defined) ? indicator_value[country_iso] : 'N/A' }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

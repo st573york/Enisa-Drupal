@@ -1,0 +1,23 @@
+uuid: 992b5e31-a8dc-42fa-b370-66488dba60c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_identifier
+    - node.type.subarea
+id: node.subarea.field_identifier
+field_name: field_identifier
+entity_type: node
+bundle: subarea
+label: Identifier
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

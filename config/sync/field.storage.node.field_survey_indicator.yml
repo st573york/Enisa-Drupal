@@ -1,0 +1,19 @@
+uuid: 48dc4660-9953-4130-aca0-63105b1e8a44
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_survey_indicator
+field_name: field_survey_indicator
+entity_type: node
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

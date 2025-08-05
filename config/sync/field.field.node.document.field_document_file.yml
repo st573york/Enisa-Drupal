@@ -1,0 +1,27 @@
+uuid: 7d6b2c7d-381d-4b7c-8bbf-a3afe7df4431
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_document_file
+    - node.type.document
+  module:
+    - file
+id: node.document.field_document_file
+field_name: field_document_file
+entity_type: node
+bundle: document
+label: File
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: documents
+  file_extensions: 'pdf xlsx xlsm'
+  max_filesize: ''
+  description_field: false
+field_type: file

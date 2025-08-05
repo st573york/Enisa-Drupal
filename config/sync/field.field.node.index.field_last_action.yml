@@ -1,0 +1,21 @@
+uuid: ac9e264a-a630-420a-86f2-ca23d430d00a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_last_action
+    - node.type.index
+  module:
+    - options
+id: node.index.field_last_action
+field_name: field_last_action
+entity_type: node
+bundle: index
+label: 'Last Action'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

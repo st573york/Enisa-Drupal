@@ -1,0 +1,9 @@
+uuid: 80051d32-2e8b-4dbb-9182-f314e0028ec5
+langcode: en
+status: true
+dependencies: {  }
+name: 'Invitation States'
+vid: invitation_states
+description: 'List of invitation states'
+weight: 0
+new_revision: false

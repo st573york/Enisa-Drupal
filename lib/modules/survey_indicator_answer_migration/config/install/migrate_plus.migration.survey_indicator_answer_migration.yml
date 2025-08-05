@@ -1,0 +1,63 @@
+id: survey_indicator_answer_migration
+label: 'Survey Indicator Answer Migration'
+migration_group: survey_indicator_answer_migration_group
+
+source:
+  plugin: survey_indicator_answer_sql
+  key: enisa
+
+process:
+  uid:
+    plugin: user_lookup
+    source: NULL
+    username: 'admin'
+  title: survey_indicator_answer_title
+  field_survey_indicator:
+    plugin: survey_indicator_lookup
+    additional_fields:
+      survey_name: questionnaire_name
+      country_name: country_name
+      indicator_name: indicator_name
+      indicator_identifier: indicator_identifier
+      indicator_year: indicator_year
+  field_question:
+    plugin: question_lookup
+    additional_fields:
+      indicator_accordion_name: indicator_accordion_name
+      indicator_accordion_order: indicator_accordion_order
+      indicator_accordion_question_name: indicator_accordion_question_name
+      indicator_accordion_question_order: indicator_accordion_question_order
+      indicator_name: indicator_name
+      indicator_identifier: indicator_identifier
+      indicator_year: indicator_year
+  field_choice:
+    plugin: question_choice_lookup
+    source: choice_id
+  field_options:
+    plugin: survey_indicator_options_lookup
+    additional_fields:
+      survey_indicator_id: survey_indicator_id
+      question_id: question_id
+  field_free_text: free_text
+  field_reference_year: reference_year
+  field_reference_source: reference_source
+  field_last_saved:
+    plugin: format_date
+    source: last_saved
+    from_format: 'Y-m-d H:i:s'
+    to_format: 'U'
+  type:
+    plugin: default_value
+    default_value: survey_indicator_answer
+
+destination:
+  plugin: entity:node
+  default_bundle: survey_indicator_answer
+  update_existing: false
+
+migration_dependencies:
+  required:
+    - survey_indicator_migration
+    - indicator_accordion_migration
+    - indicator_accordion_question_migration
+    - indicator_accordion_question_option_migration

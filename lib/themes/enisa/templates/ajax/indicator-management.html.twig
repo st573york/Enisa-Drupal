@@ -1,0 +1,153 @@
+<form id="indicator-manage" class="row g-3">
+  <input hidden id="item-id">
+  <input hidden id="item-type">
+  <input hidden id="item-action">
+  <input hidden id="item-route">
+  <div class="col-md-6 required">
+    <label for="formIndicatorLink" class="col-form-label">{{ 'Link To Past Indicator'|t }}</label>
+    <select class="form-select mr-sm-2 indicator_link" name="indicator_link" for="formIndicatorLink">
+      <option value="" selected disabled>{{ 'Choose...'|t }}</option>
+      <option value="new_indicator" {% if selected_indicator is not empty and not is_identifier_linked %}selected{% endif %}>{{ 'New Indicator'|t }}</option>
+      <option disabled>--------------</option>
+      {% for not_linked_indicator in not_linked_indicators %}
+        <option value="{{ not_linked_indicator.id }}" {% if selected_indicator.identifier == not_linked_indicator.identifier %}selected{% endif %}>{{ not_linked_indicator.name }}</option>
+      {% endfor %}
+    </select>
+    <div class="invalid-feedback"></div>
+  </div>
+  <div class="col-md-6 required">
+    <label for="formIdentifier" class="col-form-label">{{ 'Unique Indicator ID'|t }}</label>
+    <input class="form-control identifier" type="text" name="identifier" id="formIdentifier" placeholder="Unique Indicator ID" value="{{ selected_indicator ? selected_indicator.identifier : '' }}" disabled>
+    <div class="invalid-feedback"></div>
+  </div>
+  <div class="col-md-6 {{ (selected_indicator is empty or selected_indicator.category == 'eu-wide') ? '' : 'required' }}">
+    <label for="formSubarea" class="col-form-label col-lg-4">{{ 'Subarea'|t }}</label>
+    <select class="form-select mr-sm-2 subarea" name="default_subarea" for="formSubarea">
+      <option value="" selected disabled>{{ 'Choose...'|t }}</option>
+      {% for subarea_data in subareas %}
+        <option value="{{ subarea_data.id }}" {% if selected_indicator.subarea.id == subarea_data.id %}selected{% endif %}>{{ subarea_data.name|raw }}</option>
+      {% endfor %}
+    </select>
+    <div class="invalid-feedback"></div>
+  </div>
+  <div class="col-md-6 required">
+    <label for="formCategory" class="col-form-label">{{ 'Indicator Type'|t }}</label>
+    <select class="form-select mr-sm-2 category" name="category" id="formCategory">
+      <option value="" selected disabled>{{ 'Choose...'|t }}</option>
+      {% for key, val in categories %}
+        <option value="{{ key }}" {% if selected_indicator.category == key %}selected{% endif %}>{{ val }}</option>
+      {% endfor %}
+    </select>
+    <div class="invalid-feedback"></div>
+  </div>
+  <div class="col-md-12 required">
+    <label for="formName" class="col-form-label">{{ 'Name'|t }}</label>
+    <textarea class="form-control name" name="title" id="formName" placeholder="Name">{{ selected_indicator ? selected_indicator.name|raw : '' }}</textarea>
+    <div class="invalid-feedback"></div>
+  </div>
+  <div class="col-md-12">
+    <label for="formDescription" class="col-form-label">{{ 'Description'|t }}</label>
+    <textarea class="form-control description" name="description" id="formDescription" placeholder="Description used in the MS/EU reports">{{ selected_indicator ? selected_indicator.description|raw : '' }}</textarea>
+  </div>
+  <div class="col-md-12">
+    <label for="formAlgorithm" class="col-form-label">{{ 'Algorithm'|t }}</label>
+    <textarea class="form-control tinymce algorithm" name="algorithm" id="formAlgorithm" placeholder="Algorithm">{{ selected_indicator ? selected_indicator.algorithm|raw : '' }}</textarea>
+  </div>
+  <div class="col-md-6 required">
+    <label for="formWeight" class="col-form-label">{{ 'Weight'|t }}</label>
+    <input class="form-control weight" type="number" name="default_weight" id="formWeight" placeholder="Weight" value="{{ selected_indicator ? selected_indicator.weight : '' }}">
+    <div class="invalid-feedback"></div>
+  </div>
+  <div class="col-md-6">
+    <label for="formSource" class="col-form-label">{{ 'Source'|t }}</label>
+    <textarea class="form-control source" name="source" id="formSource" rows="1" placeholder="Source">{{ selected_indicator ? selected_indicator.source|raw : '' }}</textarea>
+  </div>
+  <div class="col-md-12">
+    <label for="formComment" class="col-form-label">{{ 'Comment'|t }}</label>
+    <textarea class="form-control comment" name="comment" id="formComment" placeholder="Please write any comment that will be used internally for tracking indicators (end users will not see this comment)">{{ selected_indicator ? selected_indicator.comment|raw : '' }}</textarea>
+  </div>
+</form>
+
+<script>
+  Drupal.tinymce.initTinyMCE();
+
+  var not_linked_indicators = {{ not_linked_indicators | json_encode | raw }};
+  var max_identifier = {{ max_identifier | json_encode | raw }};
+
+  jQuery(function($) {
+    $(document).on('change', '.indicator_link', function() {
+      let that = $(this);
+      let is_new_indicator = (that.val() == 'new_indicator') ? true : false;
+      
+      let indicator_data = null;
+      $.each(not_linked_indicators, function(key, indicator) {
+        if (that.val() == indicator.id)
+        {
+          indicator_data = indicator;
+
+          return false;
+        }
+      });
+        
+      if (is_new_indicator)
+      {
+        resetForm();
+
+        $('.identifier').val(max_identifier);
+      }
+      else
+      {
+        clearInputErrors();
+        let subarea = indicator_data.subarea ? indicator_data.subarea.name : null;
+
+        $('.subarea option').each(function() {
+          if ($(this).text() === subarea)
+          {
+            $(this).prop('selected', true);
+
+            return false;
+          }
+        });
+            
+        $('.identifier').val(indicator_data.identifier);
+        $('.category').val(indicator_data.category);
+        $('.name').val(indicator_data.name);
+        $('.description').val(indicator_data.description);
+        tinymce.get('formAlgorithm').setContent(indicator_data.algorithm);
+        $('.weight').val(indicator_data.weight);
+        $('.source').val(indicator_data.source);
+        $('.comment').val(indicator_data.comment);
+
+        $('.category').trigger('change');
+      }
+    });
+
+    $(document).on('change', '.subarea', function() {
+      let category = $('.category option:selected').val();
+
+      if (category == 'eu-wide') {
+        $('.category').val('');
+      }
+    });
+
+    $(document).on('change', '.category', function() {
+      let category = $(this).val();
+      
+      if (category == 'eu-wide') {
+        $('.subarea').val('').parent().removeClass('required');
+      }
+      else {
+        $('.subarea').parent().addClass('required');
+      }
+    });
+
+    function resetForm()
+    {
+      $('form').find('input, select, textarea').not(':hidden, .indicator_link').each(function() {
+        $(this).val('');
+      });
+
+      tinymce.get('formAlgorithm').setContent('');
+    }
+  });
+</script>

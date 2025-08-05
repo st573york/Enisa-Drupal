@@ -1,0 +1,5 @@
+name: 'Invitation Management Module'
+type: module
+description: 'Custom module for managing invitations.'
+core_version_requirement: ^10
+package: Custom

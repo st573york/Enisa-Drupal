@@ -1,0 +1,29 @@
+uuid: 90b7086b-9c5e-4e7e-8f5a-91220b04d596
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_submitted_user
+    - node.type.country_survey
+id: node.country_survey.field_submitted_user
+field_name: field_submitted_user
+entity_type: node
+bundle: country_survey
+label: 'Submitted User'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: name
+      direction: ASC
+    auto_create: false
+    filter:
+      type: _none
+    include_anonymous: false
+field_type: entity_reference

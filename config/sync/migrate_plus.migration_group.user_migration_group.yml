@@ -1,0 +1,15 @@
+uuid: 9306e486-348b-40c2-87d0-1a82452d942b
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - user_migration
+_core:
+  default_config_hash: lxUnqI-AYEuW9LHQ-RdBVEGwjvUMY1a4fegV8drhGok
+id: user_migration_group
+label: 'User Migration Group'
+description: 'Migration group for users. Migration creates users.'
+source_type: mysql
+module: null
+shared_configuration: null

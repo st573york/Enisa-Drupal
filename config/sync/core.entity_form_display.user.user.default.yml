@@ -1,0 +1,66 @@
+uuid: 62626f07-100a-4e21-9fae-291472ca47e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.user.user.field_blocked
+    - field.field.user.user.field_country
+    - field.field.user.user.field_description
+    - field.field.user.user.field_full_name
+    - field.field.user.user.field_inactive_deadline
+    - field.field.user.user.field_inactive_notified
+    - field.field.user.user.field_phone
+    - field.field.user.user.user_picture
+    - image.style.thumbnail
+  module:
+    - image
+    - user
+_core:
+  default_config_hash: FaQ9Ptcpxpg30AtiqRDtl_8zbJArHP1LPfug_s59TOA
+id: user.user.default
+targetEntityType: user
+bundle: user
+mode: default
+content:
+  account:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  contact:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_country:
+    type: options_select
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  language:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  timezone:
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  user_picture:
+    type: image_image
+    weight: 1
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+hidden:
+  field_blocked: true
+  field_description: true
+  field_full_name: true
+  field_inactive_deadline: true
+  field_inactive_notified: true
+  field_phone: true
+  langcode: true

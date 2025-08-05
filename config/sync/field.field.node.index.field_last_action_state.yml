@@ -1,0 +1,21 @@
+uuid: 2cc24a07-0c90-4669-bdea-c234293c4244
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_last_action_state
+    - node.type.index
+  module:
+    - options
+id: node.index.field_last_action_state
+field_name: field_last_action_state
+entity_type: node
+bundle: index
+label: 'Last Action State'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

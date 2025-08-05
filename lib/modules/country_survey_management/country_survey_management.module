@@ -1,0 +1,79 @@
+<?php
+
+/**
+ * @file
+ * Country survey management module.
+ */
+
+/**
+ * Implements hook_theme().
+ *
+ * This hook is rendering a twig template.
+ */
+function country_survey_management_theme() {
+  return [
+    'manage-user-surveys' => [
+      'variables' => [
+        'user_group' => NULL,
+        'is_operator' => NULL,
+        'is_poc' => NULL,
+        'is_primary_poc' => NULL,
+        'surveys' => NULL,
+        'surveys_assigned' => NULL,
+        'upload_survey_token' => NULL,
+        'view_survey_token' => NULL,
+      ],
+    ],
+    'dashboard' => [
+      'variables' => [
+        'survey_data' => NULL,
+        'published_surveys' => NULL,
+      ],
+    ],
+    'country-dashboard' => [
+      'variables' => [
+        'user_group' => NULL,
+        'is_poc' => NULL,
+        'is_admin' => NULL,
+        'assignee_country_survey_data' => NULL,
+        'pending_requested_changes' => NULL,
+        'view_survey_token' => NULL,
+      ],
+    ],
+    'country-summary-data' => [
+      'variables' => [
+        'user_group' => NULL,
+        'is_poc' => NULL,
+        'is_admin' => NULL,
+        'country_survey_data' => NULL,
+        'requested_changes' => NULL,
+        'data_not_available' => NULL,
+        'references' => NULL,
+        'comments' => NULL,
+      ],
+    ],
+    'view-country-survey' => [
+      'variables' => [
+        'page_data' => NULL,
+        'current_user_data' => NULL,
+        'user_inactive' => NULL,
+        'user_group' => NULL,
+        'is_operator' => NULL,
+        'is_poc' => NULL,
+        'is_primary_poc' => NULL,
+        'is_admin' => NULL,
+        'action' => NULL,
+        'view_all' => NULL,
+        'assignee_country_survey_data' => NULL,
+        'last_country_survey_data' => NULL,
+        'survey_indicators_data' => NULL,
+        'last_survey_indicators_data' => NULL,
+        'pending_requested_changes' => NULL,
+        'requested_indicator' => NULL,
+        'requested_action' => NULL,
+        'years' => NULL,
+        'view_survey_token' => NULL,
+      ],
+    ],
+  ];
+}

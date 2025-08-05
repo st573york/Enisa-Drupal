@@ -1,0 +1,30 @@
+uuid: 253721ac-9069-4f61-9998-0956063e0d5f
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:user_info:8e5d5752-05d4-47e1-b7be-727e16e00230'
+  module:
+    - block_content
+    - system
+  theme:
+    - enisa
+id: enisa_myaccount
+theme: enisa
+region: content
+weight: 0
+provider: null
+plugin: 'block_content:8e5d5752-05d4-47e1-b7be-727e16e00230'
+settings:
+  id: 'block_content:8e5d5752-05d4-47e1-b7be-727e16e00230'
+  label: 'My Account'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /my-account

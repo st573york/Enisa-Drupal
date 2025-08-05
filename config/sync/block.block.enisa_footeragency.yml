@@ -1,0 +1,30 @@
+uuid: 3a3c533d-fa6e-4141-b01f-eb4df0a5a81a
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:8bf70b59-aec1-4ac5-841d-bc0e76cf40e5'
+  module:
+    - block_content
+    - system
+  theme:
+    - enisa
+id: enisa_footeragency
+theme: enisa
+region: fourth_footer
+weight: 0
+provider: null
+plugin: 'block_content:8bf70b59-aec1-4ac5-841d-bc0e76cf40e5'
+settings:
+  id: 'block_content:8bf70b59-aec1-4ac5-841d-bc0e76cf40e5'
+  label: 'Footer Agency'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/*'

@@ -1,0 +1,15 @@
+uuid: d775261f-7890-455e-825c-1e8788f08703
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - audit_migration
+_core:
+  default_config_hash: tS2NfIaxwkZl598Id-ulo7qUucr1DXkE_WlpQA2xQIk
+id: audit_migration_group
+label: 'Audit Migration Group'
+description: 'Migration group for audits. Migration creates record in audits table.'
+source_type: mysql
+module: null
+shared_configuration: null

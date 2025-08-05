@@ -1,0 +1,18 @@
+uuid: ff75d0ad-6f47-4fc4-b693-6ae31ace8530
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_compatible
+field_name: field_compatible
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

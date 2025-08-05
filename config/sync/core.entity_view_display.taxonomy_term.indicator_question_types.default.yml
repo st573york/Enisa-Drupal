@@ -1,0 +1,33 @@
+uuid: 8052d8fb-6624-4448-8513-bb8b7db33f3f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.indicator_question_types.field_type_id
+    - taxonomy.vocabulary.indicator_question_types
+  module:
+    - text
+id: taxonomy_term.indicator_question_types.default
+targetEntityType: taxonomy_term
+bundle: indicator_question_types
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_type_id:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

@@ -1,0 +1,16 @@
+uuid: a56c2231-58f5-4e8c-8ec2-29dc85d765ec
+langcode: en
+status: true
+dependencies: {  }
+name: operator_login
+label: 'Operator Login'
+triggers:
+  login: login
+destination_path: 'internal:/survey/user/management'
+pages_type: 0
+pages: ''
+language: ''
+roles:
+  operator: operator
+weight: 0
+enabled: true

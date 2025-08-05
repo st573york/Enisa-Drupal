@@ -1,0 +1,37 @@
+uuid: 0e3ddf2c-a852-4208-b90a-14a0dafc9d32
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: x_C6xBC1i7PDPnuQEEqrjXL5ix3wfMLyqZpKCnSIpdg
+id: eurostat_indicator_migration
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: eurostat_indicator_migration_group
+label: 'Eurostat Indicator Migration'
+source:
+  plugin: eurostat_indicator_sql
+  key: enisa
+process:
+  id: id
+  country_id:
+    plugin: country_lookup_by_name
+    source: country_name
+  name: name
+  source: source
+  identifier: identifier
+  report_year: report_year
+  value: value
+destination:
+  plugin: table
+  table_name: eurostat_indicators
+  id_fields:
+    id:
+      type: integer
+idMap: {  }
+migration_dependencies:
+  required:
+    - indicator_migration
+include: null

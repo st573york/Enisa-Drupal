@@ -1,0 +1,56 @@
+uuid: 0604707d-8287-46c6-9956-5256b7769311
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: hdj97TggaSscz90JLGWrnOj0ewugu7hx6mOEuXIBTrw
+id: survey_migration
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: survey_migration_group
+label: 'Survey Migration'
+source:
+  plugin: survey_sql
+  key: enisa
+process:
+  uid:
+    plugin: user_lookup
+    source: email
+  title: title
+  field_description/value: description
+  field_description/format:
+    plugin: default_value
+    default_value: basic_html
+  field_year: year
+  field_deadline: deadline
+  status: published
+  field_index:
+    plugin: index_lookup_by_name
+    source: index_name
+  field_published:
+    plugin: format_date
+    source: published_at
+    from_format: 'Y-m-d H:i:s'
+    to_format: U
+  field_assigned_indicators:
+    plugin: assigned_indicators_lookup_by_survey
+    source: id
+  field_assigned_users:
+    plugin: assigned_users_lookup_by_survey
+    source: id
+  type:
+    plugin: default_value
+    default_value: survey
+destination:
+  plugin: 'entity:node'
+  default_bundle: survey
+  update_existing: false
+idMap: {  }
+migration_dependencies:
+  required:
+    - user_migration
+    - index_migration
+    - indicator_migration
+include: null

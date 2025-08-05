@@ -1,0 +1,19 @@
+uuid: 0f337350-b0c0-4e85-b27a-dcb4d8da159f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_last_saved
+    - node.type.survey_indicator_answer
+id: node.survey_indicator_answer.field_last_saved
+field_name: field_last_saved
+entity_type: node
+bundle: survey_indicator_answer
+label: 'Last Saved'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

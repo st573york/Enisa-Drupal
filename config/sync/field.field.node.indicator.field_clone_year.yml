@@ -1,0 +1,23 @@
+uuid: 1bd60bb6-ceb4-4553-afb5-99bcf9aaae7d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_clone_year
+    - node.type.indicator
+id: node.indicator.field_clone_year
+field_name: field_clone_year
+entity_type: node
+bundle: indicator
+label: 'Clone Year'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer
